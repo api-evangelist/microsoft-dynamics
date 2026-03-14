@@ -1,0 +1,15 @@
+name: Microsoft Dynamics
+description: >-
+  APIs for Microsoft Dynamics, a line of enterprise resource planning
+  and customer relationship management software applications.
+url: https://dynamics.microsoft.com
+created: "2025-01-01"
+modified: "2025-01-01"
+specificationVersion: "0.18"
+tags:
+- Microsoft Dynamics
+- ERP
+- CRM
+maintainers:
+- FN: Kin Lane
+  email: info@apievangelist.com
