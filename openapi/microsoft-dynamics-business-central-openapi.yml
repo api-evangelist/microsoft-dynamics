@@ -1,0 +1,1116 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Dynamics 365 Business Central API
+  description: >-
+    The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful
+    interface for integrating with Business Central. It exposes standard
+    business entities such as customers, vendors, items, sales orders, purchase
+    orders, journals, and general ledger entries. The API uses OData v4
+    conventions and requires Microsoft Entra ID (Azure AD) authentication.
+  version: "2.0"
+  contact:
+    name: Microsoft
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+servers:
+  - url: https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0
+    description: Business Central Online (SaaS)
+    variables:
+      tenantId:
+        default: common
+        description: The Azure AD tenant ID or domain name.
+      environment:
+        default: production
+        description: The Business Central environment name.
+  - url: https://{baseUrl}:{port}/{serverInstance}/api/v2.0
+    description: Business Central On-Premises
+    variables:
+      baseUrl:
+        default: localhost
+      port:
+        default: "7048"
+      serverInstance:
+        default: bc
+security:
+  - oauth2: []
+paths:
+  /companies:
+    get:
+      summary: List companies
+      description: Returns a list of companies available in the Business Central tenant.
+      operationId: listCompanies
+      tags:
+        - Companies
+      parameters:
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+      responses:
+        "200":
+          description: A list of companies.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Company"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /companies({companyId})/customers:
+    get:
+      summary: List customers
+      description: Returns a list of customer records.
+      operationId: listCustomers
+      tags:
+        - Customers
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+      responses:
+        "200":
+          description: A list of customers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Customer"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      summary: Create a customer
+      description: Creates a new customer record.
+      operationId: createCustomer
+      tags:
+        - Customers
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Customer"
+      responses:
+        "201":
+          description: The created customer.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /companies({companyId})/customers({customerId}):
+    get:
+      summary: Get a customer
+      description: Returns a single customer by ID.
+      operationId: getCustomer
+      tags:
+        - Customers
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: A customer record.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    patch:
+      summary: Update a customer
+      description: Updates an existing customer record.
+      operationId: updateCustomer
+      tags:
+        - Customers
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - $ref: "#/components/parameters/ifMatch"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Customer"
+      responses:
+        "200":
+          description: The updated customer.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
+    delete:
+      summary: Delete a customer
+      description: Deletes a customer record.
+      operationId: deleteCustomer
+      tags:
+        - Customers
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - $ref: "#/components/parameters/ifMatch"
+      responses:
+        "204":
+          description: Successfully deleted.
+  /companies({companyId})/vendors:
+    get:
+      summary: List vendors
+      description: Returns a list of vendor records.
+      operationId: listVendors
+      tags:
+        - Vendors
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+      responses:
+        "200":
+          description: A list of vendors.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Vendor"
+    post:
+      summary: Create a vendor
+      description: Creates a new vendor record.
+      operationId: createVendor
+      tags:
+        - Vendors
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Vendor"
+      responses:
+        "201":
+          description: The created vendor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Vendor"
+  /companies({companyId})/items:
+    get:
+      summary: List items
+      description: Returns a list of inventory items.
+      operationId: listItems
+      tags:
+        - Items
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+      responses:
+        "200":
+          description: A list of items.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Item"
+    post:
+      summary: Create an item
+      description: Creates a new inventory item.
+      operationId: createItem
+      tags:
+        - Items
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Item"
+      responses:
+        "201":
+          description: The created item.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
+  /companies({companyId})/salesOrders:
+    get:
+      summary: List sales orders
+      description: Returns a list of sales orders.
+      operationId: listSalesOrders
+      tags:
+        - Sales Orders
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+      responses:
+        "200":
+          description: A list of sales orders.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/SalesOrder"
+    post:
+      summary: Create a sales order
+      description: Creates a new sales order.
+      operationId: createSalesOrder
+      tags:
+        - Sales Orders
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SalesOrder"
+      responses:
+        "201":
+          description: The created sales order.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SalesOrder"
+  /companies({companyId})/salesInvoices:
+    get:
+      summary: List sales invoices
+      description: Returns a list of sales invoices.
+      operationId: listSalesInvoices
+      tags:
+        - Sales Invoices
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+      responses:
+        "200":
+          description: A list of sales invoices.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/SalesInvoice"
+    post:
+      summary: Create a sales invoice
+      description: Creates a new sales invoice.
+      operationId: createSalesInvoice
+      tags:
+        - Sales Invoices
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SalesInvoice"
+      responses:
+        "201":
+          description: The created sales invoice.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SalesInvoice"
+  /companies({companyId})/purchaseOrders:
+    get:
+      summary: List purchase orders
+      description: Returns a list of purchase orders.
+      operationId: listPurchaseOrders
+      tags:
+        - Purchase Orders
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+      responses:
+        "200":
+          description: A list of purchase orders.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/PurchaseOrder"
+    post:
+      summary: Create a purchase order
+      description: Creates a new purchase order.
+      operationId: createPurchaseOrder
+      tags:
+        - Purchase Orders
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchaseOrder"
+      responses:
+        "201":
+          description: The created purchase order.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchaseOrder"
+  /companies({companyId})/purchaseInvoices:
+    get:
+      summary: List purchase invoices
+      description: Returns a list of purchase invoices.
+      operationId: listPurchaseInvoices
+      tags:
+        - Purchase Invoices
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+      responses:
+        "200":
+          description: A list of purchase invoices.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/PurchaseInvoice"
+    post:
+      summary: Create a purchase invoice
+      description: Creates a new purchase invoice.
+      operationId: createPurchaseInvoice
+      tags:
+        - Purchase Invoices
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchaseInvoice"
+      responses:
+        "201":
+          description: The created purchase invoice.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchaseInvoice"
+  /companies({companyId})/generalLedgerEntries:
+    get:
+      summary: List general ledger entries
+      description: Returns a list of general ledger entries.
+      operationId: listGeneralLedgerEntries
+      tags:
+        - General Ledger
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+      responses:
+        "200":
+          description: A list of general ledger entries.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/GeneralLedgerEntry"
+  /companies({companyId})/accounts:
+    get:
+      summary: List chart of accounts
+      description: Returns a list of accounts from the chart of accounts.
+      operationId: listAccounts
+      tags:
+        - Accounts
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+      responses:
+        "200":
+          description: A list of accounts.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Account"
+  /companies({companyId})/journals:
+    get:
+      summary: List journals
+      description: Returns a list of journals.
+      operationId: listJournals
+      tags:
+        - Journals
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+      responses:
+        "200":
+          description: A list of journals.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Journal"
+    post:
+      summary: Create a journal
+      description: Creates a new journal.
+      operationId: createJournal
+      tags:
+        - Journals
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Journal"
+      responses:
+        "201":
+          description: The created journal.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Journal"
+  /companies({companyId})/employees:
+    get:
+      summary: List employees
+      description: Returns a list of employee records.
+      operationId: listEmployees
+      tags:
+        - Employees
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+      responses:
+        "200":
+          description: A list of employees.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Employee"
+    post:
+      summary: Create an employee
+      description: Creates a new employee record.
+      operationId: createEmployee
+      tags:
+        - Employees
+      parameters:
+        - $ref: "#/components/parameters/companyId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Employee"
+      responses:
+        "201":
+          description: The created employee.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID (Azure AD) OAuth 2.0 authentication.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://api.businesscentral.dynamics.com/.default: Access Business Central API
+  parameters:
+    companyId:
+      name: companyId
+      in: path
+      required: true
+      description: The ID of the company.
+      schema:
+        type: string
+        format: uuid
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return.
+      schema:
+        type: integer
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression.
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include.
+      schema:
+        type: string
+    ifMatch:
+      name: If-Match
+      in: header
+      description: ETag for optimistic concurrency control.
+      required: true
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Authentication required or token is invalid.
+    NotFound:
+      description: The requested resource was not found.
+  schemas:
+    Company:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        systemVersion:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        displayName:
+          type: string
+        businessProfileId:
+          type: string
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        number:
+          type: string
+        displayName:
+          type: string
+        type:
+          type: string
+          enum:
+            - Person
+            - Company
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        postalCode:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+        website:
+          type: string
+        taxRegistrationNumber:
+          type: string
+        currencyCode:
+          type: string
+        blocked:
+          type: string
+          enum:
+            - " "
+            - Ship
+            - Invoice
+            - All
+        balance:
+          type: number
+          format: decimal
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    Vendor:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        number:
+          type: string
+        displayName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        postalCode:
+          type: string
+        phoneNumber:
+          type: string
+        email:
+          type: string
+        website:
+          type: string
+        taxRegistrationNumber:
+          type: string
+        currencyCode:
+          type: string
+        balance:
+          type: number
+          format: decimal
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    Item:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        number:
+          type: string
+        displayName:
+          type: string
+        type:
+          type: string
+          enum:
+            - Inventory
+            - Service
+            - Non-Inventory
+        itemCategoryCode:
+          type: string
+        blocked:
+          type: boolean
+        gtin:
+          type: string
+        unitPrice:
+          type: number
+          format: decimal
+        unitCost:
+          type: number
+          format: decimal
+        inventory:
+          type: number
+          format: decimal
+          readOnly: true
+        taxGroupCode:
+          type: string
+        baseUnitOfMeasureCode:
+          type: string
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    SalesOrder:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        number:
+          type: string
+        orderDate:
+          type: string
+          format: date
+        postingDate:
+          type: string
+          format: date
+        customerId:
+          type: string
+          format: uuid
+        customerNumber:
+          type: string
+        customerName:
+          type: string
+          readOnly: true
+        currencyCode:
+          type: string
+        status:
+          type: string
+          readOnly: true
+        totalAmountExcludingTax:
+          type: number
+          format: decimal
+          readOnly: true
+        totalAmountIncludingTax:
+          type: number
+          format: decimal
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    SalesInvoice:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        number:
+          type: string
+        invoiceDate:
+          type: string
+          format: date
+        postingDate:
+          type: string
+          format: date
+        dueDate:
+          type: string
+          format: date
+        customerId:
+          type: string
+          format: uuid
+        customerNumber:
+          type: string
+        customerName:
+          type: string
+          readOnly: true
+        currencyCode:
+          type: string
+        status:
+          type: string
+          readOnly: true
+        totalAmountExcludingTax:
+          type: number
+          format: decimal
+          readOnly: true
+        totalAmountIncludingTax:
+          type: number
+          format: decimal
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    PurchaseOrder:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        number:
+          type: string
+        orderDate:
+          type: string
+          format: date
+        postingDate:
+          type: string
+          format: date
+        vendorId:
+          type: string
+          format: uuid
+        vendorNumber:
+          type: string
+        vendorName:
+          type: string
+          readOnly: true
+        currencyCode:
+          type: string
+        status:
+          type: string
+          readOnly: true
+        totalAmountExcludingTax:
+          type: number
+          format: decimal
+          readOnly: true
+        totalAmountIncludingTax:
+          type: number
+          format: decimal
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    PurchaseInvoice:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        number:
+          type: string
+        invoiceDate:
+          type: string
+          format: date
+        postingDate:
+          type: string
+          format: date
+        dueDate:
+          type: string
+          format: date
+        vendorId:
+          type: string
+          format: uuid
+        vendorNumber:
+          type: string
+        vendorName:
+          type: string
+          readOnly: true
+        currencyCode:
+          type: string
+        status:
+          type: string
+          readOnly: true
+        totalAmountExcludingTax:
+          type: number
+          format: decimal
+          readOnly: true
+        totalAmountIncludingTax:
+          type: number
+          format: decimal
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    GeneralLedgerEntry:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        entryNumber:
+          type: integer
+          readOnly: true
+        postingDate:
+          type: string
+          format: date
+        documentNumber:
+          type: string
+        documentType:
+          type: string
+        accountId:
+          type: string
+          format: uuid
+        accountNumber:
+          type: string
+        description:
+          type: string
+        debitAmount:
+          type: number
+          format: decimal
+        creditAmount:
+          type: number
+          format: decimal
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    Account:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        number:
+          type: string
+        displayName:
+          type: string
+        category:
+          type: string
+        subCategory:
+          type: string
+        blocked:
+          type: boolean
+        accountType:
+          type: string
+          enum:
+            - Posting
+            - Heading
+            - Total
+            - Begin-Total
+            - End-Total
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    Journal:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        code:
+          type: string
+        displayName:
+          type: string
+        balancingAccountId:
+          type: string
+          format: uuid
+        balancingAccountNumber:
+          type: string
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    Employee:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        number:
+          type: string
+        displayName:
+          type: string
+        givenName:
+          type: string
+        middleName:
+          type: string
+        surname:
+          type: string
+        jobTitle:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        postalCode:
+          type: string
+        phoneNumber:
+          type: string
+        mobilePhone:
+          type: string
+        email:
+          type: string
+        personalEmail:
+          type: string
+        employmentDate:
+          type: string
+          format: date
+        terminationDate:
+          type: string
+          format: date
+        status:
+          type: string
+          enum:
+            - Active
+            - Inactive
+        birthDate:
+          type: string
+          format: date
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-dynamics/refs/heads/main/json-schema/opportunity.json",
+  "title": "Opportunity",
+  "description": "An opportunity in Microsoft Dynamics 365 CRM, representing a potential sale or deal being pursued.",
+  "type": "object",
+  "properties": {
+    "opportunityid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the opportunity.",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name or subject of the opportunity."
+    },
+    "description": {
+      "type": "string",
+      "description": "Additional details about the opportunity."
+    },
+    "estimatedvalue": {
+      "type": "number",
+      "description": "The estimated revenue value."
+    },
+    "estimatedclosedate": {
+      "type": "string",
+      "format": "date",
+      "description": "The estimated close date."
+    },
+    "actualvalue": {
+      "type": "number",
+      "description": "The actual revenue value when closed."
+    },
+    "actualclosedate": {
+      "type": "string",
+      "format": "date",
+      "description": "The actual close date."
+    },
+    "closeprobability": {
+      "type": "integer",
+      "description": "The probability of closing the opportunity (0-100).",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "currentsituation": {
+      "type": "string",
+      "description": "Description of the current situation."
+    },
+    "customerneed": {
+      "type": "string",
+      "description": "Description of the customer need."
+    },
+    "proposedsolution": {
+      "type": "string",
+      "description": "Description of the proposed solution."
+    },
+    "stepname": {
+      "type": "string",
+      "description": "The current step in the sales process."
+    },
+    "statecode": {
+      "type": "integer",
+      "description": "The state of the opportunity (0 = Open, 1 = Won, 2 = Lost)."
+    },
+    "statuscode": {
+      "type": "integer",
+      "description": "The status reason code."
+    },
+    "createdon": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the opportunity was created.",
+      "readOnly": true
+    },
+    "modifiedon": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the opportunity was last modified.",
+      "readOnly": true
+    }
+  },
+  "required": ["name"]
+}

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-dynamics/refs/heads/main/json-schema/contact.json",
+  "title": "Contact",
+  "description": "A contact in Microsoft Dynamics 365 CRM, representing an individual person associated with an account.",
+  "type": "object",
+  "properties": {
+    "contactid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the contact.",
+      "readOnly": true
+    },
+    "firstname": {
+      "type": "string",
+      "description": "The first name of the contact."
+    },
+    "lastname": {
+      "type": "string",
+      "description": "The last name of the contact."
+    },
+    "fullname": {
+      "type": "string",
+      "description": "The full name of the contact.",
+      "readOnly": true
+    },
+    "jobtitle": {
+      "type": "string",
+      "description": "The job title of the contact."
+    },
+    "emailaddress1": {
+      "type": "string",
+      "format": "email",
+      "description": "The primary email address."
+    },
+    "telephone1": {
+      "type": "string",
+      "description": "The primary telephone number."
+    },
+    "mobilephone": {
+      "type": "string",
+      "description": "The mobile phone number."
+    },
+    "address1_line1": {
+      "type": "string",
+      "description": "The first line of the primary address."
+    },
+    "address1_city": {
+      "type": "string",
+      "description": "The city of the primary address."
+    },
+    "address1_stateorprovince": {
+      "type": "string",
+      "description": "The state or province of the primary address."
+    },
+    "address1_postalcode": {
+      "type": "string",
+      "description": "The postal code of the primary address."
+    },
+    "address1_country": {
+      "type": "string",
+      "description": "The country of the primary address."
+    },
+    "birthdate": {
+      "type": "string",
+      "format": "date",
+      "description": "The date of birth of the contact."
+    },
+    "statecode": {
+      "type": "integer",
+      "description": "The state of the contact (0 = Active, 1 = Inactive)."
+    },
+    "statuscode": {
+      "type": "integer",
+      "description": "The status reason code."
+    },
+    "createdon": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the contact was created.",
+      "readOnly": true
+    },
+    "modifiedon": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the contact was last modified.",
+      "readOnly": true
+    }
+  },
+  "required": ["lastname"]
+}

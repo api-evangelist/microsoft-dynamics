@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-dynamics/refs/heads/main/json-schema/lead.json",
+  "title": "Lead",
+  "description": "A lead in Microsoft Dynamics 365 CRM, representing a potential customer who has not yet been qualified.",
+  "type": "object",
+  "properties": {
+    "leadid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the lead.",
+      "readOnly": true
+    },
+    "subject": {
+      "type": "string",
+      "description": "The subject or topic of the lead."
+    },
+    "firstname": {
+      "type": "string",
+      "description": "The first name of the lead."
+    },
+    "lastname": {
+      "type": "string",
+      "description": "The last name of the lead."
+    },
+    "fullname": {
+      "type": "string",
+      "description": "The full name of the lead.",
+      "readOnly": true
+    },
+    "companyname": {
+      "type": "string",
+      "description": "The company name of the lead."
+    },
+    "jobtitle": {
+      "type": "string",
+      "description": "The job title of the lead."
+    },
+    "emailaddress1": {
+      "type": "string",
+      "format": "email",
+      "description": "The primary email address."
+    },
+    "telephone1": {
+      "type": "string",
+      "description": "The primary telephone number."
+    },
+    "address1_line1": {
+      "type": "string",
+      "description": "The first line of the address."
+    },
+    "address1_city": {
+      "type": "string",
+      "description": "The city of the address."
+    },
+    "address1_stateorprovince": {
+      "type": "string",
+      "description": "The state or province of the address."
+    },
+    "address1_postalcode": {
+      "type": "string",
+      "description": "The postal code of the address."
+    },
+    "address1_country": {
+      "type": "string",
+      "description": "The country of the address."
+    },
+    "leadsourcecode": {
+      "type": "integer",
+      "description": "The source code indicating where the lead originated."
+    },
+    "estimatedvalue": {
+      "type": "number",
+      "description": "The estimated value of the lead."
+    },
+    "estimatedclosedate": {
+      "type": "string",
+      "format": "date",
+      "description": "The estimated close date."
+    },
+    "statecode": {
+      "type": "integer",
+      "description": "The state of the lead (0 = Open, 1 = Qualified, 2 = Disqualified)."
+    },
+    "statuscode": {
+      "type": "integer",
+      "description": "The status reason code."
+    },
+    "createdon": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the lead was created.",
+      "readOnly": true
+    },
+    "modifiedon": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the lead was last modified.",
+      "readOnly": true
+    }
+  },
+  "required": ["lastname"]
+}

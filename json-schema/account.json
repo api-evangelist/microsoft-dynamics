@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-dynamics/refs/heads/main/json-schema/account.json",
+  "title": "Account",
+  "description": "An account in Microsoft Dynamics 365 CRM, representing a business organization such as a customer, competitor, or partner.",
+  "type": "object",
+  "properties": {
+    "accountid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the account.",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the account."
+    },
+    "accountnumber": {
+      "type": "string",
+      "description": "The account number."
+    },
+    "description": {
+      "type": "string",
+      "description": "Additional information about the account."
+    },
+    "revenue": {
+      "type": "number",
+      "description": "The annual revenue of the account."
+    },
+    "numberofemployees": {
+      "type": "integer",
+      "description": "The number of employees at the account."
+    },
+    "industrycode": {
+      "type": "integer",
+      "description": "The industry classification code."
+    },
+    "address1_line1": {
+      "type": "string",
+      "description": "The first line of the primary address."
+    },
+    "address1_city": {
+      "type": "string",
+      "description": "The city of the primary address."
+    },
+    "address1_stateorprovince": {
+      "type": "string",
+      "description": "The state or province of the primary address."
+    },
+    "address1_postalcode": {
+      "type": "string",
+      "description": "The postal code of the primary address."
+    },
+    "address1_country": {
+      "type": "string",
+      "description": "The country of the primary address."
+    },
+    "telephone1": {
+      "type": "string",
+      "description": "The primary telephone number."
+    },
+    "emailaddress1": {
+      "type": "string",
+      "format": "email",
+      "description": "The primary email address."
+    },
+    "websiteurl": {
+      "type": "string",
+      "format": "uri",
+      "description": "The website URL."
+    },
+    "statecode": {
+      "type": "integer",
+      "description": "The state of the account (0 = Active, 1 = Inactive)."
+    },
+    "statuscode": {
+      "type": "integer",
+      "description": "The status reason code."
+    },
+    "createdon": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the account was created.",
+      "readOnly": true
+    },
+    "modifiedon": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the account was last modified.",
+      "readOnly": true
+    }
+  },
+  "required": ["name"]
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-dynamics/refs/heads/main/json-schema/sales-order.json",
+  "title": "Sales Order",
+  "description": "A sales order in Microsoft Dynamics 365, representing a customer order for goods or services.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the sales order.",
+      "readOnly": true
+    },
+    "number": {
+      "type": "string",
+      "description": "The sales order number."
+    },
+    "orderDate": {
+      "type": "string",
+      "format": "date",
+      "description": "The date of the sales order."
+    },
+    "postingDate": {
+      "type": "string",
+      "format": "date",
+      "description": "The posting date for the sales order."
+    },
+    "customerId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the customer."
+    },
+    "customerNumber": {
+      "type": "string",
+      "description": "The customer number."
+    },
+    "customerName": {
+      "type": "string",
+      "description": "The name of the customer.",
+      "readOnly": true
+    },
+    "currencyCode": {
+      "type": "string",
+      "description": "The currency code for the sales order."
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of the sales order.",
+      "readOnly": true
+    },
+    "totalAmountExcludingTax": {
+      "type": "number",
+      "description": "The total amount excluding tax.",
+      "readOnly": true
+    },
+    "totalAmountIncludingTax": {
+      "type": "number",
+      "description": "The total amount including tax.",
+      "readOnly": true
+    },
+    "lastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the record was last modified.",
+      "readOnly": true
+    }
+  },
+  "required": ["customerNumber"]
+}

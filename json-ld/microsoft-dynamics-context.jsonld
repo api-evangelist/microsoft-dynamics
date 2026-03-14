@@ -1,0 +1,139 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "dynamics": "https://learn.microsoft.com/en-us/dynamics365/",
+    "bc": "https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/",
+    "dataverse": "https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/",
+    "fo": "https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/",
+    "Customer": {
+      "@id": "bc:api/dynamics_customer_get",
+      "@context": {
+        "id": "@id",
+        "displayName": "schema:name",
+        "number": "schema:identifier",
+        "email": "schema:email",
+        "phoneNumber": "schema:telephone",
+        "addressLine1": "schema:streetAddress",
+        "city": "schema:addressLocality",
+        "state": "schema:addressRegion",
+        "postalCode": "schema:postalCode",
+        "country": "schema:addressCountry",
+        "website": "schema:url"
+      }
+    },
+    "Vendor": {
+      "@id": "bc:api/dynamics_vendor_get",
+      "@context": {
+        "id": "@id",
+        "displayName": "schema:name",
+        "number": "schema:identifier",
+        "email": "schema:email",
+        "phoneNumber": "schema:telephone",
+        "addressLine1": "schema:streetAddress",
+        "city": "schema:addressLocality",
+        "state": "schema:addressRegion",
+        "postalCode": "schema:postalCode",
+        "country": "schema:addressCountry"
+      }
+    },
+    "Item": {
+      "@id": "bc:api/dynamics_item_get",
+      "@context": {
+        "id": "@id",
+        "displayName": "schema:name",
+        "number": "schema:identifier",
+        "unitPrice": "schema:price",
+        "gtin": "schema:gtin"
+      }
+    },
+    "SalesOrder": {
+      "@id": "bc:api/dynamics_salesorder_get",
+      "@context": {
+        "id": "@id",
+        "number": "schema:orderNumber",
+        "orderDate": "schema:orderDate",
+        "customerName": "schema:customer",
+        "totalAmountIncludingTax": "schema:totalPrice",
+        "currencyCode": "schema:priceCurrency"
+      }
+    },
+    "SalesInvoice": {
+      "@id": "bc:api/dynamics_salesinvoice_get",
+      "@context": {
+        "id": "@id",
+        "number": "schema:identifier",
+        "invoiceDate": "schema:paymentDueDate",
+        "customerName": "schema:customer",
+        "totalAmountIncludingTax": "schema:totalPaymentDue",
+        "currencyCode": "schema:priceCurrency"
+      }
+    },
+    "Employee": {
+      "@id": "bc:api/dynamics_employee_get",
+      "@context": {
+        "id": "@id",
+        "displayName": "schema:name",
+        "givenName": "schema:givenName",
+        "surname": "schema:familyName",
+        "email": "schema:email",
+        "jobTitle": "schema:jobTitle",
+        "phoneNumber": "schema:telephone",
+        "birthDate": "schema:birthDate"
+      }
+    },
+    "Account": {
+      "@id": "dataverse:account",
+      "@context": {
+        "accountid": "@id",
+        "name": "schema:name",
+        "accountnumber": "schema:identifier",
+        "telephone1": "schema:telephone",
+        "emailaddress1": "schema:email",
+        "websiteurl": "schema:url",
+        "address1_line1": "schema:streetAddress",
+        "address1_city": "schema:addressLocality",
+        "address1_stateorprovince": "schema:addressRegion",
+        "address1_postalcode": "schema:postalCode",
+        "address1_country": "schema:addressCountry",
+        "numberofemployees": "schema:numberOfEmployees"
+      }
+    },
+    "Contact": {
+      "@id": "dataverse:contact",
+      "@context": {
+        "contactid": "@id",
+        "firstname": "schema:givenName",
+        "lastname": "schema:familyName",
+        "fullname": "schema:name",
+        "jobtitle": "schema:jobTitle",
+        "emailaddress1": "schema:email",
+        "telephone1": "schema:telephone",
+        "mobilephone": "schema:telephone",
+        "birthdate": "schema:birthDate"
+      }
+    },
+    "Lead": {
+      "@id": "dataverse:lead",
+      "@context": {
+        "leadid": "@id",
+        "subject": "schema:name",
+        "firstname": "schema:givenName",
+        "lastname": "schema:familyName",
+        "companyname": "schema:worksFor",
+        "emailaddress1": "schema:email",
+        "telephone1": "schema:telephone",
+        "jobtitle": "schema:jobTitle"
+      }
+    },
+    "Opportunity": {
+      "@id": "dataverse:opportunity",
+      "@context": {
+        "opportunityid": "@id",
+        "name": "schema:name",
+        "description": "schema:description",
+        "estimatedvalue": "schema:price",
+        "estimatedclosedate": "schema:validThrough"
+      }
+    }
+  }
+}

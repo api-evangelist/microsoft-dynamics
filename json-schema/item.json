@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-dynamics/refs/heads/main/json-schema/item.json",
+  "title": "Item",
+  "description": "An inventory item in Microsoft Dynamics 365, representing a product or service that can be bought or sold.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the item.",
+      "readOnly": true
+    },
+    "number": {
+      "type": "string",
+      "description": "The item number."
+    },
+    "displayName": {
+      "type": "string",
+      "description": "The display name of the item."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["Inventory", "Service", "Non-Inventory"],
+      "description": "The type of item."
+    },
+    "itemCategoryCode": {
+      "type": "string",
+      "description": "The category code for the item."
+    },
+    "blocked": {
+      "type": "boolean",
+      "description": "Indicates whether the item is blocked."
+    },
+    "gtin": {
+      "type": "string",
+      "description": "The Global Trade Item Number (barcode)."
+    },
+    "unitPrice": {
+      "type": "number",
+      "description": "The unit sales price of the item."
+    },
+    "unitCost": {
+      "type": "number",
+      "description": "The unit cost of the item."
+    },
+    "inventory": {
+      "type": "number",
+      "description": "The current inventory quantity.",
+      "readOnly": true
+    },
+    "taxGroupCode": {
+      "type": "string",
+      "description": "The tax group code for the item."
+    },
+    "baseUnitOfMeasureCode": {
+      "type": "string",
+      "description": "The base unit of measure code."
+    },
+    "lastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the record was last modified.",
+      "readOnly": true
+    }
+  },
+  "required": ["displayName"]
+}

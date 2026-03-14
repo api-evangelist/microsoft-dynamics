@@ -1,0 +1,555 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Dynamics 365 Finance & Operations Data API
+  description: >-
+    The Microsoft Dynamics 365 Finance & Operations Data API exposes business
+    data entities via OData v4 RESTful endpoints. It provides access to finance,
+    supply chain, manufacturing, and human resources data including customers,
+    vendors, products, sales orders, purchase orders, and general ledger
+    journals. Authentication is handled via Microsoft Entra ID (Azure AD).
+  version: "1.0"
+  contact:
+    name: Microsoft
+    url: https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+servers:
+  - url: https://{environment}.operations.dynamics.com/data
+    description: Dynamics 365 Finance & Operations Online
+    variables:
+      environment:
+        default: myorg
+        description: The environment-specific subdomain.
+security:
+  - oauth2: []
+paths:
+  /Customers:
+    get:
+      summary: List customers
+      description: Retrieves the collection of customer data entities.
+      operationId: listCustomers
+      tags:
+        - Customers
+      parameters:
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+        - $ref: "#/components/parameters/orderby"
+        - $ref: "#/components/parameters/crossCompany"
+      responses:
+        "200":
+          description: A collection of customer entities.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/CustomerEntity"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      summary: Create a customer
+      description: Creates a new customer data entity.
+      operationId: createCustomer
+      tags:
+        - Customers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomerEntity"
+      responses:
+        "201":
+          description: The created customer entity.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerEntity"
+  /Vendors:
+    get:
+      summary: List vendors
+      description: Retrieves the collection of vendor data entities.
+      operationId: listVendors
+      tags:
+        - Vendors
+      parameters:
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+        - $ref: "#/components/parameters/orderby"
+        - $ref: "#/components/parameters/crossCompany"
+      responses:
+        "200":
+          description: A collection of vendor entities.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/VendorEntity"
+    post:
+      summary: Create a vendor
+      description: Creates a new vendor data entity.
+      operationId: createVendor
+      tags:
+        - Vendors
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VendorEntity"
+      responses:
+        "201":
+          description: The created vendor entity.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VendorEntity"
+  /ReleasedProducts:
+    get:
+      summary: List released products
+      description: Retrieves the collection of released product data entities.
+      operationId: listReleasedProducts
+      tags:
+        - Products
+      parameters:
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+        - $ref: "#/components/parameters/orderby"
+        - $ref: "#/components/parameters/crossCompany"
+      responses:
+        "200":
+          description: A collection of released product entities.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ReleasedProductEntity"
+    post:
+      summary: Create a released product
+      description: Creates a new released product data entity.
+      operationId: createReleasedProduct
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReleasedProductEntity"
+      responses:
+        "201":
+          description: The created product entity.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReleasedProductEntity"
+  /SalesOrderHeaders:
+    get:
+      summary: List sales order headers
+      description: Retrieves the collection of sales order header entities.
+      operationId: listSalesOrderHeaders
+      tags:
+        - Sales Orders
+      parameters:
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+        - $ref: "#/components/parameters/orderby"
+        - $ref: "#/components/parameters/crossCompany"
+      responses:
+        "200":
+          description: A collection of sales order headers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/SalesOrderHeaderEntity"
+    post:
+      summary: Create a sales order header
+      description: Creates a new sales order header entity.
+      operationId: createSalesOrderHeader
+      tags:
+        - Sales Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SalesOrderHeaderEntity"
+      responses:
+        "201":
+          description: The created sales order header.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SalesOrderHeaderEntity"
+  /PurchaseOrderHeaders:
+    get:
+      summary: List purchase order headers
+      description: Retrieves the collection of purchase order header entities.
+      operationId: listPurchaseOrderHeaders
+      tags:
+        - Purchase Orders
+      parameters:
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+        - $ref: "#/components/parameters/orderby"
+        - $ref: "#/components/parameters/crossCompany"
+      responses:
+        "200":
+          description: A collection of purchase order headers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/PurchaseOrderHeaderEntity"
+    post:
+      summary: Create a purchase order header
+      description: Creates a new purchase order header entity.
+      operationId: createPurchaseOrderHeader
+      tags:
+        - Purchase Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PurchaseOrderHeaderEntity"
+      responses:
+        "201":
+          description: The created purchase order header.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PurchaseOrderHeaderEntity"
+  /GeneralJournalAccountEntries:
+    get:
+      summary: List general journal account entries
+      description: Retrieves the collection of general journal account entry entities.
+      operationId: listGeneralJournalAccountEntries
+      tags:
+        - General Ledger
+      parameters:
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+        - $ref: "#/components/parameters/orderby"
+        - $ref: "#/components/parameters/crossCompany"
+      responses:
+        "200":
+          description: A collection of general journal account entries.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/GeneralJournalAccountEntry"
+  /Workers:
+    get:
+      summary: List workers
+      description: Retrieves the collection of worker (employee) data entities.
+      operationId: listWorkers
+      tags:
+        - Human Resources
+      parameters:
+        - $ref: "#/components/parameters/top"
+        - $ref: "#/components/parameters/skip"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/select"
+        - $ref: "#/components/parameters/orderby"
+        - $ref: "#/components/parameters/crossCompany"
+      responses:
+        "200":
+          description: A collection of worker entities.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/WorkerEntity"
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID (Azure AD) OAuth 2.0 authentication.
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://myorg.operations.dynamics.com/.default: Access Finance & Operations API
+  parameters:
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return (max 10000).
+      schema:
+        type: integer
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression.
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include.
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort by.
+      schema:
+        type: string
+    crossCompany:
+      name: cross-company
+      in: query
+      description: Set to true to retrieve data across all legal entities.
+      schema:
+        type: boolean
+  responses:
+    Unauthorized:
+      description: Authentication required or token is invalid.
+  schemas:
+    CustomerEntity:
+      type: object
+      properties:
+        CustomerAccount:
+          type: string
+        CustomerGroupId:
+          type: string
+        OrganizationName:
+          type: string
+        AddressStreet:
+          type: string
+        AddressCity:
+          type: string
+        AddressState:
+          type: string
+        AddressZipCode:
+          type: string
+        AddressCountryRegionId:
+          type: string
+        PrimaryContactPhone:
+          type: string
+        PrimaryContactEmail:
+          type: string
+        SalesCurrencyCode:
+          type: string
+        CreditLimit:
+          type: number
+          format: decimal
+        PaymentTermsName:
+          type: string
+        dataAreaId:
+          type: string
+    VendorEntity:
+      type: object
+      properties:
+        VendorAccountNumber:
+          type: string
+        VendorGroupId:
+          type: string
+        VendorOrganizationName:
+          type: string
+        AddressStreet:
+          type: string
+        AddressCity:
+          type: string
+        AddressState:
+          type: string
+        AddressZipCode:
+          type: string
+        AddressCountryRegionId:
+          type: string
+        PrimaryContactPhone:
+          type: string
+        PrimaryContactEmail:
+          type: string
+        PurchaseCurrencyCode:
+          type: string
+        PaymentTermsName:
+          type: string
+        dataAreaId:
+          type: string
+    ReleasedProductEntity:
+      type: object
+      properties:
+        ItemNumber:
+          type: string
+        ProductName:
+          type: string
+        ProductDescription:
+          type: string
+        ProductType:
+          type: string
+          enum:
+            - Item
+            - Service
+        ProductSubType:
+          type: string
+        ItemModelGroupId:
+          type: string
+        ProductGroupId:
+          type: string
+        SalesPrice:
+          type: number
+          format: decimal
+        PurchasePrice:
+          type: number
+          format: decimal
+        SalesUnitSymbol:
+          type: string
+        PurchaseUnitSymbol:
+          type: string
+        InventoryUnitSymbol:
+          type: string
+        dataAreaId:
+          type: string
+    SalesOrderHeaderEntity:
+      type: object
+      properties:
+        SalesOrderNumber:
+          type: string
+        OrderCreationDateTime:
+          type: string
+          format: date-time
+        CustomerAccountNumber:
+          type: string
+        InvoiceCustomerAccountNumber:
+          type: string
+        CurrencyCode:
+          type: string
+        SalesOrderStatus:
+          type: string
+        RequestedShippingDate:
+          type: string
+          format: date
+        TotalInvoiceAmount:
+          type: number
+          format: decimal
+        dataAreaId:
+          type: string
+    PurchaseOrderHeaderEntity:
+      type: object
+      properties:
+        PurchaseOrderNumber:
+          type: string
+        OrderCreationDateTime:
+          type: string
+          format: date-time
+        OrderVendorAccountNumber:
+          type: string
+        CurrencyCode:
+          type: string
+        PurchaseOrderStatus:
+          type: string
+        RequestedDeliveryDate:
+          type: string
+          format: date
+        TotalOrderAmount:
+          type: number
+          format: decimal
+        dataAreaId:
+          type: string
+    GeneralJournalAccountEntry:
+      type: object
+      properties:
+        JournalNumber:
+          type: string
+        AccountingDate:
+          type: string
+          format: date
+        MainAccountId:
+          type: string
+        TransactionCurrencyCode:
+          type: string
+        TransactionCurrencyAmount:
+          type: number
+          format: decimal
+        AccountingCurrencyAmount:
+          type: number
+          format: decimal
+        PostingType:
+          type: string
+        DocumentNumber:
+          type: string
+        Text:
+          type: string
+        dataAreaId:
+          type: string
+    WorkerEntity:
+      type: object
+      properties:
+        PersonnelNumber:
+          type: string
+        FirstName:
+          type: string
+        MiddleName:
+          type: string
+        LastName:
+          type: string
+        NameAlias:
+          type: string
+        KnownAs:
+          type: string
+        PrimaryContactEmail:
+          type: string
+        PrimaryContactPhone:
+          type: string
+        EmploymentStartDate:
+          type: string
+          format: date
+        EmploymentEndDate:
+          type: string
+          format: date
+        WorkerType:
+          type: string
+          enum:
+            - Employee
+            - Contractor
+        dataAreaId:
+          type: string

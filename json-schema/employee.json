@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-dynamics/refs/heads/main/json-schema/employee.json",
+  "title": "Employee",
+  "description": "An employee record in Microsoft Dynamics 365 Business Central.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier of the employee.",
+      "readOnly": true
+    },
+    "number": {
+      "type": "string",
+      "description": "The employee number."
+    },
+    "displayName": {
+      "type": "string",
+      "description": "The display name of the employee."
+    },
+    "givenName": {
+      "type": "string",
+      "description": "The given (first) name."
+    },
+    "middleName": {
+      "type": "string",
+      "description": "The middle name."
+    },
+    "surname": {
+      "type": "string",
+      "description": "The surname (last name)."
+    },
+    "jobTitle": {
+      "type": "string",
+      "description": "The job title of the employee."
+    },
+    "addressLine1": {
+      "type": "string",
+      "description": "The first line of the employee address."
+    },
+    "addressLine2": {
+      "type": "string",
+      "description": "The second line of the employee address."
+    },
+    "city": {
+      "type": "string",
+      "description": "The city of the employee address."
+    },
+    "state": {
+      "type": "string",
+      "description": "The state or province of the employee address."
+    },
+    "country": {
+      "type": "string",
+      "description": "The country of the employee address."
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "The postal code of the employee address."
+    },
+    "phoneNumber": {
+      "type": "string",
+      "description": "The phone number."
+    },
+    "mobilePhone": {
+      "type": "string",
+      "description": "The mobile phone number."
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "The work email address."
+    },
+    "personalEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "The personal email address."
+    },
+    "employmentDate": {
+      "type": "string",
+      "format": "date",
+      "description": "The employment start date."
+    },
+    "terminationDate": {
+      "type": "string",
+      "format": "date",
+      "description": "The termination date."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Active", "Inactive"],
+      "description": "The employment status."
+    },
+    "birthDate": {
+      "type": "string",
+      "format": "date",
+      "description": "The date of birth."
+    },
+    "lastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the record was last modified.",
+      "readOnly": true
+    }
+  },
+  "required": ["displayName"]
+}
