@@ -112,7 +112,7 @@ common:
     type: Blog
     description: 'null'
 created: '2025-01-01'
-modified: '2026-03-14'
+modified: '2026-03-16'
 position: Consumer
 description: >-
   Microsoft Dynamics 365 is a suite of enterprise resource planning (ERP) and
@@ -124,5 +124,5 @@ description: >-
   Microsoft Entra ID.
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
 specificationVersion: '0.19'
