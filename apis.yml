@@ -5,9 +5,9 @@ apis:
   - aid: microsoft-dynamics:business-central-api
     name: Microsoft Dynamics 365 Business Central API
     tags:
+      - Business Central
       - ERP
       - Finance
-      - Business Central
     humanURL: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
     properties:
       - url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
@@ -40,8 +40,8 @@ apis:
     name: Microsoft Dynamics 365 Dataverse Web API
     tags:
       - CRM
-      - Sales
       - Customer Engagement
+      - Sales
     humanURL: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
     properties:
       - url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
@@ -88,8 +88,8 @@ apis:
       company queries and is authenticated via Microsoft Entra ID.
 name: Microsoft Dynamics
 tags:
-  - ERP
   - CRM
+  - ERP
   - Microsoft Dynamics
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg

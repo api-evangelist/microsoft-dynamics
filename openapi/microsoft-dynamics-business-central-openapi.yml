@@ -1114,3 +1114,16 @@ components:
           type: string
           format: date-time
           readOnly: true
+tags:
+  - name: Accounts
+  - name: Companies
+  - name: Customers
+  - name: Employees
+  - name: General Ledger
+  - name: Items
+  - name: Journals
+  - name: Purchase Invoices
+  - name: Purchase Orders
+  - name: Sales Invoices
+  - name: Sales Orders
+  - name: Vendors

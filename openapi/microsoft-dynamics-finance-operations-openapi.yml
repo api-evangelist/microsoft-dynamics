@@ -553,3 +553,11 @@ components:
             - Contractor
         dataAreaId:
           type: string
+tags:
+  - name: Customers
+  - name: General Ledger
+  - name: Human Resources
+  - name: Products
+  - name: Purchase Orders
+  - name: Sales Orders
+  - name: Vendors

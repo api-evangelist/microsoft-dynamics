@@ -867,3 +867,10 @@ components:
           type: string
           format: date-time
           readOnly: true
+tags:
+  - name: Accounts
+  - name: Activities
+  - name: Cases
+  - name: Contacts
+  - name: Leads
+  - name: Opportunities
