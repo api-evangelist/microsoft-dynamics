@@ -26,7 +26,7 @@ security:
 paths:
   /Customers:
     get:
-      summary: List customers
+      summary: Microsoft Dynamics List customers
       description: Retrieves the collection of customer data entities.
       operationId: listCustomers
       tags:
@@ -53,7 +53,7 @@ paths:
         "401":
           $ref: "#/components/responses/Unauthorized"
     post:
-      summary: Create a customer
+      summary: Microsoft Dynamics Create a customer
       description: Creates a new customer data entity.
       operationId: createCustomer
       tags:
@@ -73,7 +73,7 @@ paths:
                 $ref: "#/components/schemas/CustomerEntity"
   /Vendors:
     get:
-      summary: List vendors
+      summary: Microsoft Dynamics List vendors
       description: Retrieves the collection of vendor data entities.
       operationId: listVendors
       tags:
@@ -98,7 +98,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/VendorEntity"
     post:
-      summary: Create a vendor
+      summary: Microsoft Dynamics Create a vendor
       description: Creates a new vendor data entity.
       operationId: createVendor
       tags:
@@ -118,7 +118,7 @@ paths:
                 $ref: "#/components/schemas/VendorEntity"
   /ReleasedProducts:
     get:
-      summary: List released products
+      summary: Microsoft Dynamics List released products
       description: Retrieves the collection of released product data entities.
       operationId: listReleasedProducts
       tags:
@@ -143,7 +143,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/ReleasedProductEntity"
     post:
-      summary: Create a released product
+      summary: Microsoft Dynamics Create a released product
       description: Creates a new released product data entity.
       operationId: createReleasedProduct
       tags:
@@ -163,7 +163,7 @@ paths:
                 $ref: "#/components/schemas/ReleasedProductEntity"
   /SalesOrderHeaders:
     get:
-      summary: List sales order headers
+      summary: Microsoft Dynamics List sales order headers
       description: Retrieves the collection of sales order header entities.
       operationId: listSalesOrderHeaders
       tags:
@@ -188,7 +188,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/SalesOrderHeaderEntity"
     post:
-      summary: Create a sales order header
+      summary: Microsoft Dynamics Create a sales order header
       description: Creates a new sales order header entity.
       operationId: createSalesOrderHeader
       tags:
@@ -208,7 +208,7 @@ paths:
                 $ref: "#/components/schemas/SalesOrderHeaderEntity"
   /PurchaseOrderHeaders:
     get:
-      summary: List purchase order headers
+      summary: Microsoft Dynamics List purchase order headers
       description: Retrieves the collection of purchase order header entities.
       operationId: listPurchaseOrderHeaders
       tags:
@@ -233,7 +233,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/PurchaseOrderHeaderEntity"
     post:
-      summary: Create a purchase order header
+      summary: Microsoft Dynamics Create a purchase order header
       description: Creates a new purchase order header entity.
       operationId: createPurchaseOrderHeader
       tags:
@@ -253,7 +253,7 @@ paths:
                 $ref: "#/components/schemas/PurchaseOrderHeaderEntity"
   /GeneralJournalAccountEntries:
     get:
-      summary: List general journal account entries
+      summary: Microsoft Dynamics List general journal account entries
       description: Retrieves the collection of general journal account entry entities.
       operationId: listGeneralJournalAccountEntries
       tags:
@@ -279,7 +279,7 @@ paths:
                       $ref: "#/components/schemas/GeneralJournalAccountEntry"
   /Workers:
     get:
-      summary: List workers
+      summary: Microsoft Dynamics List workers
       description: Retrieves the collection of worker (employee) data entities.
       operationId: listWorkers
       tags:

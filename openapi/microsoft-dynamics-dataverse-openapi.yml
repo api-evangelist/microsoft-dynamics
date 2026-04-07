@@ -32,7 +32,7 @@ security:
 paths:
   /accounts:
     get:
-      summary: List accounts
+      summary: Microsoft Dynamics List accounts
       description: Retrieves a collection of account records.
       operationId: listAccounts
       tags:
@@ -59,7 +59,7 @@ paths:
         "401":
           $ref: "#/components/responses/Unauthorized"
     post:
-      summary: Create an account
+      summary: Microsoft Dynamics Create an account
       description: Creates a new account record.
       operationId: createAccount
       tags:
@@ -82,7 +82,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
   /accounts({accountid}):
     get:
-      summary: Get an account
+      summary: Microsoft Dynamics Get an account
       description: Retrieves a single account by ID.
       operationId: getAccount
       tags:
@@ -106,7 +106,7 @@ paths:
         "404":
           $ref: "#/components/responses/NotFound"
     patch:
-      summary: Update an account
+      summary: Microsoft Dynamics Update an account
       description: Updates an existing account record.
       operationId: updateAccount
       tags:
@@ -129,7 +129,7 @@ paths:
         "204":
           description: Account updated successfully.
     delete:
-      summary: Delete an account
+      summary: Microsoft Dynamics Delete an account
       description: Deletes an account record.
       operationId: deleteAccount
       tags:
@@ -146,7 +146,7 @@ paths:
           description: Account deleted successfully.
   /contacts:
     get:
-      summary: List contacts
+      summary: Microsoft Dynamics List contacts
       description: Retrieves a collection of contact records.
       operationId: listContacts
       tags:
@@ -171,7 +171,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Contact"
     post:
-      summary: Create a contact
+      summary: Microsoft Dynamics Create a contact
       description: Creates a new contact record.
       operationId: createContact
       tags:
@@ -192,7 +192,7 @@ paths:
                 type: string
   /contacts({contactid}):
     get:
-      summary: Get a contact
+      summary: Microsoft Dynamics Get a contact
       description: Retrieves a single contact by ID.
       operationId: getContact
       tags:
@@ -214,7 +214,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Contact"
     patch:
-      summary: Update a contact
+      summary: Microsoft Dynamics Update a contact
       description: Updates an existing contact record.
       operationId: updateContact
       tags:
@@ -237,7 +237,7 @@ paths:
         "204":
           description: Contact updated successfully.
     delete:
-      summary: Delete a contact
+      summary: Microsoft Dynamics Delete a contact
       description: Deletes a contact record.
       operationId: deleteContact
       tags:
@@ -254,7 +254,7 @@ paths:
           description: Contact deleted successfully.
   /leads:
     get:
-      summary: List leads
+      summary: Microsoft Dynamics List leads
       description: Retrieves a collection of lead records.
       operationId: listLeads
       tags:
@@ -279,7 +279,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Lead"
     post:
-      summary: Create a lead
+      summary: Microsoft Dynamics Create a lead
       description: Creates a new lead record.
       operationId: createLead
       tags:
@@ -300,7 +300,7 @@ paths:
                 type: string
   /leads({leadid}):
     get:
-      summary: Get a lead
+      summary: Microsoft Dynamics Get a lead
       description: Retrieves a single lead by ID.
       operationId: getLead
       tags:
@@ -322,7 +322,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Lead"
     patch:
-      summary: Update a lead
+      summary: Microsoft Dynamics Update a lead
       description: Updates an existing lead record.
       operationId: updateLead
       tags:
@@ -345,7 +345,7 @@ paths:
         "204":
           description: Lead updated successfully.
     delete:
-      summary: Delete a lead
+      summary: Microsoft Dynamics Delete a lead
       description: Deletes a lead record.
       operationId: deleteLead
       tags:
@@ -362,7 +362,7 @@ paths:
           description: Lead deleted successfully.
   /opportunities:
     get:
-      summary: List opportunities
+      summary: Microsoft Dynamics List opportunities
       description: Retrieves a collection of opportunity records.
       operationId: listOpportunities
       tags:
@@ -387,7 +387,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Opportunity"
     post:
-      summary: Create an opportunity
+      summary: Microsoft Dynamics Create an opportunity
       description: Creates a new opportunity record.
       operationId: createOpportunity
       tags:
@@ -408,7 +408,7 @@ paths:
                 type: string
   /opportunities({opportunityid}):
     get:
-      summary: Get an opportunity
+      summary: Microsoft Dynamics Get an opportunity
       description: Retrieves a single opportunity by ID.
       operationId: getOpportunity
       tags:
@@ -430,7 +430,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Opportunity"
     patch:
-      summary: Update an opportunity
+      summary: Microsoft Dynamics Update an opportunity
       description: Updates an existing opportunity record.
       operationId: updateOpportunity
       tags:
@@ -453,7 +453,7 @@ paths:
         "204":
           description: Opportunity updated successfully.
     delete:
-      summary: Delete an opportunity
+      summary: Microsoft Dynamics Delete an opportunity
       description: Deletes an opportunity record.
       operationId: deleteOpportunity
       tags:
@@ -470,7 +470,7 @@ paths:
           description: Opportunity deleted successfully.
   /incidents:
     get:
-      summary: List cases
+      summary: Microsoft Dynamics List cases
       description: Retrieves a collection of case (incident) records.
       operationId: listCases
       tags:
@@ -495,7 +495,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Incident"
     post:
-      summary: Create a case
+      summary: Microsoft Dynamics Create a case
       description: Creates a new case (incident) record.
       operationId: createCase
       tags:
@@ -511,7 +511,7 @@ paths:
           description: Case created successfully.
   /activities:
     get:
-      summary: List activities
+      summary: Microsoft Dynamics List activities
       description: Retrieves a collection of activity records.
       operationId: listActivities
       tags:

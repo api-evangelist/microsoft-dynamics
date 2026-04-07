@@ -38,7 +38,7 @@ security:
 paths:
   /companies:
     get:
-      summary: List companies
+      summary: Microsoft Dynamics List companies
       description: Returns a list of companies available in the Business Central tenant.
       operationId: listCompanies
       tags:
@@ -64,7 +64,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
   /companies({companyId})/customers:
     get:
-      summary: List customers
+      summary: Microsoft Dynamics List customers
       description: Returns a list of customer records.
       operationId: listCustomers
       tags:
@@ -90,7 +90,7 @@ paths:
         "401":
           $ref: "#/components/responses/Unauthorized"
     post:
-      summary: Create a customer
+      summary: Microsoft Dynamics Create a customer
       description: Creates a new customer record.
       operationId: createCustomer
       tags:
@@ -114,7 +114,7 @@ paths:
           $ref: "#/components/responses/Unauthorized"
   /companies({companyId})/customers({customerId}):
     get:
-      summary: Get a customer
+      summary: Microsoft Dynamics Get a customer
       description: Returns a single customer by ID.
       operationId: getCustomer
       tags:
@@ -137,7 +137,7 @@ paths:
         "404":
           $ref: "#/components/responses/NotFound"
     patch:
-      summary: Update a customer
+      summary: Microsoft Dynamics Update a customer
       description: Updates an existing customer record.
       operationId: updateCustomer
       tags:
@@ -165,7 +165,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Customer"
     delete:
-      summary: Delete a customer
+      summary: Microsoft Dynamics Delete a customer
       description: Deletes a customer record.
       operationId: deleteCustomer
       tags:
@@ -184,7 +184,7 @@ paths:
           description: Successfully deleted.
   /companies({companyId})/vendors:
     get:
-      summary: List vendors
+      summary: Microsoft Dynamics List vendors
       description: Returns a list of vendor records.
       operationId: listVendors
       tags:
@@ -208,7 +208,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Vendor"
     post:
-      summary: Create a vendor
+      summary: Microsoft Dynamics Create a vendor
       description: Creates a new vendor record.
       operationId: createVendor
       tags:
@@ -230,7 +230,7 @@ paths:
                 $ref: "#/components/schemas/Vendor"
   /companies({companyId})/items:
     get:
-      summary: List items
+      summary: Microsoft Dynamics List items
       description: Returns a list of inventory items.
       operationId: listItems
       tags:
@@ -254,7 +254,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Item"
     post:
-      summary: Create an item
+      summary: Microsoft Dynamics Create an item
       description: Creates a new inventory item.
       operationId: createItem
       tags:
@@ -276,7 +276,7 @@ paths:
                 $ref: "#/components/schemas/Item"
   /companies({companyId})/salesOrders:
     get:
-      summary: List sales orders
+      summary: Microsoft Dynamics List sales orders
       description: Returns a list of sales orders.
       operationId: listSalesOrders
       tags:
@@ -300,7 +300,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/SalesOrder"
     post:
-      summary: Create a sales order
+      summary: Microsoft Dynamics Create a sales order
       description: Creates a new sales order.
       operationId: createSalesOrder
       tags:
@@ -322,7 +322,7 @@ paths:
                 $ref: "#/components/schemas/SalesOrder"
   /companies({companyId})/salesInvoices:
     get:
-      summary: List sales invoices
+      summary: Microsoft Dynamics List sales invoices
       description: Returns a list of sales invoices.
       operationId: listSalesInvoices
       tags:
@@ -346,7 +346,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/SalesInvoice"
     post:
-      summary: Create a sales invoice
+      summary: Microsoft Dynamics Create a sales invoice
       description: Creates a new sales invoice.
       operationId: createSalesInvoice
       tags:
@@ -368,7 +368,7 @@ paths:
                 $ref: "#/components/schemas/SalesInvoice"
   /companies({companyId})/purchaseOrders:
     get:
-      summary: List purchase orders
+      summary: Microsoft Dynamics List purchase orders
       description: Returns a list of purchase orders.
       operationId: listPurchaseOrders
       tags:
@@ -392,7 +392,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/PurchaseOrder"
     post:
-      summary: Create a purchase order
+      summary: Microsoft Dynamics Create a purchase order
       description: Creates a new purchase order.
       operationId: createPurchaseOrder
       tags:
@@ -414,7 +414,7 @@ paths:
                 $ref: "#/components/schemas/PurchaseOrder"
   /companies({companyId})/purchaseInvoices:
     get:
-      summary: List purchase invoices
+      summary: Microsoft Dynamics List purchase invoices
       description: Returns a list of purchase invoices.
       operationId: listPurchaseInvoices
       tags:
@@ -438,7 +438,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/PurchaseInvoice"
     post:
-      summary: Create a purchase invoice
+      summary: Microsoft Dynamics Create a purchase invoice
       description: Creates a new purchase invoice.
       operationId: createPurchaseInvoice
       tags:
@@ -460,7 +460,7 @@ paths:
                 $ref: "#/components/schemas/PurchaseInvoice"
   /companies({companyId})/generalLedgerEntries:
     get:
-      summary: List general ledger entries
+      summary: Microsoft Dynamics List general ledger entries
       description: Returns a list of general ledger entries.
       operationId: listGeneralLedgerEntries
       tags:
@@ -485,7 +485,7 @@ paths:
                       $ref: "#/components/schemas/GeneralLedgerEntry"
   /companies({companyId})/accounts:
     get:
-      summary: List chart of accounts
+      summary: Microsoft Dynamics List chart of accounts
       description: Returns a list of accounts from the chart of accounts.
       operationId: listAccounts
       tags:
@@ -510,7 +510,7 @@ paths:
                       $ref: "#/components/schemas/Account"
   /companies({companyId})/journals:
     get:
-      summary: List journals
+      summary: Microsoft Dynamics List journals
       description: Returns a list of journals.
       operationId: listJournals
       tags:
@@ -534,7 +534,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Journal"
     post:
-      summary: Create a journal
+      summary: Microsoft Dynamics Create a journal
       description: Creates a new journal.
       operationId: createJournal
       tags:
@@ -556,7 +556,7 @@ paths:
                 $ref: "#/components/schemas/Journal"
   /companies({companyId})/employees:
     get:
-      summary: List employees
+      summary: Microsoft Dynamics List employees
       description: Returns a list of employee records.
       operationId: listEmployees
       tags:
@@ -580,7 +580,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Employee"
     post:
-      summary: Create an employee
+      summary: Microsoft Dynamics Create an employee
       description: Creates a new employee record.
       operationId: createEmployee
       tags:
