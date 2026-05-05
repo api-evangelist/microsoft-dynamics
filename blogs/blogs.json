@@ -1,0 +1,13 @@
+{
+  "repo": "microsoft-dynamics",
+  "feeds": [
+    {
+      "source": "https://cloudblogs.microsoft.com/dynamics365/",
+      "feed_url": "https://www.microsoft.com/en-us/dynamics-365/blog/feed/",
+      "saved": 10,
+      "title": "Microsoft Dynamics 365 Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:31:42Z"
+}
