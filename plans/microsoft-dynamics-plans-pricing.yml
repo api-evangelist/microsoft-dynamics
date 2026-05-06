@@ -4,142 +4,332 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Microsoft Dynamics
 providerId: microsoft-dynamics
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - CRM
   - ERP
   - Microsoft Dynamics
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+description: Microsoft Dynamics is the legacy umbrella brand that today is delivered as
+  Dynamics 365 — a portfolio of cloud business applications licensed per user per month with
+  a 'first app full price, attach apps reduced' qualifying-offer model. Sales, Customer
+  Service, Field Service, Finance, Supply Chain, Commerce, Project Operations, and Customer
+  Insights are sold as separate apps. Business Central serves SMB ERP. Dynamics 365 Contact
+  Center and Sales Copilot add agentic / Copilot-priced capabilities. Older on-prem Dynamics
+  GP / NAV / SL / AX / CRM are in extended support; new licenses are no longer sold.
+sources:
+  - https://www.microsoft.com/dynamics-365/pricing
+  - https://learn.microsoft.com/en-us/dynamics365/get-started/licensing-overview
+  - https://www.microsoft.com/dynamics-365/products/business-central
 plans:
-  - id: microsoft-dynamics-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the Microsoft Dynamics API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+  - id: microsoft-dynamics-365-sales-professional
+    name: Dynamics 365 Sales Professional
+    type: subscription
+    description: SMB sales force automation. Lead/opp/account management, basic forecasting.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
+      - label: Per user per month
+        name: sales_pro
+        type: subscription
+        metric: user-month
+        limit: -1
         timeFrame: month
         geo: global
-        domains: []
         unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
+        price: '$65 per user per month'
+        userMultiplied: true
     elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Microsoft Dynamics 365 Business Central API
-      - name: Microsoft Dynamics 365 Dataverse Web API
-      - name: Microsoft Dynamics 365 Finance & Operations Data API
-  - id: microsoft-dynamics-pro
-    name: Professional
-    type: paid
-    description: Production tier for Microsoft Dynamics. Provides higher quotas, priority support, and
-      access to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
+      - name: Lead / opportunity / account / contact
+      - name: Sales literature
+      - name: 5,000 records storage
+  - id: microsoft-dynamics-365-sales-enterprise
+    name: Dynamics 365 Sales Enterprise
+    type: subscription
+    description: Full enterprise sales — pipeline analytics, gamification, embedded intelligence,
+      product catalogs.
     entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
+      - label: Per user per month
+        name: sales_ent
+        type: subscription
+        metric: user-month
+        limit: -1
         timeFrame: month
         geo: global
-        domains: []
         unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
+        price: '$105 per user per month'
+        userMultiplied: true
+      - label: Qualifying-offer attach (subsequent app)
+        name: sales_ent_attach
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
         geo: global
-        domains: []
         unit: 1
-        price: '0.00'
+        price: '$20 per user per month (when attached to qualifying first app)'
+        userMultiplied: true
+    elements:
+      - name: Embedded intelligence
+      - name: Forecasting
+      - name: Sales accelerator
+  - id: microsoft-dynamics-365-sales-premium
+    name: Dynamics 365 Sales Premium
+    type: subscription
+    description: Sales Enterprise + Sales Insights / Conversation Intelligence.
+    entries:
+      - label: Per user per month
+        name: sales_premium
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$150 per user per month'
+        userMultiplied: true
+    elements:
+      - name: Conversation Intelligence
+      - name: Predictive scoring
+      - name: Relationship Analytics
+  - id: microsoft-dynamics-365-customer-service-professional
+    name: Dynamics 365 Customer Service Professional
+    type: subscription
+    description: Case management + knowledge for SMB.
+    entries:
+      - label: Per user per month
+        name: cs_pro
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$50 per user per month'
+        userMultiplied: true
+    elements:
+      - name: Case management
+      - name: Knowledge base
+  - id: microsoft-dynamics-365-customer-service-enterprise
+    name: Dynamics 365 Customer Service Enterprise
+    type: subscription
+    description: Omnichannel-ready, full case management, SLA enforcement, customer voice.
+    entries:
+      - label: Per user per month
+        name: cs_ent
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$105 per user per month'
+        userMultiplied: true
+      - label: Qualifying-offer attach
+        name: cs_ent_attach
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$20 per user per month'
+        userMultiplied: true
+    elements:
+      - name: SLAs / entitlements
+      - name: Routing
+      - name: Customer Voice surveys
+  - id: microsoft-dynamics-365-field-service
+    name: Dynamics 365 Field Service
+    type: subscription
+    description: Dispatch, scheduling, and on-site service.
+    entries:
+      - label: Per user per month
+        name: fs
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$105 per user per month'
+        userMultiplied: true
+      - label: Qualifying-offer attach
+        name: fs_attach
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$20 per user per month'
+        userMultiplied: true
+    elements:
+      - name: Resource scheduling
+      - name: Mobile field tech app
+      - name: IoT integration
+  - id: microsoft-dynamics-365-finance
+    name: Dynamics 365 Finance
+    type: subscription
+    description: Enterprise financial management — GL, AP, AR, fixed assets, planning.
+    entries:
+      - label: Per user per month
+        name: finance
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$210 per user per month'
+        userMultiplied: true
+      - label: Qualifying-offer attach
+        name: finance_attach
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$30 per user per month'
+        userMultiplied: true
+    elements:
+      - name: GL / AP / AR / fixed assets
+      - name: Multi-entity / multi-currency
+  - id: microsoft-dynamics-365-supply-chain
+    name: Dynamics 365 Supply Chain Management
+    type: subscription
+    description: Inventory, warehousing, manufacturing, demand planning.
+    entries:
+      - label: Per user per month
+        name: scm
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$210 per user per month'
+        userMultiplied: true
+      - label: Qualifying-offer attach
+        name: scm_attach
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$30 per user per month'
+        userMultiplied: true
+    elements:
+      - name: Warehouse management
+      - name: Production scheduling
+      - name: Demand forecasting
+  - id: microsoft-dynamics-365-business-central-essentials
+    name: Dynamics 365 Business Central Essentials
+    type: subscription
+    description: SMB ERP — financials, supply chain, sales, project management.
+    entries:
+      - label: Per user per month
+        name: bc_essentials
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$70 per user per month'
+        userMultiplied: true
+    elements:
+      - name: Financial management
+      - name: Sales & purchasing
+      - name: Inventory & project management
+  - id: microsoft-dynamics-365-business-central-premium
+    name: Dynamics 365 Business Central Premium
+    type: subscription
+    description: Essentials + Service Management + Manufacturing.
+    entries:
+      - label: Per user per month
+        name: bc_premium
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$100 per user per month'
+        userMultiplied: true
+    elements:
+      - name: Manufacturing
+      - name: Service management
+      - name: All Essentials capabilities
+  - id: microsoft-dynamics-365-business-central-team-members
+    name: Dynamics 365 Business Central Team Members
+    type: subscription
+    description: Light/read access for occasional users.
+    entries:
+      - label: Per user per month
+        name: bc_team
+        type: subscription
+        metric: user-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$8 per user per month'
+        userMultiplied: true
+    elements:
+      - name: Read access
+      - name: Approve workflows
+      - name: Limited write
+  - id: microsoft-dynamics-365-customer-insights
+    name: Dynamics 365 Customer Insights — Data
+    type: subscription
+    description: Customer Data Platform; priced per tenant per month per profile band.
+    entries:
+      - label: Per tenant per month — base
+        name: ci_data_tenant
+        type: subscription
+        metric: tenant-month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$1,500 per tenant per month'
         userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
+      - label: Add-on profiles
+        name: ci_data_addon_profiles
         type: metered
-        metric: requests
+        metric: 100K-profiles
         limit: -1
         timeFrame: month
         geo: global
-        domains: []
-        unit: 1000
-        price: TBD
+        unit: 1
+        price: see vendor for additional profile capacity bands
         userMultiplied: false
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Microsoft Dynamics 365 Business Central API
-      - name: Microsoft Dynamics 365 Dataverse Web API
-      - name: Microsoft Dynamics 365 Finance & Operations Data API
-  - id: microsoft-dynamics-enterprise
-    name: Enterprise
+      - name: Customer Data Platform
+      - name: Predictive churn / lifetime value
+      - name: Real-time segmentation (Journeys add-on)
+  - id: microsoft-dynamics-365-enterprise
+    name: Enterprise / Volume Licensing
     type: enterprise
-    description: Custom-negotiated tier for Microsoft Dynamics. Includes dedicated capacity, contractual
-      SLAs, security review, data residency options, and named technical account management.
+    description: Negotiated rates via EA / MCA / CSP. Multi-app discounts beyond the
+      qualifying-offer attach pricing.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Negotiated rate
+        name: ea_negotiated
+        type: subscription
+        metric: contract
         limit: -1
         timeFrame: month
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains: []
+        geo: global
         unit: 1
         price: custom
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Microsoft Dynamics 365 Business Central API
-      - name: Microsoft Dynamics 365 Dataverse Web API
-      - name: Microsoft Dynamics 365 Finance & Operations Data API
+      - name: Volume tiering
+      - name: Bundled with M365 / Power Platform
+      - name: Dedicated technical account management
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+    url: https://www.microsoft.com/dynamics-365
