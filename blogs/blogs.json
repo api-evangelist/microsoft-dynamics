@@ -3,11 +3,11 @@
   "feeds": [
     {
       "source": "https://cloudblogs.microsoft.com/dynamics365/",
-      "feed_url": "https://www.microsoft.com/en-us/dynamics-365/blog/feed/",
-      "saved": 10,
-      "title": "Microsoft Dynamics 365 Blog"
+      "feed_url": "https://cloudblogs.microsoft.com/dynamics365/feed/",
+      "title": "Microsoft Dynamics 365 Blog",
+      "saved": 2
     }
   ],
-  "post_count": 10,
-  "fetched": "2026-05-03T23:31:42Z"
+  "post_count": 12,
+  "fetched": "2026-05-09T20:17:51Z"
 }
