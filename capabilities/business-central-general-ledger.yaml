@@ -1,0 +1,71 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Dynamics 365 Business Central API — General Ledger
+  description: 'Microsoft Dynamics 365 Business Central API — General Ledger. 1 operations. Lead operation: Microsoft Dynamics
+    List general ledger entries. Self-contained Naftiko capability covering one Microsoft Dynamics business surface.'
+  tags:
+  - Microsoft Dynamics
+  - General Ledger
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_DYNAMICS_API_KEY: MICROSOFT_DYNAMICS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: business-central-general-ledger
+    baseUri: https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0
+    description: Microsoft Dynamics 365 Business Central API — General Ledger business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: companies({companyId})-generalLedgerEntries
+      path: /companies({companyId})/generalLedgerEntries
+      operations:
+      - name: listgeneralledgerentries
+        method: GET
+        description: Microsoft Dynamics List general ledger entries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_DYNAMICS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: business-central-general-ledger-rest
+    port: 8080
+    description: REST adapter for Microsoft Dynamics 365 Business Central API — General Ledger. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/companies-companyid/generalledgerentries
+      name: companies-companyid-generalledgerentries
+      description: REST surface for companies({companyId})-generalLedgerEntries.
+      operations:
+      - method: GET
+        name: listgeneralledgerentries
+        description: Microsoft Dynamics List general ledger entries
+        call: business-central-general-ledger.listgeneralledgerentries
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: business-central-general-ledger-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Dynamics 365 Business Central API — General Ledger. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-dynamics-list-general-ledger
+      description: Microsoft Dynamics List general ledger entries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: business-central-general-ledger.listgeneralledgerentries
+      outputParameters:
+      - type: object
+        mapping: $.

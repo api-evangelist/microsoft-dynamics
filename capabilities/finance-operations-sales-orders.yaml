@@ -1,0 +1,106 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Dynamics 365 Finance & Operations Data API — Sales Orders
+  description: 'Microsoft Dynamics 365 Finance & Operations Data API — Sales Orders. 2 operations. Lead operation: Microsoft
+    Dynamics List sales order headers. Self-contained Naftiko capability covering one Microsoft Dynamics business surface.'
+  tags:
+  - Microsoft Dynamics
+  - Sales Orders
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_DYNAMICS_API_KEY: MICROSOFT_DYNAMICS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: finance-operations-sales-orders
+    baseUri: https://{environment}.operations.dynamics.com/data
+    description: Microsoft Dynamics 365 Finance & Operations Data API — Sales Orders business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: SalesOrderHeaders
+      path: /SalesOrderHeaders
+      operations:
+      - name: listsalesorderheaders
+        method: GET
+        description: Microsoft Dynamics List sales order headers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createsalesorderheader
+        method: POST
+        description: Microsoft Dynamics Create a sales order header
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_DYNAMICS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: finance-operations-sales-orders-rest
+    port: 8080
+    description: REST adapter for Microsoft Dynamics 365 Finance & Operations Data API — Sales Orders. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/salesorderheaders
+      name: salesorderheaders
+      description: REST surface for SalesOrderHeaders.
+      operations:
+      - method: GET
+        name: listsalesorderheaders
+        description: Microsoft Dynamics List sales order headers
+        call: finance-operations-sales-orders.listsalesorderheaders
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createsalesorderheader
+        description: Microsoft Dynamics Create a sales order header
+        call: finance-operations-sales-orders.createsalesorderheader
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: finance-operations-sales-orders-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Dynamics 365 Finance & Operations Data API — Sales Orders. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-dynamics-list-sales-order
+      description: Microsoft Dynamics List sales order headers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finance-operations-sales-orders.listsalesorderheaders
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-dynamics-create-sales-order
+      description: Microsoft Dynamics Create a sales order header
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: finance-operations-sales-orders.createsalesorderheader
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

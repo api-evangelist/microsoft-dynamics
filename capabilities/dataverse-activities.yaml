@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Dynamics 365 Dataverse Web API — Activities
+  description: 'Microsoft Dynamics 365 Dataverse Web API — Activities. 1 operations. Lead operation: Microsoft Dynamics List
+    activities. Self-contained Naftiko capability covering one Microsoft Dynamics business surface.'
+  tags:
+  - Microsoft Dynamics
+  - Activities
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_DYNAMICS_API_KEY: MICROSOFT_DYNAMICS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: dataverse-activities
+    baseUri: https://{organization}.api.crm.dynamics.com/api/data/v9.2
+    description: Microsoft Dynamics 365 Dataverse Web API — Activities business capability. Self-contained, no shared references.
+    resources:
+    - name: activities
+      path: /activities
+      operations:
+      - name: listactivities
+        method: GET
+        description: Microsoft Dynamics List activities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_DYNAMICS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: dataverse-activities-rest
+    port: 8080
+    description: REST adapter for Microsoft Dynamics 365 Dataverse Web API — Activities. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/activities
+      name: activities
+      description: REST surface for activities.
+      operations:
+      - method: GET
+        name: listactivities
+        description: Microsoft Dynamics List activities
+        call: dataverse-activities.listactivities
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dataverse-activities-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Dynamics 365 Dataverse Web API — Activities. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: microsoft-dynamics-list-activities
+      description: Microsoft Dynamics List activities
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dataverse-activities.listactivities
+      outputParameters:
+      - type: object
+        mapping: $.

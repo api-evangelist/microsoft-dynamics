@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Dynamics 365 Business Central API — Accounts
+  description: 'Microsoft Dynamics 365 Business Central API — Accounts. 1 operations. Lead operation: Microsoft Dynamics List
+    chart of accounts. Self-contained Naftiko capability covering one Microsoft Dynamics business surface.'
+  tags:
+  - Microsoft Dynamics
+  - Accounts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_DYNAMICS_API_KEY: MICROSOFT_DYNAMICS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: business-central-accounts
+    baseUri: https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0
+    description: Microsoft Dynamics 365 Business Central API — Accounts business capability. Self-contained, no shared references.
+    resources:
+    - name: companies({companyId})-accounts
+      path: /companies({companyId})/accounts
+      operations:
+      - name: listaccounts
+        method: GET
+        description: Microsoft Dynamics List chart of accounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_DYNAMICS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: business-central-accounts-rest
+    port: 8080
+    description: REST adapter for Microsoft Dynamics 365 Business Central API — Accounts. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/companies-companyid/accounts
+      name: companies-companyid-accounts
+      description: REST surface for companies({companyId})-accounts.
+      operations:
+      - method: GET
+        name: listaccounts
+        description: Microsoft Dynamics List chart of accounts
+        call: business-central-accounts.listaccounts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: business-central-accounts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Dynamics 365 Business Central API — Accounts. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-dynamics-list-chart-accounts
+      description: Microsoft Dynamics List chart of accounts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: business-central-accounts.listaccounts
+      outputParameters:
+      - type: object
+        mapping: $.

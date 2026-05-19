@@ -1,0 +1,106 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Dynamics 365 Business Central API — Sales Orders
+  description: 'Microsoft Dynamics 365 Business Central API — Sales Orders. 2 operations. Lead operation: Microsoft Dynamics
+    List sales orders. Self-contained Naftiko capability covering one Microsoft Dynamics business surface.'
+  tags:
+  - Microsoft Dynamics
+  - Sales Orders
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_DYNAMICS_API_KEY: MICROSOFT_DYNAMICS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: business-central-sales-orders
+    baseUri: https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0
+    description: Microsoft Dynamics 365 Business Central API — Sales Orders business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: companies({companyId})-salesOrders
+      path: /companies({companyId})/salesOrders
+      operations:
+      - name: listsalesorders
+        method: GET
+        description: Microsoft Dynamics List sales orders
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createsalesorder
+        method: POST
+        description: Microsoft Dynamics Create a sales order
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_DYNAMICS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: business-central-sales-orders-rest
+    port: 8080
+    description: REST adapter for Microsoft Dynamics 365 Business Central API — Sales Orders. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/companies-companyid/salesorders
+      name: companies-companyid-salesorders
+      description: REST surface for companies({companyId})-salesOrders.
+      operations:
+      - method: GET
+        name: listsalesorders
+        description: Microsoft Dynamics List sales orders
+        call: business-central-sales-orders.listsalesorders
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createsalesorder
+        description: Microsoft Dynamics Create a sales order
+        call: business-central-sales-orders.createsalesorder
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: business-central-sales-orders-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Dynamics 365 Business Central API — Sales Orders. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-dynamics-list-sales-orders
+      description: Microsoft Dynamics List sales orders
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: business-central-sales-orders.listsalesorders
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-dynamics-create-sales-order
+      description: Microsoft Dynamics Create a sales order
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: business-central-sales-orders.createsalesorder
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
