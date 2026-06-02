@@ -1,0 +1,379 @@
+asyncapi: 2.6.0
+info:
+  title: Microsoft Dynamics 365 / Dataverse Webhooks
+  version: '1.0.0'
+  description: |
+    AsyncAPI 2.6 description of the Microsoft Dataverse Webhooks surface used by
+    Dynamics 365 (Sales, Customer Service, Field Service, etc.) and other Power
+    Platform applications built on Dataverse.
+
+    Webhooks are registered against a Dataverse Service Endpoint (Contract value
+    `8`) using the Plug-in Registration tool. Once registered, the Dataverse
+    Event Framework fires HTTP POST requests to the customer-owned endpoint URL
+    each time the registered SDK message (e.g. `Create`, `Update`, `Delete`)
+    runs against the registered primary table at the configured event pipeline
+    stage (PreValidation, PreOperation, or PostOperation) in either synchronous
+    or asynchronous execution mode.
+
+    The request body is the JSON serialization of the .NET
+    `Microsoft.Xrm.Sdk.RemoteExecutionContext` class, the same shape Dataverse
+    uses for its Azure Service Bus integration.
+
+    Documented Dataverse-managed authentication options on the producer side
+    are `HttpHeader`, `WebhookKey`, and `HttpQueryString`. There is no
+    Dataverse-managed signature header; verification is performed by the
+    consumer based on the static key it agreed to with the registrant.
+
+    Reference documentation:
+      - https://learn.microsoft.com/en-us/power-apps/developer/data-platform/use-webhooks
+      - https://learn.microsoft.com/en-us/power-apps/developer/data-platform/register-web-hook
+      - https://learn.microsoft.com/en-us/power-apps/developer/data-platform/event-framework
+  license:
+    name: Microsoft Learn Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/termsofuse
+  contact:
+    name: Microsoft Dataverse Developer Documentation
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/
+
+defaultContentType: application/json
+
+servers:
+  consumer:
+    url: '{webhook_endpoint_url}'
+    protocol: https
+    description: |
+      The customer-owned HTTPS endpoint registered as a Dataverse Service
+      Endpoint (Contract = 8, e.g. an Azure Function, Logic App HTTP trigger,
+      or any web service). Only port 80 (http) and port 443 (https) are
+      supported by Dataverse webhook registrations.
+    variables:
+      webhook_endpoint_url:
+        default: https://example.com/dataverse-webhook
+        description: Fully qualified URL configured when the WebHook was registered.
+
+channels:
+  dataverse/event:
+    description: |
+      Single logical channel representing the HTTP POST that Dataverse sends
+      to the registered endpoint URL when a registered SDK message fires for
+      the configured primary table at the configured pipeline stage. The
+      specific message and table are conveyed in headers
+      (`x-ms-dynamics-request-name`, `x-ms-dynamics-entity-name`) and inside
+      the `RemoteExecutionContext` body (`MessageName`, `PrimaryEntityName`).
+    subscribe:
+      operationId: receiveDataverseEvent
+      summary: Receive a Dataverse server event posted to the registered WebHook.
+      description: |
+        Dataverse sends an HTTP POST with a JSON body that is the serialized
+        `RemoteExecutionContext`. The consumer must respond within 60 seconds
+        with a `2xx` status code to indicate success. Responses of `502`,
+        `503`, or `504` are retried once. All other non-2xx responses are
+        treated as failure. For asynchronous registrations failures are
+        captured in System Jobs (asyncoperation); for synchronous
+        registrations the originating user-facing data operation is rolled
+        back and the user sees an "Endpoint unavailable" error.
+
+        When the total HTTP payload exceeds 256 KB, the
+        `x-ms-dynamics-msg-size-exceeded` header is included and the
+        `ParentContext`, `InputParameters`, `PreEntityImages`, and
+        `PostEntityImages` properties are stripped from the body.
+      message:
+        $ref: '#/components/messages/RemoteExecutionContextEvent'
+
+components:
+  messages:
+    RemoteExecutionContextEvent:
+      name: RemoteExecutionContextEvent
+      title: Dataverse RemoteExecutionContext webhook event
+      summary: JSON-serialized RemoteExecutionContext POSTed to the registered WebHook endpoint.
+      contentType: application/json
+      headers:
+        $ref: '#/components/schemas/WebhookHeaders'
+      payload:
+        $ref: '#/components/schemas/RemoteExecutionContext'
+      bindings:
+        http:
+          bindingVersion: '0.3.0'
+          headers:
+            type: object
+            properties:
+              Content-Type:
+                type: string
+                const: application/json
+
+  schemas:
+    WebhookHeaders:
+      type: object
+      description: |
+        HTTP headers Dataverse sets on every webhook POST. If the WebHook
+        registration uses the `HttpHeader` authentication option, additional
+        key/value pairs configured at registration time are also included
+        in the request headers.
+      properties:
+        x-ms-dynamics-organization:
+          type: string
+          description: The domain name of the Dataverse environment sending the request.
+          example: contoso.crm.dynamics.com
+        x-ms-dynamics-entity-name:
+          type: string
+          description: |
+            The logical name of the table passed in the execution context
+            data (e.g. `account`, `contact`, `lead`, `opportunity`,
+            `incident`).
+          example: contact
+        x-ms-dynamics-request-name:
+          type: string
+          description: |
+            The name of the SDK message / event that the WebHook step was
+            registered for (e.g. `Create`, `Update`, `Delete`, `Associate`,
+            `Disassociate`, `Retrieve`, `RetrieveMultiple`, or a custom
+            action name).
+          example: Update
+        x-ms-correlation-request-id:
+          type: string
+          format: uuid
+          description: |
+            Unique identifier for tracking any type of extension. Used by
+            the Dataverse platform for infinite-loop prevention. Useful for
+            telemetry queries with Microsoft support.
+          example: aaaa0000-bb11-2222-33cc-444444dddddd
+        x-ms-dynamics-msg-size-exceeded:
+          type: string
+          description: |
+            Present only when the HTTP payload size exceeds 256 KB. When
+            present, the `ParentContext`, `InputParameters`,
+            `PreEntityImages`, and `PostEntityImages` properties of the
+            body are omitted.
+
+    RemoteExecutionContext:
+      type: object
+      description: |
+        JSON serialization of `Microsoft.Xrm.Sdk.RemoteExecutionContext`,
+        which implements `IPluginExecutionContext` and `IExecutionContext`.
+        This is the same shape sent to Azure Service Bus integrations.
+      properties:
+        MessageName:
+          type: string
+          description: |
+            Name of the SDK message that triggered the event. Common values
+            include `Create`, `Retrieve`, `RetrieveMultiple`, `Update`,
+            `Delete`, `Associate`, `Disassociate`, plus specialized messages
+            from `Microsoft.Crm.Sdk.Messages` /
+            `Microsoft.Xrm.Sdk.Messages` and any custom actions registered
+            in the organization.
+          example: Update
+        PrimaryEntityName:
+          type: string
+          description: Logical name of the primary table the operation runs against.
+          example: contact
+        PrimaryEntityId:
+          type: string
+          format: uuid
+          description: Identifier of the primary record involved in the operation.
+        SecondaryEntityName:
+          type: string
+          description: |
+            Logical name of the secondary table when applicable (e.g. for
+            `Associate` / `Disassociate`). Otherwise the literal `none`.
+          example: none
+        Stage:
+          type: integer
+          description: |
+            Event pipeline stage of execution:
+              - `10` PreValidation
+              - `20` PreOperation
+              - `30` MainOperation (internal use / custom APIs / virtual table providers)
+              - `40` PostOperation
+          enum: [10, 20, 30, 40]
+          example: 40
+        Mode:
+          type: integer
+          description: |
+            Execution mode of the registered step:
+              - `0` Synchronous
+              - `1` Asynchronous
+          enum: [0, 1]
+          example: 1
+        Depth:
+          type: integer
+          description: Current depth of the call in the pipeline (used for loop detection).
+          example: 1
+        IsolationMode:
+          type: integer
+          description: Sandbox isolation mode (1 = None, 2 = Sandbox).
+          example: 1
+        IsExecutingOffline:
+          type: boolean
+        IsInTransaction:
+          type: boolean
+        IsOfflinePlayback:
+          type: boolean
+        OperationId:
+          type: string
+          format: uuid
+        OperationCreatedOn:
+          type: string
+          description: .NET DataContract-serialized date (e.g. `/Date(1506409448000-0700)/`).
+        CorrelationId:
+          type: string
+          format: uuid
+        RequestId:
+          type: string
+          nullable: true
+        OrganizationId:
+          type: string
+          format: uuid
+        OrganizationName:
+          type: string
+        BusinessUnitId:
+          type: string
+          format: uuid
+        UserId:
+          type: string
+          format: uuid
+          description: ID of the user the step is running in the context of.
+        InitiatingUserId:
+          type: string
+          format: uuid
+          description: ID of the user whose action triggered the operation.
+        OwningExtension:
+          $ref: '#/components/schemas/EntityReference'
+        InputParameters:
+          type: array
+          description: |
+            Parameters of the originating SDK request (e.g. the `Target`
+            entity on `Create` / `Update`). Stripped when payload exceeds
+            256 KB.
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+        OutputParameters:
+          type: array
+          description: |
+            Parameters returned by the platform on `PostOperation` (e.g.
+            `id` for `Create`).
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+        SharedVariables:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+        PreEntityImages:
+          type: array
+          description: |
+            Snapshot(s) of the record before the operation, as configured
+            on the step. Stripped when payload exceeds 256 KB.
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+        PostEntityImages:
+          type: array
+          description: |
+            Snapshot(s) of the record after the operation, as configured
+            on the step. Stripped when payload exceeds 256 KB.
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+        ParentContext:
+          description: |
+            Recursive reference to the parent execution context when this
+            invocation was triggered by another extension. Stripped when
+            payload exceeds 256 KB.
+          oneOf:
+            - type: 'null'
+            - $ref: '#/components/schemas/RemoteExecutionContext'
+
+    KeyValuePair:
+      type: object
+      description: |
+        DataContract-serialized key/value entry. The `value` is a free-form
+        type whose runtime CLR type may be carried in a `__type` member
+        (e.g. `Entity:http://schemas.microsoft.com/xrm/2011/Contracts`,
+        `EntityReference:http://schemas.microsoft.com/xrm/2011/Contracts`).
+      properties:
+        key:
+          type: string
+        value: {}
+
+    Entity:
+      type: object
+      description: |
+        DataContract-serialized `Microsoft.Xrm.Sdk.Entity`. Distinguished by
+        `__type` = `Entity:http://schemas.microsoft.com/xrm/2011/Contracts`.
+      properties:
+        Attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+        EntityState:
+          type: string
+          nullable: true
+        FormattedValues:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+        Id:
+          type: string
+          format: uuid
+        KeyAttributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+        LogicalName:
+          type: string
+        RelatedEntities:
+          type: array
+          items: {}
+        RowVersion:
+          type: string
+          nullable: true
+
+    EntityReference:
+      type: object
+      description: |
+        DataContract-serialized `Microsoft.Xrm.Sdk.EntityReference`.
+        Distinguished by `__type` =
+        `EntityReference:http://schemas.microsoft.com/xrm/2011/Contracts`.
+      properties:
+        Id:
+          type: string
+          format: uuid
+        KeyAttributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+        LogicalName:
+          type: string
+        Name:
+          type: string
+          nullable: true
+        RowVersion:
+          type: string
+          nullable: true
+
+  securitySchemes:
+    httpHeaderKey:
+      type: httpApiKey
+      in: header
+      name: Authorization
+      description: |
+        `HttpHeader` authentication option. One or more arbitrary
+        key/value pairs (header name and header value) are configured on
+        the WebHook registration and are sent on every request. Header
+        names and values are defined entirely by the consumer endpoint.
+    webhookKey:
+      type: httpApiKey
+      in: query
+      name: code
+      description: |
+        `WebhookKey` authentication option. Dataverse appends a `code`
+        query-string parameter whose value was set on the WebHook
+        registration. Designed for Azure Functions, which expect a `code`
+        key by default.
+    httpQueryString:
+      type: httpApiKey
+      in: query
+      name: key
+      description: |
+        `HttpQueryString` authentication option. One or more arbitrary
+        key/value pairs are appended to the request URL as query-string
+        parameters. The parameter names and values are defined entirely
+        by the consumer endpoint at registration time; `key` here is a
+        placeholder.

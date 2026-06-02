@@ -2,12 +2,20 @@
   "repo": "microsoft-dynamics",
   "feeds": [
     {
-      "source": "https://cloudblogs.microsoft.com/dynamics365/",
+      "source": "https://cloudblogs.microsoft.com/dynamics365/feed/",
       "feed_url": "https://cloudblogs.microsoft.com/dynamics365/feed/",
-      "title": "Microsoft Dynamics 365 Blog",
-      "saved": 5
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://cloudblogs.microsoft.com/dynamics365/",
+      "feed_url": "https://www.microsoft.com/en-us/dynamics-365/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
     }
   ],
-  "post_count": 17,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 21,
+  "fetched": "2026-06-01T23:35:02Z"
 }

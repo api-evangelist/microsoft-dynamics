@@ -67,6 +67,10 @@ apis:
       type: Documentation
     - url: openapi/microsoft-dynamics-dataverse-openapi.yml
       type: OpenAPI
+    - url: openapi/microsoft-dynamics-dataverse-webhooks-asyncapi.yml
+      type: AsyncAPI
+    - url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/use-webhooks
+      type: WebhookDocumentation
     - url: json-schema/account.json
       type: JSONSchema
     - url: json-schema/contact.json
@@ -155,7 +159,7 @@ common:
     type: Blog
     description: 'null'
 created: '2025-01-01'
-modified: '2026-05-19'
+modified: '2026-05-30'
 position: Consumer
 description: 'Microsoft Dynamics 365 is a suite of enterprise resource planning (ERP) and customer relationship management
   (CRM) applications. It provides APIs across three main platforms: Business Central for small and mid-sized business ERP,
