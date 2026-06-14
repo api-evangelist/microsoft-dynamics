@@ -1,0 +1,1477 @@
+"""
+Microsoft Dynamics 365 Conceptual GraphQL Schema
+Source: Dataverse Web API (OData v4), Business Central API v2.0, Finance & Operations OData
+Docs: https://docs.microsoft.com/en-us/dynamics365/
+"""
+
+# ─── Scalars ────────────────────────────────────────────────────────────────
+
+scalar DateTime
+scalar Decimal
+scalar GUID
+scalar JSON
+
+# ─── Enums ──────────────────────────────────────────────────────────────────
+
+enum AccountStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  DISQUALIFIED
+}
+
+enum OpportunityStatus {
+  OPEN
+  WON
+  LOST
+}
+
+enum IncidentStatus {
+  ACTIVE
+  RESOLVED
+  CANCELLED
+}
+
+enum ActivityStatus {
+  OPEN
+  COMPLETED
+  CANCELLED
+  SCHEDULED
+}
+
+enum CampaignStatus {
+  PLANNING
+  LAUNCHED
+  COMPLETED
+  CANCELLED
+}
+
+enum ContractStatus {
+  DRAFT
+  INVOICED
+  ACTIVE
+  ON_HOLD
+  CANCELED
+  EXPIRED
+}
+
+enum QuoteStatus {
+  DRAFT
+  ACTIVE
+  WON
+  CLOSED
+}
+
+enum OrderStatus {
+  ACTIVE
+  SUBMITTED
+  CANCELLED
+  FULFILLED
+  INVOICED
+}
+
+enum InvoiceStatus {
+  DRAFT
+  ACTIVE
+  PAID
+  CANCELLED
+}
+
+enum WorkflowStatus {
+  DRAFT
+  ACTIVATED
+}
+
+# ─── Core CRM Types ─────────────────────────────────────────────────────────
+
+"""A company or organization in Dynamics 365 CRM."""
+type Account {
+  id: GUID!
+  name: String!
+  accountNumber: String
+  websiteUrl: String
+  telephone1: String
+  emailAddress: String
+  industryCode: String
+  revenue: Decimal
+  numberOfEmployees: Int
+  description: String
+  status: AccountStatus!
+  primaryContact: Contact
+  parentAccount: Account
+  businessUnit: BusinessUnit
+  territory: Territory
+  owner: SystemUser
+  contacts: [Contact!]
+  opportunities: [Opportunity!]
+  incidents: [Incident!]
+  campaigns: [Campaign!]
+  activities: [Activity!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""An individual person in Dynamics 365 CRM."""
+type Contact {
+  id: GUID!
+  firstName: String!
+  lastName: String!
+  fullName: String
+  emailAddress: String
+  telephone1: String
+  jobTitle: String
+  department: String
+  account: Account
+  parentContact: Contact
+  territory: Territory
+  owner: SystemUser
+  businessUnit: BusinessUnit
+  opportunities: [Opportunity!]
+  incidents: [Incident!]
+  activities: [Activity!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A prospective customer or sales lead."""
+type Lead {
+  id: GUID!
+  firstName: String
+  lastName: String!
+  fullName: String
+  companyName: String
+  emailAddress: String
+  telephone1: String
+  jobTitle: String
+  leadSourceCode: String
+  subject: String
+  description: String
+  status: LeadStatus!
+  qualifiedOn: DateTime
+  convertedOpportunity: Opportunity
+  convertedAccount: Account
+  convertedContact: Contact
+  owner: SystemUser
+  businessUnit: BusinessUnit
+  campaign: Campaign
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A potential sale or deal being tracked in the sales pipeline."""
+type Opportunity {
+  id: GUID!
+  name: String!
+  description: String
+  estimatedRevenue: Decimal
+  estimatedCloseDate: DateTime
+  actualCloseDate: DateTime
+  actualRevenue: Decimal
+  probabilityCode: Int
+  status: OpportunityStatus!
+  account: Account
+  contact: Contact
+  parentCampaign: Campaign
+  owner: SystemUser
+  businessUnit: BusinessUnit
+  territory: Territory
+  products: [OpportunityProduct!]
+  competitors: [Competitor!]
+  quotes: [Quote!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A product line item on an Opportunity record."""
+type OpportunityProduct {
+  id: GUID!
+  opportunity: Opportunity!
+  product: Product
+  productDescription: String
+  quantity: Decimal!
+  pricePerUnit: Decimal!
+  extendedAmount: Decimal!
+  discount: Decimal
+  tax: Decimal
+  uoM: UoM
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A competitor tracked within an Opportunity or the system."""
+type Competitor {
+  id: GUID!
+  name: String!
+  websiteUrl: String
+  opportunities: [Opportunity!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+# ─── Sales Documents ─────────────────────────────────────────────────────────
+
+"""A formal price quotation sent to a customer."""
+type Quote {
+  id: GUID!
+  name: String!
+  description: String
+  status: QuoteStatus!
+  totalAmount: Decimal
+  totalLineItemAmount: Decimal
+  discountAmount: Decimal
+  taxAmount: Decimal
+  freightAmount: Decimal
+  effectiveFrom: DateTime
+  expiresOn: DateTime
+  opportunity: Opportunity
+  account: Account
+  contact: Contact
+  priceList: PriceLevel
+  owner: SystemUser
+  products: [QuoteProduct!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A product line item on a Quote record."""
+type QuoteProduct {
+  id: GUID!
+  quote: Quote!
+  product: Product
+  productDescription: String
+  quantity: Decimal!
+  pricePerUnit: Decimal!
+  extendedAmount: Decimal!
+  discount: Decimal
+  uoM: UoM
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A confirmed sales order."""
+type Order {
+  id: GUID!
+  name: String!
+  description: String
+  status: OrderStatus!
+  totalAmount: Decimal
+  totalLineItemAmount: Decimal
+  discountAmount: Decimal
+  taxAmount: Decimal
+  freightAmount: Decimal
+  dateOrdered: DateTime
+  dateFulfilled: DateTime
+  quote: Quote
+  opportunity: Opportunity
+  account: Account
+  contact: Contact
+  priceList: PriceLevel
+  owner: SystemUser
+  products: [OrderProduct!]
+  invoices: [Invoice!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A product line item on a sales Order."""
+type OrderProduct {
+  id: GUID!
+  order: Order!
+  product: Product
+  productDescription: String
+  quantity: Decimal!
+  pricePerUnit: Decimal!
+  extendedAmount: Decimal!
+  discount: Decimal
+  uoM: UoM
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A customer invoice generated from a sales order."""
+type Invoice {
+  id: GUID!
+  name: String!
+  description: String
+  status: InvoiceStatus!
+  totalAmount: Decimal
+  totalLineItemAmount: Decimal
+  discountAmount: Decimal
+  taxAmount: Decimal
+  freightAmount: Decimal
+  dueDate: DateTime
+  datePaid: DateTime
+  order: Order
+  account: Account
+  contact: Contact
+  priceList: PriceLevel
+  owner: SystemUser
+  products: [InvoiceProduct!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A product line item on an Invoice."""
+type InvoiceProduct {
+  id: GUID!
+  invoice: Invoice!
+  product: Product
+  productDescription: String
+  quantity: Decimal!
+  pricePerUnit: Decimal!
+  extendedAmount: Decimal!
+  discount: Decimal
+  uoM: UoM
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+# ─── Organization Structure ──────────────────────────────────────────────────
+
+"""A business unit within the organization hierarchy."""
+type BusinessUnit {
+  id: GUID!
+  name: String!
+  description: String
+  parentBusinessUnit: BusinessUnit
+  childBusinessUnits: [BusinessUnit!]
+  users: [SystemUser!]
+  teams: [Team!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A sales or service territory."""
+type Territory {
+  id: GUID!
+  name: String!
+  description: String
+  manager: SystemUser
+  members: [SystemUser!]
+  accounts: [Account!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A team of users in Dynamics 365."""
+type Team {
+  id: GUID!
+  name: String!
+  description: String
+  teamType: String
+  businessUnit: BusinessUnit!
+  administrator: SystemUser
+  members: [SystemUser!]
+  roles: [Role!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A licensed user account in Dynamics 365."""
+type SystemUser {
+  id: GUID!
+  fullName: String!
+  firstName: String
+  lastName: String
+  title: String
+  internalEmailAddress: String
+  mobileAlertEmail: String
+  isDisabled: Boolean!
+  businessUnit: BusinessUnit!
+  territory: Territory
+  teams: [Team!]
+  roles: [Role!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+# ─── Security ────────────────────────────────────────────────────────────────
+
+"""A security role defining user privileges."""
+type Role {
+  id: GUID!
+  name: String!
+  description: String
+  businessUnit: BusinessUnit!
+  parentRole: Role
+  users: [SystemUser!]
+  teams: [Team!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A security role definition (alias for platform roles)."""
+type SecurityRole {
+  id: GUID!
+  name: String!
+  roleTemplateId: GUID
+  businessUnit: BusinessUnit!
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A field-level permission record."""
+type FieldPermission {
+  id: GUID!
+  entityName: String!
+  attributeLogicalName: String!
+  canRead: Boolean!
+  canCreate: Boolean!
+  canUpdate: Boolean!
+  fieldSecurityProfile: String
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+# ─── Marketing ───────────────────────────────────────────────────────────────
+
+"""A marketing campaign."""
+type Campaign {
+  id: GUID!
+  name: String!
+  description: String
+  status: CampaignStatus!
+  campaignTypeCode: String
+  budgetedCost: Decimal
+  actualCost: Decimal
+  expectedRevenue: Decimal
+  totalActualCost: Decimal
+  startDate: DateTime
+  endDate: DateTime
+  owner: SystemUser
+  lists: [List!]
+  activities: [CampaignActivity!]
+  responses: [CampaignResponse!]
+  leads: [Lead!]
+  opportunities: [Opportunity!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""An activity associated with a marketing campaign."""
+type CampaignActivity {
+  id: GUID!
+  subject: String!
+  description: String
+  activityTypeCode: String
+  budgetedCost: Decimal
+  actualCost: Decimal
+  scheduledStart: DateTime
+  scheduledEnd: DateTime
+  campaign: Campaign!
+  owner: SystemUser
+  lists: [List!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A response received from a marketing campaign."""
+type CampaignResponse {
+  id: GUID!
+  subject: String
+  description: String
+  responseCode: String
+  receivedOn: DateTime
+  campaign: Campaign!
+  originatingActivity: CampaignActivity
+  contact: Contact
+  lead: Lead
+  owner: SystemUser
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A marketing list (static or dynamic) of accounts, contacts, or leads."""
+type List {
+  id: GUID!
+  listName: String!
+  description: String
+  listTypeCode: String
+  query: String
+  memberCount: Int
+  createdFromCode: String
+  owner: SystemUser
+  campaigns: [Campaign!]
+  campaignActivities: [CampaignActivity!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+# ─── Activities ──────────────────────────────────────────────────────────────
+
+"""A base activity record (parent type for all activities)."""
+type Activity {
+  id: GUID!
+  subject: String!
+  description: String
+  activityTypeCode: String!
+  status: ActivityStatus!
+  scheduledStart: DateTime
+  scheduledEnd: DateTime
+  actualStart: DateTime
+  actualEnd: DateTime
+  priorityCode: String
+  regardingObjectId: GUID
+  regardingObjectTypeCode: String
+  owner: SystemUser
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A calendar appointment or meeting."""
+type Appointment {
+  id: GUID!
+  subject: String!
+  description: String
+  location: String
+  status: ActivityStatus!
+  scheduledStart: DateTime!
+  scheduledEnd: DateTime!
+  actualStart: DateTime
+  actualEnd: DateTime
+  isAllDayEvent: Boolean
+  isRecurring: Boolean
+  owner: SystemUser
+  requiredAttendees: [SystemUser!]
+  optionalAttendees: [SystemUser!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""An email activity record."""
+type Email {
+  id: GUID!
+  subject: String!
+  description: String
+  directionCode: Boolean
+  status: ActivityStatus!
+  scheduledEnd: DateTime
+  actualEnd: DateTime
+  trackingToken: String
+  messageId: String
+  owner: SystemUser
+  from: [Contact!]
+  to: [Contact!]
+  cc: [Contact!]
+  bcc: [Contact!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A letter activity record."""
+type Letter {
+  id: GUID!
+  subject: String!
+  description: String
+  directionCode: Boolean
+  address: String
+  status: ActivityStatus!
+  scheduledEnd: DateTime
+  owner: SystemUser
+  from: Contact
+  to: [Contact!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A fax activity record."""
+type Fax {
+  id: GUID!
+  subject: String!
+  description: String
+  directionCode: Boolean
+  faxNumber: String
+  coverPageName: String
+  numberOfPages: Int
+  status: ActivityStatus!
+  scheduledEnd: DateTime
+  owner: SystemUser
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A phone call activity record."""
+type PhoneCall {
+  id: GUID!
+  subject: String!
+  description: String
+  directionCode: Boolean
+  phoneNumber: String
+  status: ActivityStatus!
+  scheduledEnd: DateTime
+  actualEnd: DateTime
+  owner: SystemUser
+  from: Contact
+  to: [Contact!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A task activity record."""
+type Task {
+  id: GUID!
+  subject: String!
+  description: String
+  percentComplete: Int
+  status: ActivityStatus!
+  scheduledEnd: DateTime
+  actualEnd: DateTime
+  priorityCode: String
+  owner: SystemUser
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A recurring appointment series."""
+type RecurringAppointment {
+  id: GUID!
+  subject: String!
+  description: String
+  location: String
+  status: ActivityStatus!
+  recurrencePatternType: String
+  patternStartDate: DateTime
+  patternEndDate: DateTime
+  occurrences: Int
+  owner: SystemUser
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A service appointment for field service or scheduling."""
+type ServiceActivity {
+  id: GUID!
+  subject: String!
+  description: String
+  status: ActivityStatus!
+  scheduledStart: DateTime
+  scheduledEnd: DateTime
+  actualStart: DateTime
+  actualEnd: DateTime
+  serviceId: GUID
+  siteId: GUID
+  owner: SystemUser
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+# ─── Customer Service ─────────────────────────────────────────────────────────
+
+"""A customer service case (incident)."""
+type Incident {
+  id: GUID!
+  title: String!
+  description: String
+  ticketNumber: String
+  status: IncidentStatus!
+  priorityCode: String
+  severityCode: String
+  caseTypeCode: String
+  account: Account
+  contact: Contact
+  subjectId: GUID
+  productId: GUID
+  slaId: GUID
+  entitlementId: GUID
+  firstResponseSentOn: DateTime
+  resolvedOn: DateTime
+  owner: SystemUser
+  queue: Queue
+  activities: [Activity!]
+  resolutions: [IncidentResolution!]
+  kbArticles: [KbArticle!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""The resolution record for a closed incident."""
+type IncidentResolution {
+  id: GUID!
+  subject: String!
+  description: String
+  timespent: Int
+  incident: Incident!
+  owner: SystemUser
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A service contract with a customer."""
+type Contract {
+  id: GUID!
+  title: String!
+  description: String
+  contractNumber: String
+  status: ContractStatus!
+  startDate: DateTime
+  expiresDate: DateTime
+  billingStartDate: DateTime
+  cancelOn: DateTime
+  account: Account
+  billingAccount: Account
+  contact: Contact
+  owner: SystemUser
+  contractLines: [ContractLine!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A line item within a service contract."""
+type ContractLine {
+  id: GUID!
+  title: String!
+  description: String
+  lineItemOrder: Int
+  contract: Contract!
+  product: Product
+  uoM: UoM
+  quantity: Decimal
+  totalPrice: Decimal
+  discount: Decimal
+  effectivityCalendar: String
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""Customer support entitlement."""
+type Entitlement {
+  id: GUID!
+  name: String!
+  description: String
+  entitlementTypeCode: String
+  remainingTerms: Decimal
+  totalTerms: Decimal
+  startDate: DateTime
+  endDate: DateTime
+  account: Account
+  contact: Contact
+  sla: SLA
+  owner: SystemUser
+  incidents: [Incident!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A template for creating customer support entitlements."""
+type EntitlementTemplate {
+  id: GUID!
+  name: String!
+  description: String
+  entitlementTypeCode: String
+  totalTerms: Decimal
+  startDate: DateTime
+  endDate: DateTime
+  sla: SLA
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+# ─── Queues & SLA ─────────────────────────────────────────────────────────────
+
+"""A work queue for routing cases, activities, or other records."""
+type Queue {
+  id: GUID!
+  name: String!
+  description: String
+  queueTypeCode: String
+  emailAddress: String
+  owner: SystemUser
+  businessUnit: BusinessUnit
+  queueItems: [QueueItem!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""An item in a queue."""
+type QueueItem {
+  id: GUID!
+  title: String
+  workerAssignedOn: DateTime
+  enteredQueueOn: DateTime
+  queue: Queue!
+  workedBy: SystemUser
+  objectTypeCode: String
+  objectId: GUID
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A service level agreement definition."""
+type SLA {
+  id: GUID!
+  name: String!
+  description: String
+  slaTypeCode: String
+  isDefault: Boolean
+  isManaged: Boolean
+  owner: SystemUser
+  businessUnit: BusinessUnit
+  slaItems: [SLAItem!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""An individual KPI item within a service level agreement."""
+type SLAItem {
+  id: GUID!
+  name: String!
+  sequenceNumber: Int
+  relatedField: String
+  workflowId: GUID
+  sla: SLA!
+  warningTime: Int
+  failureTime: Int
+  pauseCondition: String
+  applicableWhenXml: String
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+# ─── Products & Pricing ──────────────────────────────────────────────────────
+
+"""A product or service in the product catalog."""
+type Product {
+  id: GUID!
+  name: String!
+  description: String
+  productNumber: String
+  productTypeCode: String
+  quantityOnHand: Decimal
+  isKit: Boolean
+  subjectId: GUID
+  defaultUoMSchedule: UoMSchedule
+  defaultUoM: UoM
+  priceLevels: [ProductPriceLevel!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A product price entry for a specific price list."""
+type ProductPriceLevel {
+  id: GUID!
+  product: Product!
+  priceLevel: PriceLevel!
+  uoM: UoM!
+  amount: Decimal!
+  percentage: Decimal
+  pricingMethodCode: String
+  roundingOptionCode: String
+  roundingPolicyCode: String
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A price list (price level) containing product pricing."""
+type PriceLevel {
+  id: GUID!
+  name: String!
+  description: String
+  freightTermsCode: String
+  paymentTermsCode: String
+  shippingMethodCode: String
+  beginDate: DateTime
+  endDate: DateTime
+  currency: Currency
+  productPriceLevels: [ProductPriceLevel!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A unit of measure."""
+type UoM {
+  id: GUID!
+  name: String!
+  quantity: Decimal!
+  isScheduleBaseUoM: Boolean
+  uoMSchedule: UoMSchedule!
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A unit of measure schedule (unit group)."""
+type UoMSchedule {
+  id: GUID!
+  name: String!
+  description: String
+  baseUoMName: String
+  uoMs: [UoM!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A discount applied based on quantity or volume."""
+type Discount {
+  id: GUID!
+  lowQuantity: Decimal!
+  highQuantity: Decimal
+  percentage: Decimal
+  amount: Decimal
+  discountType: DiscountType!
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A discount type (discount list)."""
+type DiscountType {
+  id: GUID!
+  name: String!
+  description: String
+  isAmountType: Boolean
+  discounts: [Discount!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+# ─── Knowledge Base ──────────────────────────────────────────────────────────
+
+"""A knowledge base article."""
+type KbArticle {
+  id: GUID!
+  title: String!
+  description: String
+  articleXml: String
+  keyWords: String
+  comments: String
+  subjectId: GUID
+  kbArticleTemplateId: GUID
+  languageCode: Int
+  statusCode: String
+  subject: Subject
+  template: KbArticleTemplate
+  articleComments: [KbArticleComment!]
+  incidents: [Incident!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A comment on a knowledge base article."""
+type KbArticleComment {
+  id: GUID!
+  title: String!
+  commentText: String
+  kbArticle: KbArticle!
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A template for knowledge base articles."""
+type KbArticleTemplate {
+  id: GUID!
+  title: String!
+  description: String
+  structureXml: String
+  isActive: Boolean
+  languageCode: Int
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A subject for categorizing knowledge base articles and incidents."""
+type Subject {
+  id: GUID!
+  title: String!
+  description: String
+  parentSubject: Subject
+  childSubjects: [Subject!]
+  kbArticles: [KbArticle!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+# ─── Goals & Metrics ─────────────────────────────────────────────────────────
+
+"""A goal definition for tracking performance targets."""
+type Goal {
+  id: GUID!
+  title: String!
+  fiscalPeriod: String
+  fiscalYear: String
+  goalStartDate: DateTime
+  goalEndDate: DateTime
+  targetDecimal: Decimal
+  targetInteger: Int
+  targetMoney: Decimal
+  actualDecimal: Decimal
+  actualInteger: Int
+  actualMoney: Decimal
+  isFiscalPeriodGoal: Boolean
+  isOverridden: Boolean
+  metric: Metric!
+  parentGoal: Goal
+  goalOwner: SystemUser
+  owner: SystemUser
+  rollupFields: [RollupField!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A goal rollup query definition."""
+type GoalRollupQuery {
+  id: GUID!
+  name: String!
+  fetchXml: String
+  queryEntityType: String
+  owner: SystemUser
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A metric used to measure goal progress."""
+type Metric {
+  id: GUID!
+  name: String!
+  description: String
+  isAmount: Boolean
+  amountDataType: String
+  goals: [Goal!]
+  rollupFields: [RollupField!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A rollup field definition within a goal metric."""
+type RollupField {
+  id: GUID!
+  sourceEntity: String!
+  sourceField: String
+  sourceFilterXml: String
+  dateField: String
+  goalAttribute: String
+  metric: Metric!
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+# ─── Platform & Automation ───────────────────────────────────────────────────
+
+"""A Power Automate / Dynamics 365 workflow definition."""
+type Workflow {
+  id: GUID!
+  name: String!
+  description: String
+  status: WorkflowStatus!
+  category: String
+  primaryEntity: String
+  xaml: String
+  triggerOnCreate: Boolean
+  triggerOnUpdate: Boolean
+  triggerOnDelete: Boolean
+  asyncAutoDelete: Boolean
+  owner: SystemUser
+  businessUnit: BusinessUnit
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A custom action or process defined in Dynamics 365."""
+type Action {
+  id: GUID!
+  name: String!
+  uniqueName: String!
+  description: String
+  primaryEntity: String
+  category: String
+  owner: SystemUser
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A plugin registered in the Dynamics 365 platform."""
+type Plugin {
+  id: GUID!
+  name: String!
+  description: String
+  assemblyName: String
+  version: String
+  publicKeyToken: String
+  culture: String
+  isolationMode: String
+  sourcePath: String
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""The Dynamics 365 organization (tenant/environment) settings."""
+type Organization {
+  id: GUID!
+  name: String!
+  uniqueName: String!
+  friendlyName: String
+  version: String
+  baseCurrencyCode: String
+  baseCurrencySymbol: String
+  baseLanguageCode: Int
+  fiscalYearFormat: String
+  dateFormatCode: String
+  timeZoneCode: Int
+  currency: Currency
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A connection role defining the nature of a relationship between records."""
+type ConnectionRole {
+  id: GUID!
+  name: String!
+  description: String
+  category: String
+  statusCode: String
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+# ─── Reference Data ───────────────────────────────────────────────────────────
+
+"""A currency definition used across the organization."""
+type Currency {
+  id: GUID!
+  currencyName: String!
+  isoCurrencyCode: String!
+  currencySymbol: String!
+  exchangeRate: Decimal!
+  precision: Int
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A language pack installed in the organization."""
+type Language {
+  languageCode: Int!
+  name: String!
+  isEnabled: Boolean!
+}
+
+"""An import log entry for data import operations."""
+type ImportLog {
+  id: GUID!
+  importId: GUID!
+  columnValue: String
+  errorDescription: String
+  headerRow: String
+  logPhaseName: String
+  sequenceNumber: Int
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A Dynamics 365 solution package."""
+type Solution {
+  id: GUID!
+  uniqueName: String!
+  friendlyName: String!
+  version: String!
+  description: String
+  isManaged: Boolean!
+  isVisible: Boolean!
+  publisher: Publisher!
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""A publisher of a Dynamics 365 solution."""
+type Publisher {
+  id: GUID!
+  uniqueName: String!
+  friendlyName: String!
+  description: String
+  customizationPrefix: String
+  customizationOptionValuePrefix: Int
+  solutions: [Solution!]
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""An API key or application user credential for Dynamics 365 access."""
+type APIKey {
+  id: GUID!
+  name: String!
+  applicationId: GUID!
+  applicationIdUri: String
+  applicationTenantId: GUID
+  isDisabled: Boolean!
+  createdOn: DateTime!
+  modifiedOn: DateTime!
+}
+
+"""An OAuth 2.0 access token representation for Dynamics 365 authentication."""
+type Token {
+  accessToken: String!
+  tokenType: String!
+  expiresIn: Int!
+  expiresOn: DateTime!
+  resource: String!
+  scope: String
+}
+
+# ─── Root Query ──────────────────────────────────────────────────────────────
+
+type Query {
+  account(id: GUID!): Account
+  accounts(filter: String, top: Int, skip: Int): [Account!]
+
+  contact(id: GUID!): Contact
+  contacts(filter: String, top: Int, skip: Int): [Contact!]
+
+  lead(id: GUID!): Lead
+  leads(filter: String, top: Int, skip: Int): [Lead!]
+
+  opportunity(id: GUID!): Opportunity
+  opportunities(filter: String, top: Int, skip: Int): [Opportunity!]
+
+  opportunityProduct(id: GUID!): OpportunityProduct
+  opportunityProducts(filter: String, top: Int, skip: Int): [OpportunityProduct!]
+
+  competitor(id: GUID!): Competitor
+  competitors(filter: String, top: Int, skip: Int): [Competitor!]
+
+  quote(id: GUID!): Quote
+  quotes(filter: String, top: Int, skip: Int): [Quote!]
+
+  quoteProduct(id: GUID!): QuoteProduct
+  quoteProducts(filter: String, top: Int, skip: Int): [QuoteProduct!]
+
+  order(id: GUID!): Order
+  orders(filter: String, top: Int, skip: Int): [Order!]
+
+  orderProduct(id: GUID!): OrderProduct
+  orderProducts(filter: String, top: Int, skip: Int): [OrderProduct!]
+
+  invoice(id: GUID!): Invoice
+  invoices(filter: String, top: Int, skip: Int): [Invoice!]
+
+  invoiceProduct(id: GUID!): InvoiceProduct
+  invoiceProducts(filter: String, top: Int, skip: Int): [InvoiceProduct!]
+
+  businessUnit(id: GUID!): BusinessUnit
+  businessUnits(filter: String, top: Int, skip: Int): [BusinessUnit!]
+
+  territory(id: GUID!): Territory
+  territories(filter: String, top: Int, skip: Int): [Territory!]
+
+  team(id: GUID!): Team
+  teams(filter: String, top: Int, skip: Int): [Team!]
+
+  systemUser(id: GUID!): SystemUser
+  systemUsers(filter: String, top: Int, skip: Int): [SystemUser!]
+
+  role(id: GUID!): Role
+  roles(filter: String, top: Int, skip: Int): [Role!]
+
+  securityRole(id: GUID!): SecurityRole
+  securityRoles(filter: String, top: Int, skip: Int): [SecurityRole!]
+
+  fieldPermission(id: GUID!): FieldPermission
+  fieldPermissions(filter: String, top: Int, skip: Int): [FieldPermission!]
+
+  campaign(id: GUID!): Campaign
+  campaigns(filter: String, top: Int, skip: Int): [Campaign!]
+
+  campaignActivity(id: GUID!): CampaignActivity
+  campaignActivities(filter: String, top: Int, skip: Int): [CampaignActivity!]
+
+  campaignResponse(id: GUID!): CampaignResponse
+  campaignResponses(filter: String, top: Int, skip: Int): [CampaignResponse!]
+
+  list(id: GUID!): List
+  lists(filter: String, top: Int, skip: Int): [List!]
+
+  activity(id: GUID!): Activity
+  activities(filter: String, top: Int, skip: Int): [Activity!]
+
+  appointment(id: GUID!): Appointment
+  appointments(filter: String, top: Int, skip: Int): [Appointment!]
+
+  email(id: GUID!): Email
+  emails(filter: String, top: Int, skip: Int): [Email!]
+
+  letter(id: GUID!): Letter
+  letters(filter: String, top: Int, skip: Int): [Letter!]
+
+  fax(id: GUID!): Fax
+  faxes(filter: String, top: Int, skip: Int): [Fax!]
+
+  phoneCall(id: GUID!): PhoneCall
+  phoneCalls(filter: String, top: Int, skip: Int): [PhoneCall!]
+
+  task(id: GUID!): Task
+  tasks(filter: String, top: Int, skip: Int): [Task!]
+
+  recurringAppointment(id: GUID!): RecurringAppointment
+  recurringAppointments(filter: String, top: Int, skip: Int): [RecurringAppointment!]
+
+  serviceActivity(id: GUID!): ServiceActivity
+  serviceActivities(filter: String, top: Int, skip: Int): [ServiceActivity!]
+
+  incident(id: GUID!): Incident
+  incidents(filter: String, top: Int, skip: Int): [Incident!]
+
+  incidentResolution(id: GUID!): IncidentResolution
+  incidentResolutions(filter: String, top: Int, skip: Int): [IncidentResolution!]
+
+  contract(id: GUID!): Contract
+  contracts(filter: String, top: Int, skip: Int): [Contract!]
+
+  contractLine(id: GUID!): ContractLine
+  contractLines(filter: String, top: Int, skip: Int): [ContractLine!]
+
+  entitlement(id: GUID!): Entitlement
+  entitlements(filter: String, top: Int, skip: Int): [Entitlement!]
+
+  entitlementTemplate(id: GUID!): EntitlementTemplate
+  entitlementTemplates(filter: String, top: Int, skip: Int): [EntitlementTemplate!]
+
+  queue(id: GUID!): Queue
+  queues(filter: String, top: Int, skip: Int): [Queue!]
+
+  queueItem(id: GUID!): QueueItem
+  queueItems(filter: String, top: Int, skip: Int): [QueueItem!]
+
+  sla(id: GUID!): SLA
+  slas(filter: String, top: Int, skip: Int): [SLA!]
+
+  slaItem(id: GUID!): SLAItem
+  slaItems(filter: String, top: Int, skip: Int): [SLAItem!]
+
+  product(id: GUID!): Product
+  products(filter: String, top: Int, skip: Int): [Product!]
+
+  productPriceLevel(id: GUID!): ProductPriceLevel
+  productPriceLevels(filter: String, top: Int, skip: Int): [ProductPriceLevel!]
+
+  priceLevel(id: GUID!): PriceLevel
+  priceLevels(filter: String, top: Int, skip: Int): [PriceLevel!]
+
+  uoM(id: GUID!): UoM
+  uoMs(filter: String, top: Int, skip: Int): [UoM!]
+
+  uoMSchedule(id: GUID!): UoMSchedule
+  uoMSchedules(filter: String, top: Int, skip: Int): [UoMSchedule!]
+
+  discount(id: GUID!): Discount
+  discounts(filter: String, top: Int, skip: Int): [Discount!]
+
+  discountType(id: GUID!): DiscountType
+  discountTypes(filter: String, top: Int, skip: Int): [DiscountType!]
+
+  kbArticle(id: GUID!): KbArticle
+  kbArticles(filter: String, top: Int, skip: Int): [KbArticle!]
+
+  kbArticleComment(id: GUID!): KbArticleComment
+  kbArticleComments(filter: String, top: Int, skip: Int): [KbArticleComment!]
+
+  kbArticleTemplate(id: GUID!): KbArticleTemplate
+  kbArticleTemplates(filter: String, top: Int, skip: Int): [KbArticleTemplate!]
+
+  subject(id: GUID!): Subject
+  subjects(filter: String, top: Int, skip: Int): [Subject!]
+
+  goal(id: GUID!): Goal
+  goals(filter: String, top: Int, skip: Int): [Goal!]
+
+  goalRollupQuery(id: GUID!): GoalRollupQuery
+  goalRollupQueries(filter: String, top: Int, skip: Int): [GoalRollupQuery!]
+
+  metric(id: GUID!): Metric
+  metrics(filter: String, top: Int, skip: Int): [Metric!]
+
+  rollupField(id: GUID!): RollupField
+  rollupFields(filter: String, top: Int, skip: Int): [RollupField!]
+
+  workflow(id: GUID!): Workflow
+  workflows(filter: String, top: Int, skip: Int): [Workflow!]
+
+  action(id: GUID!): Action
+  actions(filter: String, top: Int, skip: Int): [Action!]
+
+  plugin(id: GUID!): Plugin
+  plugins(filter: String, top: Int, skip: Int): [Plugin!]
+
+  organization(id: GUID!): Organization
+
+  connectionRole(id: GUID!): ConnectionRole
+  connectionRoles(filter: String, top: Int, skip: Int): [ConnectionRole!]
+
+  currency(id: GUID!): Currency
+  currencies(filter: String, top: Int, skip: Int): [Currency!]
+
+  language(languageCode: Int!): Language
+  languages: [Language!]
+
+  importLog(id: GUID!): ImportLog
+  importLogs(filter: String, top: Int, skip: Int): [ImportLog!]
+
+  solution(id: GUID!): Solution
+  solutions(filter: String, top: Int, skip: Int): [Solution!]
+
+  publisher(id: GUID!): Publisher
+  publishers(filter: String, top: Int, skip: Int): [Publisher!]
+
+  apiKey(id: GUID!): APIKey
+  apiKeys(filter: String, top: Int, skip: Int): [APIKey!]
+}
+
+# ─── Root Mutation ───────────────────────────────────────────────────────────
+
+type Mutation {
+  createAccount(input: JSON!): Account
+  updateAccount(id: GUID!, input: JSON!): Account
+  deleteAccount(id: GUID!): Boolean
+
+  createContact(input: JSON!): Contact
+  updateContact(id: GUID!, input: JSON!): Contact
+  deleteContact(id: GUID!): Boolean
+
+  createLead(input: JSON!): Lead
+  updateLead(id: GUID!, input: JSON!): Lead
+  qualifyLead(id: GUID!): Opportunity
+  deleteLead(id: GUID!): Boolean
+
+  createOpportunity(input: JSON!): Opportunity
+  updateOpportunity(id: GUID!, input: JSON!): Opportunity
+  closeOpportunityWon(id: GUID!): Opportunity
+  closeOpportunityLost(id: GUID!): Opportunity
+  deleteOpportunity(id: GUID!): Boolean
+
+  createQuote(input: JSON!): Quote
+  updateQuote(id: GUID!, input: JSON!): Quote
+  activateQuote(id: GUID!): Quote
+  createOrderFromQuote(quoteId: GUID!): Order
+  deleteQuote(id: GUID!): Boolean
+
+  createOrder(input: JSON!): Order
+  updateOrder(id: GUID!, input: JSON!): Order
+  fulfillOrder(id: GUID!): Order
+  cancelOrder(id: GUID!): Order
+  createInvoiceFromOrder(orderId: GUID!): Invoice
+  deleteOrder(id: GUID!): Boolean
+
+  createInvoice(input: JSON!): Invoice
+  updateInvoice(id: GUID!, input: JSON!): Invoice
+  payInvoice(id: GUID!): Invoice
+  cancelInvoice(id: GUID!): Invoice
+  deleteInvoice(id: GUID!): Boolean
+
+  createIncident(input: JSON!): Incident
+  updateIncident(id: GUID!, input: JSON!): Incident
+  resolveIncident(id: GUID!, resolution: JSON!): IncidentResolution
+  cancelIncident(id: GUID!): Incident
+  deleteIncident(id: GUID!): Boolean
+
+  createCampaign(input: JSON!): Campaign
+  updateCampaign(id: GUID!, input: JSON!): Campaign
+  deleteCampaign(id: GUID!): Boolean
+
+  createTask(input: JSON!): Task
+  updateTask(id: GUID!, input: JSON!): Task
+  completeTask(id: GUID!): Task
+  deleteTask(id: GUID!): Boolean
+
+  createAppointment(input: JSON!): Appointment
+  updateAppointment(id: GUID!, input: JSON!): Appointment
+  deleteAppointment(id: GUID!): Boolean
+}
