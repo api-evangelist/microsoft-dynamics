@@ -1,0 +1,9 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Dynamics 365 / Dataverse Webhooks",
+    "version": "1.0.0"
+  },
+  "items": [],
+  "bundled": true
+}

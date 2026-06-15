@@ -1,0 +1,3052 @@
+{
+  "item": [
+    {
+      "id": "88fba25a-beff-403d-ba28-8f332a738bf5",
+      "name": "Accounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5b2bc075-8b5e-4742-9a51-01429942b1af",
+          "name": "Microsoft Dynamics List accounts",
+          "request": {
+            "name": "Microsoft Dynamics List accounts",
+            "description": {
+              "content": "Retrieves a collection of account records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8c86191-b95b-4d38-987b-269a13b40eb5",
+              "name": "A collection of accounts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"accountid\": \"65922dfa-444a-e797-d06c-bd85f91aada8\",\n      \"name\": \"string\",\n      \"accountnumber\": \"string\",\n      \"description\": \"string\",\n      \"revenue\": 4244.710099306568,\n      \"numberofemployees\": 8851,\n      \"industrycode\": 6078,\n      \"address1_line1\": \"string\",\n      \"address1_line2\": \"string\",\n      \"address1_city\": \"string\",\n      \"address1_stateorprovince\": \"string\",\n      \"address1_postalcode\": \"string\",\n      \"address1_country\": \"string\",\n      \"telephone1\": \"string\",\n      \"emailaddress1\": \"string\",\n      \"websiteurl\": \"string\",\n      \"statecode\": 6806,\n      \"statuscode\": 8542,\n      \"createdon\": \"2025-11-02T16:59:25.704Z\",\n      \"modifiedon\": \"1969-03-03T05:08:15.641Z\"\n    },\n    {\n      \"accountid\": \"26a14b7c-e272-e45a-4180-973516995a8c\",\n      \"name\": \"string\",\n      \"accountnumber\": \"string\",\n      \"description\": \"string\",\n      \"revenue\": 9497.51088772403,\n      \"numberofemployees\": 5608,\n      \"industrycode\": 863,\n      \"address1_line1\": \"string\",\n      \"address1_line2\": \"string\",\n      \"address1_city\": \"string\",\n      \"address1_stateorprovince\": \"string\",\n      \"address1_postalcode\": \"string\",\n      \"address1_country\": \"string\",\n      \"telephone1\": \"string\",\n      \"emailaddress1\": \"string\",\n      \"websiteurl\": \"string\",\n      \"statecode\": 5687,\n      \"statuscode\": 9140,\n      \"createdon\": \"2004-03-08T12:05:14.093Z\",\n      \"modifiedon\": \"2018-03-20T17:26:09.679Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6505422e-6e91-4240-b11e-1d82cf1a0a14",
+              "name": "Authentication required or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4af64de4-8571-4216-ae42-dfbb411b72cd",
+          "name": "Microsoft Dynamics Create an account",
+          "request": {
+            "name": "Microsoft Dynamics Create an account",
+            "description": {
+              "content": "Creates a new account record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"description\": \"<string>\",\n  \"revenue\": \"<decimal>\",\n  \"numberofemployees\": \"<integer>\",\n  \"industrycode\": \"<integer>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_line2\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0c0f63fc-170c-41e6-85f7-c231cc0e2d83",
+              "name": "Account created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"description\": \"<string>\",\n  \"revenue\": \"<decimal>\",\n  \"numberofemployees\": \"<integer>\",\n  \"industrycode\": \"<integer>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_line2\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URI of the created record.",
+                  "key": "OData-EntityId",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c14e851c-be04-4bbf-be7b-88d3ea540bc2",
+              "name": "Authentication required or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"description\": \"<string>\",\n  \"revenue\": \"<decimal>\",\n  \"numberofemployees\": \"<integer>\",\n  \"industrycode\": \"<integer>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_line2\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01bd3b44-0775-435b-8145-906b44590426",
+          "name": "Microsoft Dynamics Get an account",
+          "request": {
+            "name": "Microsoft Dynamics Get an account",
+            "description": {
+              "content": "Retrieves a single account by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts({{accountid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f39ffb3b-26ff-41cf-b66c-e87566f6adb8",
+              "name": "An account record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts({{accountid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accountid\": \"c6a63ec0-67c1-82af-0464-b176fd7adbd3\",\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"description\": \"<string>\",\n  \"revenue\": \"<decimal>\",\n  \"numberofemployees\": \"<integer>\",\n  \"industrycode\": \"<integer>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_line2\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\",\n  \"createdon\": \"1981-12-09T18:41:29.460Z\",\n  \"modifiedon\": \"1983-03-16T02:53:00.314Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "735e5418-a4b5-4b33-bf52-059a6630337d",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts({{accountid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f928f0d-f5fc-4ad0-9073-189635b3c6f4",
+          "name": "Microsoft Dynamics Update an account",
+          "request": {
+            "name": "Microsoft Dynamics Update an account",
+            "description": {
+              "content": "Updates an existing account record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts({{accountid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag value for optimistic concurrency.",
+                "key": "If-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"description\": \"<string>\",\n  \"revenue\": \"<decimal>\",\n  \"numberofemployees\": \"<integer>\",\n  \"industrycode\": \"<integer>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_line2\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "73d87f0e-8513-4bb9-a299-e386fdd25972",
+              "name": "Account updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts({{accountid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag value for optimistic concurrency.",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string>\",\n  \"description\": \"<string>\",\n  \"revenue\": \"<decimal>\",\n  \"numberofemployees\": \"<integer>\",\n  \"industrycode\": \"<integer>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_line2\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"websiteurl\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b48804b-e3a8-4a8d-84f6-d036bfd92cbf",
+          "name": "Microsoft Dynamics Delete an account",
+          "request": {
+            "name": "Microsoft Dynamics Delete an account",
+            "description": {
+              "content": "Deletes an account record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts({{accountid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "755aa371-eed2-4fbb-a8f4-b9646359f478",
+              "name": "Account deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts({{accountid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a8f8c333-cdeb-44a8-acff-e64c2c056681",
+      "name": "Activities",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3de28e4b-779c-4ab1-8f01-1f194669e02c",
+          "name": "Microsoft Dynamics List activities",
+          "request": {
+            "name": "Microsoft Dynamics List activities",
+            "description": {
+              "content": "Retrieves a collection of activity records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba05cfe5-66e3-4263-bddc-842d9f24412c",
+              "name": "A collection of activities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"activityid\": \"55cfd02d-7c1b-169d-2564-7926bdbe725c\",\n      \"subject\": \"string\",\n      \"description\": \"string\",\n      \"activitytypecode\": \"string\",\n      \"scheduledstart\": \"1995-10-18T03:42:10.377Z\",\n      \"scheduledend\": \"1975-05-27T08:37:45.868Z\",\n      \"actualdurationminutes\": 8691,\n      \"prioritycode\": 2215,\n      \"statecode\": 6838,\n      \"statuscode\": 7719,\n      \"createdon\": \"2008-10-30T20:34:13.817Z\",\n      \"modifiedon\": \"1992-03-30T17:18:44.715Z\"\n    },\n    {\n      \"activityid\": \"a6161b0d-4dfe-7382-c195-bf4185a735b8\",\n      \"subject\": \"string\",\n      \"description\": \"string\",\n      \"activitytypecode\": \"string\",\n      \"scheduledstart\": \"1946-06-27T16:48:27.734Z\",\n      \"scheduledend\": \"1994-01-20T12:22:05.970Z\",\n      \"actualdurationminutes\": 8239,\n      \"prioritycode\": 1745,\n      \"statecode\": 9381,\n      \"statuscode\": 1073,\n      \"createdon\": \"2007-09-25T22:37:49.877Z\",\n      \"modifiedon\": \"1963-02-04T22:10:34.462Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8f83b19c-2250-4827-ad16-8b19eb6a235d",
+      "name": "Cases",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60451ff5-a5e3-4289-a3a9-2821d2f246fc",
+          "name": "Microsoft Dynamics List cases",
+          "request": {
+            "name": "Microsoft Dynamics List cases",
+            "description": {
+              "content": "Retrieves a collection of case (incident) records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "incidents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44d0e284-abf7-4922-8c05-4807fe56de0f",
+              "name": "A collection of cases.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "incidents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"incidentid\": \"05aceea0-8e13-f7ba-2a0c-c871c67d887c\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"ticketnumber\": \"string\",\n      \"casetypecode\": 7561,\n      \"prioritycode\": 6404,\n      \"severitycode\": 8415,\n      \"statecode\": 9533,\n      \"statuscode\": 7771,\n      \"createdon\": \"1997-03-26T16:21:24.233Z\",\n      \"modifiedon\": \"2022-11-08T18:39:52.386Z\"\n    },\n    {\n      \"incidentid\": \"227b5a4a-bd92-0885-6d95-f42f1509b7f2\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"ticketnumber\": \"string\",\n      \"casetypecode\": 2287,\n      \"prioritycode\": 7967,\n      \"severitycode\": 6573,\n      \"statecode\": 4051,\n      \"statuscode\": 8379,\n      \"createdon\": \"1951-09-08T18:04:21.349Z\",\n      \"modifiedon\": \"1994-01-11T03:52:27.663Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae5b44ac-1187-4c20-829c-07947644bc8f",
+          "name": "Microsoft Dynamics Create a case",
+          "request": {
+            "name": "Microsoft Dynamics Create a case",
+            "description": {
+              "content": "Creates a new case (incident) record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "incidents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"casetypecode\": \"<integer>\",\n  \"prioritycode\": \"<integer>\",\n  \"severitycode\": \"<integer>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "45047943-b1e3-4c67-8858-25cd0d3e4797",
+              "name": "Case created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "incidents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"casetypecode\": \"<integer>\",\n  \"prioritycode\": \"<integer>\",\n  \"severitycode\": \"<integer>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "aaea4506-b242-40a6-a3c4-d27f0baba5b4",
+      "name": "Contacts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b71f4f9a-7a42-4959-ba03-da2608392187",
+          "name": "Microsoft Dynamics List contacts",
+          "request": {
+            "name": "Microsoft Dynamics List contacts",
+            "description": {
+              "content": "Retrieves a collection of contact records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4ab6edf-0347-4d30-abbe-3c24abe22e89",
+              "name": "A collection of contacts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"contactid\": \"53119ead-5ade-18d7-9a7d-323e7d71c2e8\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"fullname\": \"string\",\n      \"jobtitle\": \"string\",\n      \"emailaddress1\": \"string\",\n      \"telephone1\": \"string\",\n      \"mobilephone\": \"string\",\n      \"address1_line1\": \"string\",\n      \"address1_city\": \"string\",\n      \"address1_stateorprovince\": \"string\",\n      \"address1_postalcode\": \"string\",\n      \"address1_country\": \"string\",\n      \"birthdate\": \"2015-03-10\",\n      \"statecode\": 323,\n      \"statuscode\": 1358,\n      \"createdon\": \"2021-01-17T10:45:18.321Z\",\n      \"modifiedon\": \"1997-09-26T22:24:52.505Z\"\n    },\n    {\n      \"contactid\": \"82397df3-e351-4403-f638-05a860f4bf11\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"fullname\": \"string\",\n      \"jobtitle\": \"string\",\n      \"emailaddress1\": \"string\",\n      \"telephone1\": \"string\",\n      \"mobilephone\": \"string\",\n      \"address1_line1\": \"string\",\n      \"address1_city\": \"string\",\n      \"address1_stateorprovince\": \"string\",\n      \"address1_postalcode\": \"string\",\n      \"address1_country\": \"string\",\n      \"birthdate\": \"2012-11-20\",\n      \"statecode\": 4871,\n      \"statuscode\": 6153,\n      \"createdon\": \"2015-06-15T19:27:07.402Z\",\n      \"modifiedon\": \"1954-12-26T07:30:42.516Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d00cb488-e967-49ac-9105-6fd61b77d2a2",
+          "name": "Microsoft Dynamics Create a contact",
+          "request": {
+            "name": "Microsoft Dynamics Create a contact",
+            "description": {
+              "content": "Creates a new contact record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"mobilephone\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"birthdate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e2a40c0b-a2d7-4c2e-afb9-cc1c35594c27",
+              "name": "Contact created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"mobilephone\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"birthdate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URI of the created record.",
+                  "key": "OData-EntityId",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "294cbbb5-eb42-49c5-957c-cce07f188c62",
+          "name": "Microsoft Dynamics Get a contact",
+          "request": {
+            "name": "Microsoft Dynamics Get a contact",
+            "description": {
+              "content": "Retrieves a single contact by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts({{contactid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68c0dc9a-5eef-410b-b1d8-012b396f9b5e",
+              "name": "A contact record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts({{contactid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"contactid\": \"e2261e54-7459-9b90-4420-d54867c6067c\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"fullname\": \"string\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"mobilephone\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"birthdate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\",\n  \"createdon\": \"1996-05-15T21:37:13.339Z\",\n  \"modifiedon\": \"1977-02-08T14:03:40.674Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b1b4a05-c782-4c9b-a4d2-ed8d02377f79",
+          "name": "Microsoft Dynamics Update a contact",
+          "request": {
+            "name": "Microsoft Dynamics Update a contact",
+            "description": {
+              "content": "Updates an existing contact record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts({{contactid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag value for optimistic concurrency.",
+                "key": "If-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"mobilephone\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"birthdate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "baa06aa3-db1d-4d97-be0c-f4eb4d0eb17d",
+              "name": "Contact updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts({{contactid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag value for optimistic concurrency.",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"mobilephone\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"birthdate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d90052a9-4fc0-40af-aaa9-e7961384df5a",
+          "name": "Microsoft Dynamics Delete a contact",
+          "request": {
+            "name": "Microsoft Dynamics Delete a contact",
+            "description": {
+              "content": "Deletes a contact record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts({{contactid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6fb3e72-bede-4264-adb6-b11b67c386b6",
+              "name": "Contact deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts({{contactid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "181ca45c-4565-4fc0-a6e9-e73af63c64c3",
+      "name": "Leads",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6d865e7-525e-4ada-868e-afa2f9acfe5d",
+          "name": "Microsoft Dynamics List leads",
+          "request": {
+            "name": "Microsoft Dynamics List leads",
+            "description": {
+              "content": "Retrieves a collection of lead records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f5abbb7-d621-4303-93c7-db6c5b102f9e",
+              "name": "A collection of leads.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"leadid\": \"1a84474d-5173-b1b5-d20a-f28b65f45aea\",\n      \"subject\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"fullname\": \"string\",\n      \"companyname\": \"string\",\n      \"jobtitle\": \"string\",\n      \"emailaddress1\": \"string\",\n      \"telephone1\": \"string\",\n      \"address1_line1\": \"string\",\n      \"address1_city\": \"string\",\n      \"address1_stateorprovince\": \"string\",\n      \"address1_postalcode\": \"string\",\n      \"address1_country\": \"string\",\n      \"leadsourcecode\": 9501,\n      \"estimatedvalue\": 431.6995348145747,\n      \"estimatedclosedate\": \"2005-06-23\",\n      \"statecode\": 1351,\n      \"statuscode\": 9113,\n      \"createdon\": \"1976-07-08T12:05:23.798Z\",\n      \"modifiedon\": \"1973-04-29T21:47:53.840Z\"\n    },\n    {\n      \"leadid\": \"2056e526-08b5-e914-d8ec-738bad0e3917\",\n      \"subject\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"fullname\": \"string\",\n      \"companyname\": \"string\",\n      \"jobtitle\": \"string\",\n      \"emailaddress1\": \"string\",\n      \"telephone1\": \"string\",\n      \"address1_line1\": \"string\",\n      \"address1_city\": \"string\",\n      \"address1_stateorprovince\": \"string\",\n      \"address1_postalcode\": \"string\",\n      \"address1_country\": \"string\",\n      \"leadsourcecode\": 6139,\n      \"estimatedvalue\": 1288.0520585282195,\n      \"estimatedclosedate\": \"1982-09-19\",\n      \"statecode\": 612,\n      \"statuscode\": 7241,\n      \"createdon\": \"2001-04-18T06:12:15.205Z\",\n      \"modifiedon\": \"1985-04-06T00:19:49.325Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c42daae-228a-4182-971d-19493a35d8b7",
+          "name": "Microsoft Dynamics Create a lead",
+          "request": {
+            "name": "Microsoft Dynamics Create a lead",
+            "description": {
+              "content": "Creates a new lead record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"companyname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"leadsourcecode\": \"<integer>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f39e662d-ff13-475a-8d55-eb4c8a10570b",
+              "name": "Lead created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"companyname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"leadsourcecode\": \"<integer>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URI of the created record.",
+                  "key": "OData-EntityId",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61a42667-bcd5-4d49-ae76-359b6b85c6b4",
+          "name": "Microsoft Dynamics Get a lead",
+          "request": {
+            "name": "Microsoft Dynamics Get a lead",
+            "description": {
+              "content": "Retrieves a single lead by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads({{leadid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c43b377f-0197-4fe1-86bf-a495b1786c62",
+              "name": "A lead record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads({{leadid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"leadid\": \"9f216ea5-1325-35e2-8c0d-83214ccb5630\",\n  \"subject\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"fullname\": \"string\",\n  \"companyname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"leadsourcecode\": \"<integer>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\",\n  \"createdon\": \"2019-03-02T14:45:00.182Z\",\n  \"modifiedon\": \"1971-03-31T00:53:07.257Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82c194a3-0061-4dad-9f9c-f3000b907392",
+          "name": "Microsoft Dynamics Update a lead",
+          "request": {
+            "name": "Microsoft Dynamics Update a lead",
+            "description": {
+              "content": "Updates an existing lead record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads({{leadid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag value for optimistic concurrency.",
+                "key": "If-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"companyname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"leadsourcecode\": \"<integer>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0cb7e431-d906-457b-9a81-306ac0abeab1",
+              "name": "Lead updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads({{leadid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag value for optimistic concurrency.",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"companyname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"leadsourcecode\": \"<integer>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9b0762e-34bd-4908-ae7e-9f6c89960af6",
+          "name": "Microsoft Dynamics Delete a lead",
+          "request": {
+            "name": "Microsoft Dynamics Delete a lead",
+            "description": {
+              "content": "Deletes a lead record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads({{leadid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "90d8704e-69a6-4356-a0e7-ffa81d63529a",
+              "name": "Lead deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads({{leadid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "93db9c17-4774-4683-8f7b-a4d051df5129",
+      "name": "Opportunities",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "92978aca-5461-4206-a2d4-9c24b095337f",
+          "name": "Microsoft Dynamics List opportunities",
+          "request": {
+            "name": "Microsoft Dynamics List opportunities",
+            "description": {
+              "content": "Retrieves a collection of opportunity records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "opportunities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14b1c8a4-29c9-4324-8bcc-bf3401b047e5",
+              "name": "A collection of opportunities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opportunities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"opportunityid\": \"e0500839-0ad5-9cbb-ffe0-372c6366f41b\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"estimatedvalue\": 2608.060228111221,\n      \"estimatedclosedate\": \"1987-03-27\",\n      \"actualvalue\": 1841.579958614672,\n      \"actualclosedate\": \"2004-08-12\",\n      \"closeprobability\": 8975,\n      \"currentsituation\": \"string\",\n      \"customerneed\": \"string\",\n      \"proposedsolution\": \"string\",\n      \"stepname\": \"string\",\n      \"statecode\": 734,\n      \"statuscode\": 6951,\n      \"createdon\": \"1971-06-02T10:26:11.424Z\",\n      \"modifiedon\": \"1984-02-27T01:47:30.826Z\"\n    },\n    {\n      \"opportunityid\": \"7fc897f9-e00b-fff6-b7fe-df643e682d0b\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"estimatedvalue\": 7622.178049531987,\n      \"estimatedclosedate\": \"1974-08-26\",\n      \"actualvalue\": 915.9489916451413,\n      \"actualclosedate\": \"1964-07-31\",\n      \"closeprobability\": 8975,\n      \"currentsituation\": \"string\",\n      \"customerneed\": \"string\",\n      \"proposedsolution\": \"string\",\n      \"stepname\": \"string\",\n      \"statecode\": 1759,\n      \"statuscode\": 431,\n      \"createdon\": \"1977-10-04T17:49:47.782Z\",\n      \"modifiedon\": \"2000-01-29T21:02:12.652Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e2b5637-927f-4bcc-b2a5-87ae5ed01b81",
+          "name": "Microsoft Dynamics Create an opportunity",
+          "request": {
+            "name": "Microsoft Dynamics Create an opportunity",
+            "description": {
+              "content": "Creates a new opportunity record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "opportunities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"actualvalue\": \"<decimal>\",\n  \"actualclosedate\": \"<date>\",\n  \"closeprobability\": \"<integer>\",\n  \"currentsituation\": \"<string>\",\n  \"customerneed\": \"<string>\",\n  \"proposedsolution\": \"<string>\",\n  \"stepname\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "753b7778-b0f9-424e-81d7-41bdfbd865bc",
+              "name": "Opportunity created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opportunities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"actualvalue\": \"<decimal>\",\n  \"actualclosedate\": \"<date>\",\n  \"closeprobability\": \"<integer>\",\n  \"currentsituation\": \"<string>\",\n  \"customerneed\": \"<string>\",\n  \"proposedsolution\": \"<string>\",\n  \"stepname\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URI of the created record.",
+                  "key": "OData-EntityId",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eeb2ceab-5bcf-4429-a768-64c56915f43a",
+          "name": "Microsoft Dynamics Get an opportunity",
+          "request": {
+            "name": "Microsoft Dynamics Get an opportunity",
+            "description": {
+              "content": "Retrieves a single opportunity by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "opportunities({{opportunityid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f70f3258-8087-488f-a105-292fc0bb195e",
+              "name": "An opportunity record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opportunities({{opportunityid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"opportunityid\": \"ee2e3458-d7da-cf5c-e0b3-aa07410b3892\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"actualvalue\": \"<decimal>\",\n  \"actualclosedate\": \"<date>\",\n  \"closeprobability\": \"<integer>\",\n  \"currentsituation\": \"<string>\",\n  \"customerneed\": \"<string>\",\n  \"proposedsolution\": \"<string>\",\n  \"stepname\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\",\n  \"createdon\": \"1990-01-06T02:58:18.984Z\",\n  \"modifiedon\": \"1982-06-23T09:45:00.423Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14709b82-4e07-43cf-a995-579d1e6505a3",
+          "name": "Microsoft Dynamics Update an opportunity",
+          "request": {
+            "name": "Microsoft Dynamics Update an opportunity",
+            "description": {
+              "content": "Updates an existing opportunity record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "opportunities({{opportunityid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag value for optimistic concurrency.",
+                "key": "If-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"actualvalue\": \"<decimal>\",\n  \"actualclosedate\": \"<date>\",\n  \"closeprobability\": \"<integer>\",\n  \"currentsituation\": \"<string>\",\n  \"customerneed\": \"<string>\",\n  \"proposedsolution\": \"<string>\",\n  \"stepname\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eb617221-88a2-4ab0-92f8-005486d44c42",
+              "name": "Opportunity updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opportunities({{opportunityid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag value for optimistic concurrency.",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"actualvalue\": \"<decimal>\",\n  \"actualclosedate\": \"<date>\",\n  \"closeprobability\": \"<integer>\",\n  \"currentsituation\": \"<string>\",\n  \"customerneed\": \"<string>\",\n  \"proposedsolution\": \"<string>\",\n  \"stepname\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b10f1c38-bbda-4ee3-8613-16992599ebea",
+          "name": "Microsoft Dynamics Delete an opportunity",
+          "request": {
+            "name": "Microsoft Dynamics Delete an opportunity",
+            "description": {
+              "content": "Deletes an opportunity record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "opportunities({{opportunityid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The unique name of your Dataverse organization.",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cee72d88-c586-45d6-ac99-7d3ca0a944bd",
+              "name": "Opportunity deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opportunities({{opportunityid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The unique name of your Dataverse organization.",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The unique name of your Dataverse organization.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "org",
+      "key": "organization"
+    },
+    {
+      "type": "string",
+      "value": "https://{{organization}}.api.crm.dynamics.com/api/data/v9.2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "opportunityid"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "leadid"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "contactid"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "accountid"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://org.crm.dynamics.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9dcc2b76-943c-433e-967a-9e1f5e2e8863",
+    "name": "Microsoft Dynamics 365 Dataverse Web API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Dynamics 365 Dataverse Web API provides a RESTful endpoint for interacting with Dataverse data used by Dynamics 365 Sales, Customer Service, Field Service, and other customer engagement applications. It implements OData v4 and supports CRUD operations on core CRM entities including accounts, contacts, leads, and opportunities. Authentication is handled via Microsoft Entra ID (Azure AD).\n\nContact Support:\n Name: Microsoft",
+      "type": "text/plain"
+    }
+  }
+}

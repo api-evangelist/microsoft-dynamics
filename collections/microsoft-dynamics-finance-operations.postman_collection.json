@@ -1,0 +1,1838 @@
+{
+  "item": [
+    {
+      "id": "7925c136-6df8-49ba-aa45-6c6669bc14a8",
+      "name": "Customers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c4322a35-2424-4dc3-9ae3-b46b92a7367e",
+          "name": "Microsoft Dynamics List customers",
+          "request": {
+            "name": "Microsoft Dynamics List customers",
+            "description": {
+              "content": "Retrieves the collection of customer data entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (max 10000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "cross-company",
+                  "value": "<boolean>",
+                  "description": "Set to true to retrieve data across all legal entities."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The environment-specific subdomain.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7111bfd0-7b91-44d6-ab04-f24ed2b56f49",
+              "name": "A collection of customer entities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cross-company",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"CustomerAccount\": \"string\",\n      \"CustomerGroupId\": \"string\",\n      \"OrganizationName\": \"string\",\n      \"AddressStreet\": \"string\",\n      \"AddressCity\": \"string\",\n      \"AddressState\": \"string\",\n      \"AddressZipCode\": \"string\",\n      \"AddressCountryRegionId\": \"string\",\n      \"PrimaryContactPhone\": \"string\",\n      \"PrimaryContactEmail\": \"string\",\n      \"SalesCurrencyCode\": \"string\",\n      \"CreditLimit\": 2938.493572529448,\n      \"PaymentTermsName\": \"string\",\n      \"dataAreaId\": \"string\"\n    },\n    {\n      \"CustomerAccount\": \"string\",\n      \"CustomerGroupId\": \"string\",\n      \"OrganizationName\": \"string\",\n      \"AddressStreet\": \"string\",\n      \"AddressCity\": \"string\",\n      \"AddressState\": \"string\",\n      \"AddressZipCode\": \"string\",\n      \"AddressCountryRegionId\": \"string\",\n      \"PrimaryContactPhone\": \"string\",\n      \"PrimaryContactEmail\": \"string\",\n      \"SalesCurrencyCode\": \"string\",\n      \"CreditLimit\": 5629.941922779811,\n      \"PaymentTermsName\": \"string\",\n      \"dataAreaId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b152ebfa-dd6f-4cd8-8306-5bf229fd7ba2",
+              "name": "Authentication required or token is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cross-company",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf41f934-ee95-4103-b6f0-ea425a457321",
+          "name": "Microsoft Dynamics Create a customer",
+          "request": {
+            "name": "Microsoft Dynamics Create a customer",
+            "description": {
+              "content": "Creates a new customer data entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The environment-specific subdomain.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CustomerAccount\": \"<string>\",\n  \"CustomerGroupId\": \"<string>\",\n  \"OrganizationName\": \"<string>\",\n  \"AddressStreet\": \"<string>\",\n  \"AddressCity\": \"<string>\",\n  \"AddressState\": \"<string>\",\n  \"AddressZipCode\": \"<string>\",\n  \"AddressCountryRegionId\": \"<string>\",\n  \"PrimaryContactPhone\": \"<string>\",\n  \"PrimaryContactEmail\": \"<string>\",\n  \"SalesCurrencyCode\": \"<string>\",\n  \"CreditLimit\": \"<decimal>\",\n  \"PaymentTermsName\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab16a509-fe82-4d89-ac78-6c9237a540a2",
+              "name": "The created customer entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CustomerAccount\": \"<string>\",\n  \"CustomerGroupId\": \"<string>\",\n  \"OrganizationName\": \"<string>\",\n  \"AddressStreet\": \"<string>\",\n  \"AddressCity\": \"<string>\",\n  \"AddressState\": \"<string>\",\n  \"AddressZipCode\": \"<string>\",\n  \"AddressCountryRegionId\": \"<string>\",\n  \"PrimaryContactPhone\": \"<string>\",\n  \"PrimaryContactEmail\": \"<string>\",\n  \"SalesCurrencyCode\": \"<string>\",\n  \"CreditLimit\": \"<decimal>\",\n  \"PaymentTermsName\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"CustomerAccount\": \"<string>\",\n  \"CustomerGroupId\": \"<string>\",\n  \"OrganizationName\": \"<string>\",\n  \"AddressStreet\": \"<string>\",\n  \"AddressCity\": \"<string>\",\n  \"AddressState\": \"<string>\",\n  \"AddressZipCode\": \"<string>\",\n  \"AddressCountryRegionId\": \"<string>\",\n  \"PrimaryContactPhone\": \"<string>\",\n  \"PrimaryContactEmail\": \"<string>\",\n  \"SalesCurrencyCode\": \"<string>\",\n  \"CreditLimit\": \"<decimal>\",\n  \"PaymentTermsName\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cc7fc8cb-23aa-4cc7-8805-efd2abd2b291",
+      "name": "General Ledger",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cdd938a2-634d-4c06-b388-e3ffe6718522",
+          "name": "Microsoft Dynamics List general journal account entries",
+          "request": {
+            "name": "Microsoft Dynamics List general journal account entries",
+            "description": {
+              "content": "Retrieves the collection of general journal account entry entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "GeneralJournalAccountEntries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (max 10000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "cross-company",
+                  "value": "<boolean>",
+                  "description": "Set to true to retrieve data across all legal entities."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The environment-specific subdomain.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69188bc3-0f91-4e72-99b5-aea88cef9287",
+              "name": "A collection of general journal account entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GeneralJournalAccountEntries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cross-company",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"JournalNumber\": \"string\",\n      \"AccountingDate\": \"2022-11-30\",\n      \"MainAccountId\": \"string\",\n      \"TransactionCurrencyCode\": \"string\",\n      \"TransactionCurrencyAmount\": 3709.066861626036,\n      \"AccountingCurrencyAmount\": 1633.5290903434773,\n      \"PostingType\": \"string\",\n      \"DocumentNumber\": \"string\",\n      \"Text\": \"string\",\n      \"dataAreaId\": \"string\"\n    },\n    {\n      \"JournalNumber\": \"string\",\n      \"AccountingDate\": \"1957-05-09\",\n      \"MainAccountId\": \"string\",\n      \"TransactionCurrencyCode\": \"string\",\n      \"TransactionCurrencyAmount\": 2334.7242040517644,\n      \"AccountingCurrencyAmount\": 7202.06485246521,\n      \"PostingType\": \"string\",\n      \"DocumentNumber\": \"string\",\n      \"Text\": \"string\",\n      \"dataAreaId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e339f305-5d3d-4aa3-81a7-1d1e472ea1e0",
+      "name": "Human Resources",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cf27b8d7-ab5b-43a1-b866-4072d621383b",
+          "name": "Microsoft Dynamics List workers",
+          "request": {
+            "name": "Microsoft Dynamics List workers",
+            "description": {
+              "content": "Retrieves the collection of worker (employee) data entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Workers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (max 10000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "cross-company",
+                  "value": "<boolean>",
+                  "description": "Set to true to retrieve data across all legal entities."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The environment-specific subdomain.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47c5bb00-617e-4d3b-a3c3-c02abb9cacde",
+              "name": "A collection of worker entities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Workers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cross-company",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"PersonnelNumber\": \"string\",\n      \"FirstName\": \"string\",\n      \"MiddleName\": \"string\",\n      \"LastName\": \"string\",\n      \"NameAlias\": \"string\",\n      \"KnownAs\": \"string\",\n      \"PrimaryContactEmail\": \"string\",\n      \"PrimaryContactPhone\": \"string\",\n      \"EmploymentStartDate\": \"2008-11-18\",\n      \"EmploymentEndDate\": \"2008-06-06\",\n      \"WorkerType\": \"Contractor\",\n      \"dataAreaId\": \"string\"\n    },\n    {\n      \"PersonnelNumber\": \"string\",\n      \"FirstName\": \"string\",\n      \"MiddleName\": \"string\",\n      \"LastName\": \"string\",\n      \"NameAlias\": \"string\",\n      \"KnownAs\": \"string\",\n      \"PrimaryContactEmail\": \"string\",\n      \"PrimaryContactPhone\": \"string\",\n      \"EmploymentStartDate\": \"2017-07-03\",\n      \"EmploymentEndDate\": \"2011-10-27\",\n      \"WorkerType\": \"Contractor\",\n      \"dataAreaId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "21a5b44b-28b8-47a8-85d7-65e2343aed76",
+      "name": "Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71e865c4-0ad7-4ebc-8d53-e8772fa2813b",
+          "name": "Microsoft Dynamics List released products",
+          "request": {
+            "name": "Microsoft Dynamics List released products",
+            "description": {
+              "content": "Retrieves the collection of released product data entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ReleasedProducts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (max 10000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "cross-company",
+                  "value": "<boolean>",
+                  "description": "Set to true to retrieve data across all legal entities."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The environment-specific subdomain.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97f27f46-c11e-4cd3-bcb5-e67809a30707",
+              "name": "A collection of released product entities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ReleasedProducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cross-company",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"ItemNumber\": \"string\",\n      \"ProductName\": \"string\",\n      \"ProductDescription\": \"string\",\n      \"ProductType\": \"Service\",\n      \"ProductSubType\": \"string\",\n      \"ItemModelGroupId\": \"string\",\n      \"ProductGroupId\": \"string\",\n      \"SalesPrice\": 5634.518567205594,\n      \"PurchasePrice\": 6513.121169354536,\n      \"SalesUnitSymbol\": \"string\",\n      \"PurchaseUnitSymbol\": \"string\",\n      \"InventoryUnitSymbol\": \"string\",\n      \"dataAreaId\": \"string\"\n    },\n    {\n      \"ItemNumber\": \"string\",\n      \"ProductName\": \"string\",\n      \"ProductDescription\": \"string\",\n      \"ProductType\": \"Service\",\n      \"ProductSubType\": \"string\",\n      \"ItemModelGroupId\": \"string\",\n      \"ProductGroupId\": \"string\",\n      \"SalesPrice\": 8037.646606530544,\n      \"PurchasePrice\": 2745.777501468436,\n      \"SalesUnitSymbol\": \"string\",\n      \"PurchaseUnitSymbol\": \"string\",\n      \"InventoryUnitSymbol\": \"string\",\n      \"dataAreaId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7c1dab8-a17b-454e-acfa-a7cc1d97c244",
+          "name": "Microsoft Dynamics Create a released product",
+          "request": {
+            "name": "Microsoft Dynamics Create a released product",
+            "description": {
+              "content": "Creates a new released product data entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ReleasedProducts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The environment-specific subdomain.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ItemNumber\": \"<string>\",\n  \"ProductName\": \"<string>\",\n  \"ProductDescription\": \"<string>\",\n  \"ProductType\": \"<string>\",\n  \"ProductSubType\": \"<string>\",\n  \"ItemModelGroupId\": \"<string>\",\n  \"ProductGroupId\": \"<string>\",\n  \"SalesPrice\": \"<decimal>\",\n  \"PurchasePrice\": \"<decimal>\",\n  \"SalesUnitSymbol\": \"<string>\",\n  \"PurchaseUnitSymbol\": \"<string>\",\n  \"InventoryUnitSymbol\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90688c88-ad1f-497c-8851-084826faf5af",
+              "name": "The created product entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ReleasedProducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ItemNumber\": \"<string>\",\n  \"ProductName\": \"<string>\",\n  \"ProductDescription\": \"<string>\",\n  \"ProductType\": \"<string>\",\n  \"ProductSubType\": \"<string>\",\n  \"ItemModelGroupId\": \"<string>\",\n  \"ProductGroupId\": \"<string>\",\n  \"SalesPrice\": \"<decimal>\",\n  \"PurchasePrice\": \"<decimal>\",\n  \"SalesUnitSymbol\": \"<string>\",\n  \"PurchaseUnitSymbol\": \"<string>\",\n  \"InventoryUnitSymbol\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ItemNumber\": \"<string>\",\n  \"ProductName\": \"<string>\",\n  \"ProductDescription\": \"<string>\",\n  \"ProductType\": \"<string>\",\n  \"ProductSubType\": \"<string>\",\n  \"ItemModelGroupId\": \"<string>\",\n  \"ProductGroupId\": \"<string>\",\n  \"SalesPrice\": \"<decimal>\",\n  \"PurchasePrice\": \"<decimal>\",\n  \"SalesUnitSymbol\": \"<string>\",\n  \"PurchaseUnitSymbol\": \"<string>\",\n  \"InventoryUnitSymbol\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c16b3799-dcba-453b-9dca-48f327b9499e",
+      "name": "Purchase Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3e8bd21f-e396-4a37-b1a6-80a2a3c21c9c",
+          "name": "Microsoft Dynamics List purchase order headers",
+          "request": {
+            "name": "Microsoft Dynamics List purchase order headers",
+            "description": {
+              "content": "Retrieves the collection of purchase order header entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "PurchaseOrderHeaders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (max 10000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "cross-company",
+                  "value": "<boolean>",
+                  "description": "Set to true to retrieve data across all legal entities."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The environment-specific subdomain.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db30260a-8a70-4fb2-b424-c6fa04819f2f",
+              "name": "A collection of purchase order headers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "PurchaseOrderHeaders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cross-company",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"PurchaseOrderNumber\": \"string\",\n      \"OrderCreationDateTime\": \"1955-03-24T06:37:11.811Z\",\n      \"OrderVendorAccountNumber\": \"string\",\n      \"CurrencyCode\": \"string\",\n      \"PurchaseOrderStatus\": \"string\",\n      \"RequestedDeliveryDate\": \"2018-05-23\",\n      \"TotalOrderAmount\": 4170.207200441904,\n      \"dataAreaId\": \"string\"\n    },\n    {\n      \"PurchaseOrderNumber\": \"string\",\n      \"OrderCreationDateTime\": \"1972-11-11T20:33:17.417Z\",\n      \"OrderVendorAccountNumber\": \"string\",\n      \"CurrencyCode\": \"string\",\n      \"PurchaseOrderStatus\": \"string\",\n      \"RequestedDeliveryDate\": \"1950-06-12\",\n      \"TotalOrderAmount\": 8915.111444014641,\n      \"dataAreaId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d77f5cac-cfea-4e19-afad-a0e8a4e7eff4",
+          "name": "Microsoft Dynamics Create a purchase order header",
+          "request": {
+            "name": "Microsoft Dynamics Create a purchase order header",
+            "description": {
+              "content": "Creates a new purchase order header entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "PurchaseOrderHeaders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The environment-specific subdomain.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"OrderCreationDateTime\": \"<dateTime>\",\n  \"OrderVendorAccountNumber\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"PurchaseOrderStatus\": \"<string>\",\n  \"RequestedDeliveryDate\": \"<date>\",\n  \"TotalOrderAmount\": \"<decimal>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fcffa827-46b5-4140-b3a6-b61354397e15",
+              "name": "The created purchase order header.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "PurchaseOrderHeaders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"OrderCreationDateTime\": \"<dateTime>\",\n  \"OrderVendorAccountNumber\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"PurchaseOrderStatus\": \"<string>\",\n  \"RequestedDeliveryDate\": \"<date>\",\n  \"TotalOrderAmount\": \"<decimal>\",\n  \"dataAreaId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"OrderCreationDateTime\": \"<dateTime>\",\n  \"OrderVendorAccountNumber\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"PurchaseOrderStatus\": \"<string>\",\n  \"RequestedDeliveryDate\": \"<date>\",\n  \"TotalOrderAmount\": \"<decimal>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b36dfaaa-146a-46c9-8188-f8f1bf92a1c1",
+      "name": "Sales Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "844b22b2-9ffe-4045-83f3-9042a21d4d69",
+          "name": "Microsoft Dynamics List sales order headers",
+          "request": {
+            "name": "Microsoft Dynamics List sales order headers",
+            "description": {
+              "content": "Retrieves the collection of sales order header entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "SalesOrderHeaders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (max 10000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "cross-company",
+                  "value": "<boolean>",
+                  "description": "Set to true to retrieve data across all legal entities."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The environment-specific subdomain.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49a782c2-aa90-4dd9-b4c9-d2beaec2b09a",
+              "name": "A collection of sales order headers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "SalesOrderHeaders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cross-company",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"SalesOrderNumber\": \"string\",\n      \"OrderCreationDateTime\": \"1951-08-28T08:40:09.618Z\",\n      \"CustomerAccountNumber\": \"string\",\n      \"InvoiceCustomerAccountNumber\": \"string\",\n      \"CurrencyCode\": \"string\",\n      \"SalesOrderStatus\": \"string\",\n      \"RequestedShippingDate\": \"2005-07-13\",\n      \"TotalInvoiceAmount\": 582.761757949568,\n      \"dataAreaId\": \"string\"\n    },\n    {\n      \"SalesOrderNumber\": \"string\",\n      \"OrderCreationDateTime\": \"1955-11-29T01:43:44.952Z\",\n      \"CustomerAccountNumber\": \"string\",\n      \"InvoiceCustomerAccountNumber\": \"string\",\n      \"CurrencyCode\": \"string\",\n      \"SalesOrderStatus\": \"string\",\n      \"RequestedShippingDate\": \"2020-12-16\",\n      \"TotalInvoiceAmount\": 359.2700339531418,\n      \"dataAreaId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55c481f2-d0ee-4d3a-b3fd-4e51e654078f",
+          "name": "Microsoft Dynamics Create a sales order header",
+          "request": {
+            "name": "Microsoft Dynamics Create a sales order header",
+            "description": {
+              "content": "Creates a new sales order header entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "SalesOrderHeaders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The environment-specific subdomain.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SalesOrderNumber\": \"<string>\",\n  \"OrderCreationDateTime\": \"<dateTime>\",\n  \"CustomerAccountNumber\": \"<string>\",\n  \"InvoiceCustomerAccountNumber\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"SalesOrderStatus\": \"<string>\",\n  \"RequestedShippingDate\": \"<date>\",\n  \"TotalInvoiceAmount\": \"<decimal>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3d475d09-105c-4c2e-893d-c8469ccc07df",
+              "name": "The created sales order header.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "SalesOrderHeaders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SalesOrderNumber\": \"<string>\",\n  \"OrderCreationDateTime\": \"<dateTime>\",\n  \"CustomerAccountNumber\": \"<string>\",\n  \"InvoiceCustomerAccountNumber\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"SalesOrderStatus\": \"<string>\",\n  \"RequestedShippingDate\": \"<date>\",\n  \"TotalInvoiceAmount\": \"<decimal>\",\n  \"dataAreaId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SalesOrderNumber\": \"<string>\",\n  \"OrderCreationDateTime\": \"<dateTime>\",\n  \"CustomerAccountNumber\": \"<string>\",\n  \"InvoiceCustomerAccountNumber\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"SalesOrderStatus\": \"<string>\",\n  \"RequestedShippingDate\": \"<date>\",\n  \"TotalInvoiceAmount\": \"<decimal>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "11f88209-62fc-4e61-baa0-e0d0fbf2250d",
+      "name": "Vendors",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "045efc86-d61d-4150-80b0-63538e7ba045",
+          "name": "Microsoft Dynamics List vendors",
+          "request": {
+            "name": "Microsoft Dynamics List vendors",
+            "description": {
+              "content": "Retrieves the collection of vendor data entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (max 10000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "cross-company",
+                  "value": "<boolean>",
+                  "description": "Set to true to retrieve data across all legal entities."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The environment-specific subdomain.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce4ba341-3eaf-4faf-9440-414465f429a5",
+              "name": "A collection of vendor entities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cross-company",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"VendorAccountNumber\": \"string\",\n      \"VendorGroupId\": \"string\",\n      \"VendorOrganizationName\": \"string\",\n      \"AddressStreet\": \"string\",\n      \"AddressCity\": \"string\",\n      \"AddressState\": \"string\",\n      \"AddressZipCode\": \"string\",\n      \"AddressCountryRegionId\": \"string\",\n      \"PrimaryContactPhone\": \"string\",\n      \"PrimaryContactEmail\": \"string\",\n      \"PurchaseCurrencyCode\": \"string\",\n      \"PaymentTermsName\": \"string\",\n      \"dataAreaId\": \"string\"\n    },\n    {\n      \"VendorAccountNumber\": \"string\",\n      \"VendorGroupId\": \"string\",\n      \"VendorOrganizationName\": \"string\",\n      \"AddressStreet\": \"string\",\n      \"AddressCity\": \"string\",\n      \"AddressState\": \"string\",\n      \"AddressZipCode\": \"string\",\n      \"AddressCountryRegionId\": \"string\",\n      \"PrimaryContactPhone\": \"string\",\n      \"PrimaryContactEmail\": \"string\",\n      \"PurchaseCurrencyCode\": \"string\",\n      \"PaymentTermsName\": \"string\",\n      \"dataAreaId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50fe2a3b-9827-46b5-a0d2-85514aefbb53",
+          "name": "Microsoft Dynamics Create a vendor",
+          "request": {
+            "name": "Microsoft Dynamics Create a vendor",
+            "description": {
+              "content": "Creates a new vendor data entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The environment-specific subdomain.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"VendorAccountNumber\": \"<string>\",\n  \"VendorGroupId\": \"<string>\",\n  \"VendorOrganizationName\": \"<string>\",\n  \"AddressStreet\": \"<string>\",\n  \"AddressCity\": \"<string>\",\n  \"AddressState\": \"<string>\",\n  \"AddressZipCode\": \"<string>\",\n  \"AddressCountryRegionId\": \"<string>\",\n  \"PrimaryContactPhone\": \"<string>\",\n  \"PrimaryContactEmail\": \"<string>\",\n  \"PurchaseCurrencyCode\": \"<string>\",\n  \"PaymentTermsName\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "70e35679-b8fc-415d-8be9-03db54e2ef77",
+              "name": "The created vendor entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The environment-specific subdomain.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VendorAccountNumber\": \"<string>\",\n  \"VendorGroupId\": \"<string>\",\n  \"VendorOrganizationName\": \"<string>\",\n  \"AddressStreet\": \"<string>\",\n  \"AddressCity\": \"<string>\",\n  \"AddressState\": \"<string>\",\n  \"AddressZipCode\": \"<string>\",\n  \"AddressCountryRegionId\": \"<string>\",\n  \"PrimaryContactPhone\": \"<string>\",\n  \"PrimaryContactEmail\": \"<string>\",\n  \"PurchaseCurrencyCode\": \"<string>\",\n  \"PaymentTermsName\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"VendorAccountNumber\": \"<string>\",\n  \"VendorGroupId\": \"<string>\",\n  \"VendorOrganizationName\": \"<string>\",\n  \"AddressStreet\": \"<string>\",\n  \"AddressCity\": \"<string>\",\n  \"AddressState\": \"<string>\",\n  \"AddressZipCode\": \"<string>\",\n  \"AddressCountryRegionId\": \"<string>\",\n  \"PrimaryContactPhone\": \"<string>\",\n  \"PrimaryContactEmail\": \"<string>\",\n  \"PurchaseCurrencyCode\": \"<string>\",\n  \"PaymentTermsName\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The environment-specific subdomain.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "myorg",
+      "key": "environment"
+    },
+    {
+      "type": "string",
+      "value": "https://{{environment}}.operations.dynamics.com/data",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://myorg.operations.dynamics.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e981ddf2-5ab8-49a2-88f2-4a008ee47097",
+    "name": "Microsoft Dynamics 365 Finance & Operations Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Dynamics 365 Finance & Operations Data API exposes business data entities via OData v4 RESTful endpoints. It provides access to finance, supply chain, manufacturing, and human resources data including customers, vendors, products, sales orders, purchase orders, and general ledger journals. Authentication is handled via Microsoft Entra ID (Azure AD).\n\nContact Support:\n Name: Microsoft",
+      "type": "text/plain"
+    }
+  }
+}
