@@ -1,0 +1,183 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Dynamics 365 Business Central Accounts Employees API
+  description: The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.
+  version: '2.0'
+  contact:
+    name: Microsoft
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+servers:
+- url: https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0
+  description: Business Central Online (SaaS)
+  variables:
+    tenantId:
+      default: common
+      description: The Azure AD tenant ID or domain name.
+    environment:
+      default: production
+      description: The Business Central environment name.
+- url: https://{baseUrl}:{port}/{serverInstance}/api/v2.0
+  description: Business Central On-Premises
+  variables:
+    baseUrl:
+      default: localhost
+    port:
+      default: '7048'
+    serverInstance:
+      default: bc
+security:
+- oauth2: []
+tags:
+- name: Employees
+paths:
+  /companies({companyId})/employees:
+    get:
+      summary: Microsoft Dynamics List employees
+      description: Returns a list of employee records.
+      operationId: listEmployees
+      tags:
+      - Employees
+      parameters:
+      - $ref: '#/components/parameters/companyId'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/skip'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: A list of employees.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Employee'
+    post:
+      summary: Microsoft Dynamics Create an employee
+      description: Creates a new employee record.
+      operationId: createEmployee
+      tags:
+      - Employees
+      parameters:
+      - $ref: '#/components/parameters/companyId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '201':
+          description: The created employee.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+components:
+  schemas:
+    Employee:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        number:
+          type: string
+        displayName:
+          type: string
+        givenName:
+          type: string
+        middleName:
+          type: string
+        surname:
+          type: string
+        jobTitle:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        postalCode:
+          type: string
+        phoneNumber:
+          type: string
+        mobilePhone:
+          type: string
+        email:
+          type: string
+        personalEmail:
+          type: string
+        employmentDate:
+          type: string
+          format: date
+        terminationDate:
+          type: string
+          format: date
+        status:
+          type: string
+          enum:
+          - Active
+          - Inactive
+        birthDate:
+          type: string
+          format: date
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+  parameters:
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression.
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include.
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
+    companyId:
+      name: companyId
+      in: path
+      required: true
+      description: The ID of the company.
+      schema:
+        type: string
+        format: uuid
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return.
+      schema:
+        type: integer
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID (Azure AD) OAuth 2.0 authentication.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://api.businesscentral.dynamics.com/.default: Access Business Central API

@@ -1,0 +1,251 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Dynamics 365 Business Central Accounts Purchase Orders API
+  description: The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.
+  version: '2.0'
+  contact:
+    name: Microsoft
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+servers:
+- url: https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0
+  description: Business Central Online (SaaS)
+  variables:
+    tenantId:
+      default: common
+      description: The Azure AD tenant ID or domain name.
+    environment:
+      default: production
+      description: The Business Central environment name.
+- url: https://{baseUrl}:{port}/{serverInstance}/api/v2.0
+  description: Business Central On-Premises
+  variables:
+    baseUrl:
+      default: localhost
+    port:
+      default: '7048'
+    serverInstance:
+      default: bc
+security:
+- oauth2: []
+tags:
+- name: Purchase Orders
+paths:
+  /companies({companyId})/purchaseOrders:
+    get:
+      summary: Microsoft Dynamics List purchase orders
+      description: Returns a list of purchase orders.
+      operationId: listPurchaseOrders
+      tags:
+      - Purchase Orders
+      parameters:
+      - $ref: '#/components/parameters/companyId'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/skip'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: A list of purchase orders.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PurchaseOrder'
+    post:
+      summary: Microsoft Dynamics Create a purchase order
+      description: Creates a new purchase order.
+      operationId: createPurchaseOrder
+      tags:
+      - Purchase Orders
+      parameters:
+      - $ref: '#/components/parameters/companyId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseOrder'
+      responses:
+        '201':
+          description: The created purchase order.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseOrder'
+  /PurchaseOrderHeaders:
+    get:
+      summary: Microsoft Dynamics List purchase order headers
+      description: Retrieves the collection of purchase order header entities.
+      operationId: listPurchaseOrderHeaders
+      tags:
+      - Purchase Orders
+      parameters:
+      - $ref: '#/components/parameters/top_2'
+      - $ref: '#/components/parameters/skip'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/crossCompany'
+      responses:
+        '200':
+          description: A collection of purchase order headers.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PurchaseOrderHeaderEntity'
+    post:
+      summary: Microsoft Dynamics Create a purchase order header
+      description: Creates a new purchase order header entity.
+      operationId: createPurchaseOrderHeader
+      tags:
+      - Purchase Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseOrderHeaderEntity'
+      responses:
+        '201':
+          description: The created purchase order header.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseOrderHeaderEntity'
+components:
+  schemas:
+    PurchaseOrder:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        number:
+          type: string
+        orderDate:
+          type: string
+          format: date
+        postingDate:
+          type: string
+          format: date
+        vendorId:
+          type: string
+          format: uuid
+        vendorNumber:
+          type: string
+        vendorName:
+          type: string
+          readOnly: true
+        currencyCode:
+          type: string
+        status:
+          type: string
+          readOnly: true
+        totalAmountExcludingTax:
+          type: number
+          format: decimal
+          readOnly: true
+        totalAmountIncludingTax:
+          type: number
+          format: decimal
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+    PurchaseOrderHeaderEntity:
+      type: object
+      properties:
+        PurchaseOrderNumber:
+          type: string
+        OrderCreationDateTime:
+          type: string
+          format: date-time
+        OrderVendorAccountNumber:
+          type: string
+        CurrencyCode:
+          type: string
+        PurchaseOrderStatus:
+          type: string
+        RequestedDeliveryDate:
+          type: string
+          format: date
+        TotalOrderAmount:
+          type: number
+          format: decimal
+        dataAreaId:
+          type: string
+  parameters:
+    top_2:
+      name: $top
+      in: query
+      description: Maximum number of records to return (max 10000).
+      schema:
+        type: integer
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression.
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include.
+      schema:
+        type: string
+    crossCompany:
+      name: cross-company
+      in: query
+      description: Set to true to retrieve data across all legal entities.
+      schema:
+        type: boolean
+    companyId:
+      name: companyId
+      in: path
+      required: true
+      description: The ID of the company.
+      schema:
+        type: string
+        format: uuid
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return.
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort by.
+      schema:
+        type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID (Azure AD) OAuth 2.0 authentication.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://api.businesscentral.dynamics.com/.default: Access Business Central API

@@ -1,0 +1,163 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Dynamics 365 Business Central Accounts Products API
+  description: The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.
+  version: '2.0'
+  contact:
+    name: Microsoft
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+servers:
+- url: https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0
+  description: Business Central Online (SaaS)
+  variables:
+    tenantId:
+      default: common
+      description: The Azure AD tenant ID or domain name.
+    environment:
+      default: production
+      description: The Business Central environment name.
+- url: https://{baseUrl}:{port}/{serverInstance}/api/v2.0
+  description: Business Central On-Premises
+  variables:
+    baseUrl:
+      default: localhost
+    port:
+      default: '7048'
+    serverInstance:
+      default: bc
+security:
+- oauth2: []
+tags:
+- name: Products
+paths:
+  /ReleasedProducts:
+    get:
+      summary: Microsoft Dynamics List released products
+      description: Retrieves the collection of released product data entities.
+      operationId: listReleasedProducts
+      tags:
+      - Products
+      parameters:
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/skip'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/crossCompany'
+      responses:
+        '200':
+          description: A collection of released product entities.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ReleasedProductEntity'
+    post:
+      summary: Microsoft Dynamics Create a released product
+      description: Creates a new released product data entity.
+      operationId: createReleasedProduct
+      tags:
+      - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReleasedProductEntity'
+      responses:
+        '201':
+          description: The created product entity.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReleasedProductEntity'
+components:
+  parameters:
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression.
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include.
+      schema:
+        type: string
+    crossCompany:
+      name: cross-company
+      in: query
+      description: Set to true to retrieve data across all legal entities.
+      schema:
+        type: boolean
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return (max 10000).
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort by.
+      schema:
+        type: string
+  schemas:
+    ReleasedProductEntity:
+      type: object
+      properties:
+        ItemNumber:
+          type: string
+        ProductName:
+          type: string
+        ProductDescription:
+          type: string
+        ProductType:
+          type: string
+          enum:
+          - Item
+          - Service
+        ProductSubType:
+          type: string
+        ItemModelGroupId:
+          type: string
+        ProductGroupId:
+          type: string
+        SalesPrice:
+          type: number
+          format: decimal
+        PurchasePrice:
+          type: number
+          format: decimal
+        SalesUnitSymbol:
+          type: string
+        PurchaseUnitSymbol:
+          type: string
+        InventoryUnitSymbol:
+          type: string
+        dataAreaId:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID (Azure AD) OAuth 2.0 authentication.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://api.businesscentral.dynamics.com/.default: Access Business Central API

@@ -1,0 +1,246 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Dynamics 365 Business Central Accounts Contacts API
+  description: The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.
+  version: '2.0'
+  contact:
+    name: Microsoft
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+servers:
+- url: https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0
+  description: Business Central Online (SaaS)
+  variables:
+    tenantId:
+      default: common
+      description: The Azure AD tenant ID or domain name.
+    environment:
+      default: production
+      description: The Business Central environment name.
+- url: https://{baseUrl}:{port}/{serverInstance}/api/v2.0
+  description: Business Central On-Premises
+  variables:
+    baseUrl:
+      default: localhost
+    port:
+      default: '7048'
+    serverInstance:
+      default: bc
+security:
+- oauth2: []
+tags:
+- name: Contacts
+paths:
+  /contacts:
+    get:
+      summary: Microsoft Dynamics List contacts
+      description: Retrieves a collection of contact records.
+      operationId: listContacts
+      tags:
+      - Contacts
+      parameters:
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/skip'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: A collection of contacts.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Contact'
+    post:
+      summary: Microsoft Dynamics Create a contact
+      description: Creates a new contact record.
+      operationId: createContact
+      tags:
+      - Contacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      responses:
+        '204':
+          description: Contact created successfully.
+          headers:
+            OData-EntityId:
+              description: URI of the created record.
+              schema:
+                type: string
+  /contacts({contactid}):
+    get:
+      summary: Microsoft Dynamics Get a contact
+      description: Retrieves a single contact by ID.
+      operationId: getContact
+      tags:
+      - Contacts
+      parameters:
+      - name: contactid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: A contact record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+    patch:
+      summary: Microsoft Dynamics Update a contact
+      description: Updates an existing contact record.
+      operationId: updateContact
+      tags:
+      - Contacts
+      parameters:
+      - name: contactid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - $ref: '#/components/parameters/ifMatch'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      responses:
+        '204':
+          description: Contact updated successfully.
+    delete:
+      summary: Microsoft Dynamics Delete a contact
+      description: Deletes a contact record.
+      operationId: deleteContact
+      tags:
+      - Contacts
+      parameters:
+      - name: contactid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Contact deleted successfully.
+components:
+  parameters:
+    ifMatch:
+      name: If-Match
+      in: header
+      description: ETag value for optimistic concurrency.
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression.
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include.
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return.
+      schema:
+        type: integer
+    expand:
+      name: $expand
+      in: query
+      description: Related entities to expand inline.
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort by.
+      schema:
+        type: string
+  schemas:
+    Contact:
+      type: object
+      properties:
+        contactid:
+          type: string
+          format: uuid
+          readOnly: true
+        firstname:
+          type: string
+        lastname:
+          type: string
+        fullname:
+          type: string
+          readOnly: true
+        jobtitle:
+          type: string
+        emailaddress1:
+          type: string
+        telephone1:
+          type: string
+        mobilephone:
+          type: string
+        address1_line1:
+          type: string
+        address1_city:
+          type: string
+        address1_stateorprovince:
+          type: string
+        address1_postalcode:
+          type: string
+        address1_country:
+          type: string
+        birthdate:
+          type: string
+          format: date
+        statecode:
+          type: integer
+          description: 0 = Active, 1 = Inactive
+        statuscode:
+          type: integer
+        createdon:
+          type: string
+          format: date-time
+          readOnly: true
+        modifiedon:
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID (Azure AD) OAuth 2.0 authentication.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://api.businesscentral.dynamics.com/.default: Access Business Central API

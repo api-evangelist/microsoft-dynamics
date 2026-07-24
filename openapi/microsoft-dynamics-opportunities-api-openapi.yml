@@ -1,0 +1,244 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Dynamics 365 Business Central Accounts Opportunities API
+  description: The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.
+  version: '2.0'
+  contact:
+    name: Microsoft
+    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+servers:
+- url: https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0
+  description: Business Central Online (SaaS)
+  variables:
+    tenantId:
+      default: common
+      description: The Azure AD tenant ID or domain name.
+    environment:
+      default: production
+      description: The Business Central environment name.
+- url: https://{baseUrl}:{port}/{serverInstance}/api/v2.0
+  description: Business Central On-Premises
+  variables:
+    baseUrl:
+      default: localhost
+    port:
+      default: '7048'
+    serverInstance:
+      default: bc
+security:
+- oauth2: []
+tags:
+- name: Opportunities
+paths:
+  /opportunities:
+    get:
+      summary: Microsoft Dynamics List opportunities
+      description: Retrieves a collection of opportunity records.
+      operationId: listOpportunities
+      tags:
+      - Opportunities
+      parameters:
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/skip'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: A collection of opportunities.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Opportunity'
+    post:
+      summary: Microsoft Dynamics Create an opportunity
+      description: Creates a new opportunity record.
+      operationId: createOpportunity
+      tags:
+      - Opportunities
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+      responses:
+        '204':
+          description: Opportunity created successfully.
+          headers:
+            OData-EntityId:
+              description: URI of the created record.
+              schema:
+                type: string
+  /opportunities({opportunityid}):
+    get:
+      summary: Microsoft Dynamics Get an opportunity
+      description: Retrieves a single opportunity by ID.
+      operationId: getOpportunity
+      tags:
+      - Opportunities
+      parameters:
+      - name: opportunityid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/expand'
+      responses:
+        '200':
+          description: An opportunity record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opportunity'
+    patch:
+      summary: Microsoft Dynamics Update an opportunity
+      description: Updates an existing opportunity record.
+      operationId: updateOpportunity
+      tags:
+      - Opportunities
+      parameters:
+      - name: opportunityid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - $ref: '#/components/parameters/ifMatch'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opportunity'
+      responses:
+        '204':
+          description: Opportunity updated successfully.
+    delete:
+      summary: Microsoft Dynamics Delete an opportunity
+      description: Deletes an opportunity record.
+      operationId: deleteOpportunity
+      tags:
+      - Opportunities
+      parameters:
+      - name: opportunityid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: Opportunity deleted successfully.
+components:
+  parameters:
+    ifMatch:
+      name: If-Match
+      in: header
+      description: ETag value for optimistic concurrency.
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression.
+      schema:
+        type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include.
+      schema:
+        type: string
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return.
+      schema:
+        type: integer
+    expand:
+      name: $expand
+      in: query
+      description: Related entities to expand inline.
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort by.
+      schema:
+        type: string
+  schemas:
+    Opportunity:
+      type: object
+      properties:
+        opportunityid:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        estimatedvalue:
+          type: number
+          format: decimal
+        estimatedclosedate:
+          type: string
+          format: date
+        actualvalue:
+          type: number
+          format: decimal
+        actualclosedate:
+          type: string
+          format: date
+        closeprobability:
+          type: integer
+        currentsituation:
+          type: string
+        customerneed:
+          type: string
+        proposedsolution:
+          type: string
+        stepname:
+          type: string
+        statecode:
+          type: integer
+          description: 0 = Open, 1 = Won, 2 = Lost
+        statuscode:
+          type: integer
+        createdon:
+          type: string
+          format: date-time
+          readOnly: true
+        modifiedon:
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Entra ID (Azure AD) OAuth 2.0 authentication.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://api.businesscentral.dynamics.com/.default: Access Business Central API
