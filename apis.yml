@@ -921,4 +921,4 @@ description: 'Microsoft Dynamics 365 is a suite of enterprise resource planning 
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
-specificationVersion: '0.19'
+specificationVersion: '0.23'
