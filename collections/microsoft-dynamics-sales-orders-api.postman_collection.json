@@ -1,0 +1,647 @@
+{
+  "item": [
+    {
+      "id": "12e17203-cb58-444d-b281-0776162e1aeb",
+      "name": "Sales Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "25902e18-2425-4abc-be4d-b6ea0af1e3d1",
+          "name": "Microsoft Dynamics List sales orders",
+          "request": {
+            "name": "Microsoft Dynamics List sales orders",
+            "description": {
+              "content": "Returns a list of sales orders.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies({{companyId}})",
+                "salesOrders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54707423-50a2-47cc-b2fe-ea9e4d14d218",
+              "name": "A list of sales orders.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies({{companyId}})",
+                    "salesOrders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"66c56095-6d3c-f95d-c534-f4fea0654316\",\n      \"number\": \"string\",\n      \"orderDate\": \"1984-04-26\",\n      \"postingDate\": \"2015-06-06\",\n      \"customerId\": \"954ea478-9975-1333-7c29-2b3d9cc5a2a1\",\n      \"customerNumber\": \"string\",\n      \"customerName\": \"string\",\n      \"currencyCode\": \"string\",\n      \"status\": \"string\",\n      \"totalAmountExcludingTax\": 4573.02653180283,\n      \"totalAmountIncludingTax\": 644.736999008767,\n      \"lastModifiedDateTime\": \"2013-08-26T11:45:04.834Z\"\n    },\n    {\n      \"id\": \"834594d9-680e-8d17-6d7a-f364ca32de70\",\n      \"number\": \"string\",\n      \"orderDate\": \"1972-04-16\",\n      \"postingDate\": \"1949-08-30\",\n      \"customerId\": \"4bbe51db-f0b8-f8c2-3ad5-77acb2d783d0\",\n      \"customerNumber\": \"string\",\n      \"customerName\": \"string\",\n      \"currencyCode\": \"string\",\n      \"status\": \"string\",\n      \"totalAmountExcludingTax\": 3918.850164153386,\n      \"totalAmountIncludingTax\": 4783.354081468716,\n      \"lastModifiedDateTime\": \"2021-09-07T00:48:32.450Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e1f64b9-2263-409c-a489-d2b95d8f2fc2",
+          "name": "Microsoft Dynamics Create a sales order",
+          "request": {
+            "name": "Microsoft Dynamics Create a sales order",
+            "description": {
+              "content": "Creates a new sales order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies({{companyId}})",
+                "salesOrders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"number\": \"<string>\",\n  \"orderDate\": \"<date>\",\n  \"postingDate\": \"<date>\",\n  \"customerId\": \"<uuid>\",\n  \"customerNumber\": \"<string>\",\n  \"currencyCode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7d2927c-9aaa-49f1-8072-058c13f60a33",
+              "name": "The created sales order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies({{companyId}})",
+                    "salesOrders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"number\": \"<string>\",\n  \"orderDate\": \"<date>\",\n  \"postingDate\": \"<date>\",\n  \"customerId\": \"<uuid>\",\n  \"customerNumber\": \"<string>\",\n  \"currencyCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"073b1b70-0ba6-72b0-b64e-465fbf70b87e\",\n  \"number\": \"<string>\",\n  \"orderDate\": \"<date>\",\n  \"postingDate\": \"<date>\",\n  \"customerId\": \"<uuid>\",\n  \"customerNumber\": \"<string>\",\n  \"customerName\": \"string\",\n  \"currencyCode\": \"<string>\",\n  \"status\": \"string\",\n  \"totalAmountExcludingTax\": 6289.285822239337,\n  \"totalAmountIncludingTax\": 8305.906137158265,\n  \"lastModifiedDateTime\": \"2000-09-09T09:26:59.953Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6271480-ccbd-471d-9847-64dce5fd11a8",
+          "name": "Microsoft Dynamics List sales order headers",
+          "request": {
+            "name": "Microsoft Dynamics List sales order headers",
+            "description": {
+              "content": "Retrieves the collection of sales order header entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "SalesOrderHeaders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (max 10000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "cross-company",
+                  "value": "<boolean>",
+                  "description": "Set to true to retrieve data across all legal entities."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd174ae2-2105-4c56-98ba-0bd9daaddd18",
+              "name": "A collection of sales order headers.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "SalesOrderHeaders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cross-company",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"SalesOrderNumber\": \"string\",\n      \"OrderCreationDateTime\": \"1950-10-27T07:27:10.392Z\",\n      \"CustomerAccountNumber\": \"string\",\n      \"InvoiceCustomerAccountNumber\": \"string\",\n      \"CurrencyCode\": \"string\",\n      \"SalesOrderStatus\": \"string\",\n      \"RequestedShippingDate\": \"1947-02-07\",\n      \"TotalInvoiceAmount\": 8282.24909279519,\n      \"dataAreaId\": \"string\"\n    },\n    {\n      \"SalesOrderNumber\": \"string\",\n      \"OrderCreationDateTime\": \"2014-06-23T15:00:59.377Z\",\n      \"CustomerAccountNumber\": \"string\",\n      \"InvoiceCustomerAccountNumber\": \"string\",\n      \"CurrencyCode\": \"string\",\n      \"SalesOrderStatus\": \"string\",\n      \"RequestedShippingDate\": \"2011-12-14\",\n      \"TotalInvoiceAmount\": 5072.128802153552,\n      \"dataAreaId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08a539d5-d03e-4d11-8f6c-bbfff669bc5e",
+          "name": "Microsoft Dynamics Create a sales order header",
+          "request": {
+            "name": "Microsoft Dynamics Create a sales order header",
+            "description": {
+              "content": "Creates a new sales order header entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "SalesOrderHeaders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SalesOrderNumber\": \"<string>\",\n  \"OrderCreationDateTime\": \"<dateTime>\",\n  \"CustomerAccountNumber\": \"<string>\",\n  \"InvoiceCustomerAccountNumber\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"SalesOrderStatus\": \"<string>\",\n  \"RequestedShippingDate\": \"<date>\",\n  \"TotalInvoiceAmount\": \"<decimal>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c1499b79-1682-47e6-86ad-6378daf99dba",
+              "name": "The created sales order header.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "SalesOrderHeaders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SalesOrderNumber\": \"<string>\",\n  \"OrderCreationDateTime\": \"<dateTime>\",\n  \"CustomerAccountNumber\": \"<string>\",\n  \"InvoiceCustomerAccountNumber\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"SalesOrderStatus\": \"<string>\",\n  \"RequestedShippingDate\": \"<date>\",\n  \"TotalInvoiceAmount\": \"<decimal>\",\n  \"dataAreaId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SalesOrderNumber\": \"<string>\",\n  \"OrderCreationDateTime\": \"<dateTime>\",\n  \"CustomerAccountNumber\": \"<string>\",\n  \"InvoiceCustomerAccountNumber\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"SalesOrderStatus\": \"<string>\",\n  \"RequestedShippingDate\": \"<date>\",\n  \"TotalInvoiceAmount\": \"<decimal>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The Azure AD tenant ID or domain name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "common",
+      "key": "tenantId"
+    },
+    {
+      "description": {
+        "content": "The Business Central environment name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "production",
+      "key": "environment"
+    },
+    {
+      "type": "string",
+      "value": "https://api.businesscentral.dynamics.com/v2.0/{{tenantId}}/{{environment}}/api/v2.0",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The ID of the company.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "companyId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://api.businesscentral.dynamics.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "01822aaa-a757-4752-a785-ad0a04beafbd",
+    "name": "Microsoft Dynamics 365 Business Central Accounts Sales Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.\n\nContact Support:\n Name: Microsoft",
+      "type": "text/plain"
+    }
+  }
+}

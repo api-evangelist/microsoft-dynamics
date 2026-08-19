@@ -1,0 +1,356 @@
+{
+  "item": [
+    {
+      "id": "84847709-7049-4f33-8eb8-b99efd803c4f",
+      "name": "Employees",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4c60b6e8-7299-4dd2-acb3-ba472511d9b1",
+          "name": "Microsoft Dynamics List employees",
+          "request": {
+            "name": "Microsoft Dynamics List employees",
+            "description": {
+              "content": "Returns a list of employee records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies({{companyId}})",
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18fd04ce-c59c-48c2-b64e-79ea916b69bb",
+              "name": "A list of employees.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies({{companyId}})",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"eba7f8f7-1d78-2905-aa1f-ac8cb907f7d1\",\n      \"number\": \"string\",\n      \"displayName\": \"string\",\n      \"givenName\": \"string\",\n      \"middleName\": \"string\",\n      \"surname\": \"string\",\n      \"jobTitle\": \"string\",\n      \"addressLine1\": \"string\",\n      \"addressLine2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"country\": \"string\",\n      \"postalCode\": \"string\",\n      \"phoneNumber\": \"string\",\n      \"mobilePhone\": \"string\",\n      \"email\": \"string\",\n      \"personalEmail\": \"string\",\n      \"employmentDate\": \"1952-05-16\",\n      \"terminationDate\": \"1989-12-01\",\n      \"status\": \"Active\",\n      \"birthDate\": \"1957-12-08\",\n      \"lastModifiedDateTime\": \"1990-05-23T09:17:14.630Z\"\n    },\n    {\n      \"id\": \"edba5f09-abde-10c0-d7e2-2ecfd31215b5\",\n      \"number\": \"string\",\n      \"displayName\": \"string\",\n      \"givenName\": \"string\",\n      \"middleName\": \"string\",\n      \"surname\": \"string\",\n      \"jobTitle\": \"string\",\n      \"addressLine1\": \"string\",\n      \"addressLine2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"country\": \"string\",\n      \"postalCode\": \"string\",\n      \"phoneNumber\": \"string\",\n      \"mobilePhone\": \"string\",\n      \"email\": \"string\",\n      \"personalEmail\": \"string\",\n      \"employmentDate\": \"2002-12-26\",\n      \"terminationDate\": \"1947-07-01\",\n      \"status\": \"Active\",\n      \"birthDate\": \"1957-12-31\",\n      \"lastModifiedDateTime\": \"1978-02-04T17:56:05.850Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7db07db8-27ac-44b8-afcc-00648e43993c",
+          "name": "Microsoft Dynamics Create an employee",
+          "request": {
+            "name": "Microsoft Dynamics Create an employee",
+            "description": {
+              "content": "Creates a new employee record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies({{companyId}})",
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"number\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"middleName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"addressLine2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"mobilePhone\": \"<string>\",\n  \"email\": \"<string>\",\n  \"personalEmail\": \"<string>\",\n  \"employmentDate\": \"<date>\",\n  \"terminationDate\": \"<date>\",\n  \"status\": \"<string>\",\n  \"birthDate\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f8d4fe3a-e6d7-4c48-b231-02b58b58a909",
+              "name": "The created employee.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies({{companyId}})",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"number\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"middleName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"addressLine2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"mobilePhone\": \"<string>\",\n  \"email\": \"<string>\",\n  \"personalEmail\": \"<string>\",\n  \"employmentDate\": \"<date>\",\n  \"terminationDate\": \"<date>\",\n  \"status\": \"<string>\",\n  \"birthDate\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"052982e8-93c7-4be8-31d5-f27abedbd3df\",\n  \"number\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"middleName\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"jobTitle\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"addressLine2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"mobilePhone\": \"<string>\",\n  \"email\": \"<string>\",\n  \"personalEmail\": \"<string>\",\n  \"employmentDate\": \"<date>\",\n  \"terminationDate\": \"<date>\",\n  \"status\": \"<string>\",\n  \"birthDate\": \"<date>\",\n  \"lastModifiedDateTime\": \"1949-03-20T01:15:14.357Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The Azure AD tenant ID or domain name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "common",
+      "key": "tenantId"
+    },
+    {
+      "description": {
+        "content": "The Business Central environment name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "production",
+      "key": "environment"
+    },
+    {
+      "type": "string",
+      "value": "https://api.businesscentral.dynamics.com/v2.0/{{tenantId}}/{{environment}}/api/v2.0",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The ID of the company.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "companyId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://api.businesscentral.dynamics.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3743a90e-84b9-4ab2-a105-23bb49006f18",
+    "name": "Microsoft Dynamics 365 Business Central Accounts Employees API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.\n\nContact Support:\n Name: Microsoft",
+      "type": "text/plain"
+    }
+  }
+}

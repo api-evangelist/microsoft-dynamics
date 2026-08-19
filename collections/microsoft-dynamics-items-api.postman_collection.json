@@ -1,0 +1,356 @@
+{
+  "item": [
+    {
+      "id": "d61debb6-4748-4974-9b63-ac339ccb23a8",
+      "name": "Items",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "598c8e85-66ed-4e3c-8720-58c3a3b4e6d8",
+          "name": "Microsoft Dynamics List items",
+          "request": {
+            "name": "Microsoft Dynamics List items",
+            "description": {
+              "content": "Returns a list of inventory items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies({{companyId}})",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c260dd40-cbcb-41cb-86bb-3724674ac511",
+              "name": "A list of items.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies({{companyId}})",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"3ec99b9f-99aa-09fa-0221-61df4626e3c9\",\n      \"number\": \"string\",\n      \"displayName\": \"string\",\n      \"type\": \"Inventory\",\n      \"itemCategoryCode\": \"string\",\n      \"blocked\": true,\n      \"gtin\": \"string\",\n      \"unitPrice\": 5246.174871907886,\n      \"unitCost\": 6604.79794602109,\n      \"inventory\": 1868.5637933555465,\n      \"taxGroupCode\": \"string\",\n      \"baseUnitOfMeasureCode\": \"string\",\n      \"lastModifiedDateTime\": \"2008-03-14T04:20:02.789Z\"\n    },\n    {\n      \"id\": \"ec819f50-6195-38c0-9823-d3468a15a3db\",\n      \"number\": \"string\",\n      \"displayName\": \"string\",\n      \"type\": \"Non-Inventory\",\n      \"itemCategoryCode\": \"string\",\n      \"blocked\": false,\n      \"gtin\": \"string\",\n      \"unitPrice\": 2234.8862434452544,\n      \"unitCost\": 2492.1766604451245,\n      \"inventory\": 7925.307788151686,\n      \"taxGroupCode\": \"string\",\n      \"baseUnitOfMeasureCode\": \"string\",\n      \"lastModifiedDateTime\": \"1968-01-01T00:03:17.194Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ec9c9d6-bb31-4549-a30b-7f370d24a170",
+          "name": "Microsoft Dynamics Create an item",
+          "request": {
+            "name": "Microsoft Dynamics Create an item",
+            "description": {
+              "content": "Creates a new inventory item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies({{companyId}})",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"number\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"type\": \"<string>\",\n  \"itemCategoryCode\": \"<string>\",\n  \"blocked\": \"<boolean>\",\n  \"gtin\": \"<string>\",\n  \"unitPrice\": \"<decimal>\",\n  \"unitCost\": \"<decimal>\",\n  \"taxGroupCode\": \"<string>\",\n  \"baseUnitOfMeasureCode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a81b353c-c819-40d4-80e5-ce75ea3e136d",
+              "name": "The created item.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies({{companyId}})",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"number\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"type\": \"<string>\",\n  \"itemCategoryCode\": \"<string>\",\n  \"blocked\": \"<boolean>\",\n  \"gtin\": \"<string>\",\n  \"unitPrice\": \"<decimal>\",\n  \"unitCost\": \"<decimal>\",\n  \"taxGroupCode\": \"<string>\",\n  \"baseUnitOfMeasureCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1327b655-093b-6432-6f03-76ba3a0669f4\",\n  \"number\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"type\": \"<string>\",\n  \"itemCategoryCode\": \"<string>\",\n  \"blocked\": \"<boolean>\",\n  \"gtin\": \"<string>\",\n  \"unitPrice\": \"<decimal>\",\n  \"unitCost\": \"<decimal>\",\n  \"inventory\": 8393.07553346619,\n  \"taxGroupCode\": \"<string>\",\n  \"baseUnitOfMeasureCode\": \"<string>\",\n  \"lastModifiedDateTime\": \"1947-11-24T06:29:41.993Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The Azure AD tenant ID or domain name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "common",
+      "key": "tenantId"
+    },
+    {
+      "description": {
+        "content": "The Business Central environment name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "production",
+      "key": "environment"
+    },
+    {
+      "type": "string",
+      "value": "https://api.businesscentral.dynamics.com/v2.0/{{tenantId}}/{{environment}}/api/v2.0",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The ID of the company.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "companyId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://api.businesscentral.dynamics.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8d6cf302-a3d0-4f4c-83dc-dd3285a088a8",
+    "name": "Microsoft Dynamics 365 Business Central Accounts Items API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.\n\nContact Support:\n Name: Microsoft",
+      "type": "text/plain"
+    }
+  }
+}

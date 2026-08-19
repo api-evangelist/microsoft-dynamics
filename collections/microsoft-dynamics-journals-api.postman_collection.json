@@ -1,0 +1,356 @@
+{
+  "item": [
+    {
+      "id": "ea221025-4954-4404-912b-9bd11cf314cb",
+      "name": "Journals",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1c3f509-69ed-48cb-93fa-9ebb5701755f",
+          "name": "Microsoft Dynamics List journals",
+          "request": {
+            "name": "Microsoft Dynamics List journals",
+            "description": {
+              "content": "Returns a list of journals.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies({{companyId}})",
+                "journals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a49d19a4-1f3e-4d6a-9d4d-376b26cedf2f",
+              "name": "A list of journals.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies({{companyId}})",
+                    "journals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"12073ff6-cba4-775d-0e8e-95e68ab80a5c\",\n      \"code\": \"string\",\n      \"displayName\": \"string\",\n      \"balancingAccountId\": \"f79f9514-aefb-79b9-4a3c-de39b11fb179\",\n      \"balancingAccountNumber\": \"string\",\n      \"lastModifiedDateTime\": \"1952-01-28T11:07:29.683Z\"\n    },\n    {\n      \"id\": \"4705e580-01f1-b108-c4a2-b366392cfb4f\",\n      \"code\": \"string\",\n      \"displayName\": \"string\",\n      \"balancingAccountId\": \"dda9b911-db9c-5e9d-03e5-c5632af82967\",\n      \"balancingAccountNumber\": \"string\",\n      \"lastModifiedDateTime\": \"1990-03-01T16:13:54.696Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79de00cd-b3c2-41e8-9bb8-34092dca6adc",
+          "name": "Microsoft Dynamics Create a journal",
+          "request": {
+            "name": "Microsoft Dynamics Create a journal",
+            "description": {
+              "content": "Creates a new journal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies({{companyId}})",
+                "journals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"balancingAccountId\": \"<uuid>\",\n  \"balancingAccountNumber\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aa9e2464-363e-4ac7-ace3-3f21abe09b1a",
+              "name": "The created journal.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies({{companyId}})",
+                    "journals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"code\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"balancingAccountId\": \"<uuid>\",\n  \"balancingAccountNumber\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1ddcf780-0a90-af11-057a-e627bef57c12\",\n  \"code\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"balancingAccountId\": \"<uuid>\",\n  \"balancingAccountNumber\": \"<string>\",\n  \"lastModifiedDateTime\": \"1979-07-26T06:55:48.639Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The Azure AD tenant ID or domain name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "common",
+      "key": "tenantId"
+    },
+    {
+      "description": {
+        "content": "The Business Central environment name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "production",
+      "key": "environment"
+    },
+    {
+      "type": "string",
+      "value": "https://api.businesscentral.dynamics.com/v2.0/{{tenantId}}/{{environment}}/api/v2.0",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The ID of the company.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "companyId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://api.businesscentral.dynamics.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "aa08fc76-2f7c-49c1-9ed2-f4b6b264ef15",
+    "name": "Microsoft Dynamics 365 Business Central Accounts Journals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.\n\nContact Support:\n Name: Microsoft",
+      "type": "text/plain"
+    }
+  }
+}

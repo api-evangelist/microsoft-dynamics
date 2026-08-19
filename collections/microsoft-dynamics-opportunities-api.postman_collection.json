@@ -1,0 +1,719 @@
+{
+  "item": [
+    {
+      "id": "2e9cbf4a-3f2d-42a3-b23c-eeac66b8bb7d",
+      "name": "Opportunities",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "32bd9fbd-d152-4503-badc-d0a46f834663",
+          "name": "Microsoft Dynamics List opportunities",
+          "request": {
+            "name": "Microsoft Dynamics List opportunities",
+            "description": {
+              "content": "Retrieves a collection of opportunity records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "opportunities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d36444bf-bf17-4888-a49c-1946703d020d",
+              "name": "A collection of opportunities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opportunities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"opportunityid\": \"e30d5072-b535-ca76-ceb1-b20e0c83a1a0\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"estimatedvalue\": 8942.53300595838,\n      \"estimatedclosedate\": \"1955-04-02\",\n      \"actualvalue\": 3861.0401536894447,\n      \"actualclosedate\": \"1958-12-15\",\n      \"closeprobability\": 4459,\n      \"currentsituation\": \"string\",\n      \"customerneed\": \"string\",\n      \"proposedsolution\": \"string\",\n      \"stepname\": \"string\",\n      \"statecode\": 3608,\n      \"statuscode\": 6835,\n      \"createdon\": \"1981-01-20T10:24:12.849Z\",\n      \"modifiedon\": \"2004-04-24T01:39:18.943Z\"\n    },\n    {\n      \"opportunityid\": \"901e0862-135d-d7bb-b36a-1b8783fcb1c3\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"estimatedvalue\": 225.96829557060994,\n      \"estimatedclosedate\": \"1989-03-31\",\n      \"actualvalue\": 9425.378916710888,\n      \"actualclosedate\": \"1960-05-14\",\n      \"closeprobability\": 4702,\n      \"currentsituation\": \"string\",\n      \"customerneed\": \"string\",\n      \"proposedsolution\": \"string\",\n      \"stepname\": \"string\",\n      \"statecode\": 2104,\n      \"statuscode\": 7294,\n      \"createdon\": \"2022-01-01T05:43:30.889Z\",\n      \"modifiedon\": \"1987-05-29T09:17:50.774Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d0a1b91-1f15-4c1c-b2f0-8e4e5bfe3c4a",
+          "name": "Microsoft Dynamics Create an opportunity",
+          "request": {
+            "name": "Microsoft Dynamics Create an opportunity",
+            "description": {
+              "content": "Creates a new opportunity record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "opportunities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"actualvalue\": \"<decimal>\",\n  \"actualclosedate\": \"<date>\",\n  \"closeprobability\": \"<integer>\",\n  \"currentsituation\": \"<string>\",\n  \"customerneed\": \"<string>\",\n  \"proposedsolution\": \"<string>\",\n  \"stepname\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2505433b-0ef2-4f7b-92f9-df8db9b7f8be",
+              "name": "Opportunity created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opportunities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"actualvalue\": \"<decimal>\",\n  \"actualclosedate\": \"<date>\",\n  \"closeprobability\": \"<integer>\",\n  \"currentsituation\": \"<string>\",\n  \"customerneed\": \"<string>\",\n  \"proposedsolution\": \"<string>\",\n  \"stepname\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URI of the created record.",
+                  "key": "OData-EntityId",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6bd1a38e-c0d2-4dfe-8026-ee490cf190b4",
+          "name": "Microsoft Dynamics Get an opportunity",
+          "request": {
+            "name": "Microsoft Dynamics Get an opportunity",
+            "description": {
+              "content": "Retrieves a single opportunity by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "opportunities({{opportunityid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0839cac5-8f1d-4e50-be55-1e7fb2d4084a",
+              "name": "An opportunity record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opportunities({{opportunityid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"opportunityid\": \"758e61ba-b7ad-05a8-7624-b3aeb6e640b7\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"actualvalue\": \"<decimal>\",\n  \"actualclosedate\": \"<date>\",\n  \"closeprobability\": \"<integer>\",\n  \"currentsituation\": \"<string>\",\n  \"customerneed\": \"<string>\",\n  \"proposedsolution\": \"<string>\",\n  \"stepname\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\",\n  \"createdon\": \"1988-03-01T21:44:14.988Z\",\n  \"modifiedon\": \"2000-10-25T10:27:21.963Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e84322c-9e28-4131-8483-0319ead79bb6",
+          "name": "Microsoft Dynamics Update an opportunity",
+          "request": {
+            "name": "Microsoft Dynamics Update an opportunity",
+            "description": {
+              "content": "Updates an existing opportunity record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "opportunities({{opportunityid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag value for optimistic concurrency.",
+                "key": "If-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"actualvalue\": \"<decimal>\",\n  \"actualclosedate\": \"<date>\",\n  \"closeprobability\": \"<integer>\",\n  \"currentsituation\": \"<string>\",\n  \"customerneed\": \"<string>\",\n  \"proposedsolution\": \"<string>\",\n  \"stepname\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fe61e603-309d-4c12-89a4-d3bb75015fd9",
+              "name": "Opportunity updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opportunities({{opportunityid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag value for optimistic concurrency.",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"actualvalue\": \"<decimal>\",\n  \"actualclosedate\": \"<date>\",\n  \"closeprobability\": \"<integer>\",\n  \"currentsituation\": \"<string>\",\n  \"customerneed\": \"<string>\",\n  \"proposedsolution\": \"<string>\",\n  \"stepname\": \"<string>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99627189-3b1b-4577-a74b-34ab5476f05e",
+          "name": "Microsoft Dynamics Delete an opportunity",
+          "request": {
+            "name": "Microsoft Dynamics Delete an opportunity",
+            "description": {
+              "content": "Deletes an opportunity record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "opportunities({{opportunityid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "48a6ba57-4aac-4410-91e6-fb52e0240b58",
+              "name": "Opportunity deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opportunities({{opportunityid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The Azure AD tenant ID or domain name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "common",
+      "key": "tenantId"
+    },
+    {
+      "description": {
+        "content": "The Business Central environment name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "production",
+      "key": "environment"
+    },
+    {
+      "type": "string",
+      "value": "https://api.businesscentral.dynamics.com/v2.0/{{tenantId}}/{{environment}}/api/v2.0",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "opportunityid"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://api.businesscentral.dynamics.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8b3e711f-83b4-4c24-a299-059094ef4021",
+    "name": "Microsoft Dynamics 365 Business Central Accounts Opportunities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.\n\nContact Support:\n Name: Microsoft",
+      "type": "text/plain"
+    }
+  }
+}

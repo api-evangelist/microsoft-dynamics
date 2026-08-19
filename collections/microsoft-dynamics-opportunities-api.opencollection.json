@@ -1,0 +1,170 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Dynamics 365 Business Central Accounts Opportunities API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Opportunities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Dynamics List opportunities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0/opportunities",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return."
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip."
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression."
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include."
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to sort by."
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Related entities to expand inline."
+              }
+            ]
+          },
+          "docs": "Retrieves a collection of opportunity records."
+        },
+        {
+          "info": {
+            "name": "Microsoft Dynamics Create an opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0/opportunities",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new opportunity record."
+        },
+        {
+          "info": {
+            "name": "Microsoft Dynamics Get an opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0/opportunities(:opportunityid)",
+            "params": [
+              {
+                "name": "opportunityid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include."
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Related entities to expand inline."
+              }
+            ]
+          },
+          "docs": "Retrieves a single opportunity by ID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Dynamics Update an opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0/opportunities(:opportunityid)",
+            "headers": [
+              {
+                "name": "If-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "opportunityid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing opportunity record."
+        },
+        {
+          "info": {
+            "name": "Microsoft Dynamics Delete an opportunity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0/opportunities(:opportunityid)",
+            "params": [
+              {
+                "name": "opportunityid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an opportunity record."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

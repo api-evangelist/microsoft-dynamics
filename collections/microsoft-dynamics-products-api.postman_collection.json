@@ -1,0 +1,362 @@
+{
+  "item": [
+    {
+      "id": "e63a3e77-7b7b-47e0-a042-1be23a96a2d0",
+      "name": "Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "532fd420-9bdd-46d6-aa95-d842e32640d9",
+          "name": "Microsoft Dynamics List released products",
+          "request": {
+            "name": "Microsoft Dynamics List released products",
+            "description": {
+              "content": "Retrieves the collection of released product data entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ReleasedProducts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (max 10000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "cross-company",
+                  "value": "<boolean>",
+                  "description": "Set to true to retrieve data across all legal entities."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d29c3bf3-7b16-49fc-8eec-57197909ab83",
+              "name": "A collection of released product entities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ReleasedProducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cross-company",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"ItemNumber\": \"string\",\n      \"ProductName\": \"string\",\n      \"ProductDescription\": \"string\",\n      \"ProductType\": \"Item\",\n      \"ProductSubType\": \"string\",\n      \"ItemModelGroupId\": \"string\",\n      \"ProductGroupId\": \"string\",\n      \"SalesPrice\": 3464.004135191806,\n      \"PurchasePrice\": 1813.8142210711617,\n      \"SalesUnitSymbol\": \"string\",\n      \"PurchaseUnitSymbol\": \"string\",\n      \"InventoryUnitSymbol\": \"string\",\n      \"dataAreaId\": \"string\"\n    },\n    {\n      \"ItemNumber\": \"string\",\n      \"ProductName\": \"string\",\n      \"ProductDescription\": \"string\",\n      \"ProductType\": \"Service\",\n      \"ProductSubType\": \"string\",\n      \"ItemModelGroupId\": \"string\",\n      \"ProductGroupId\": \"string\",\n      \"SalesPrice\": 6442.164200079105,\n      \"PurchasePrice\": 6534.5203563906425,\n      \"SalesUnitSymbol\": \"string\",\n      \"PurchaseUnitSymbol\": \"string\",\n      \"InventoryUnitSymbol\": \"string\",\n      \"dataAreaId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c9dfb65-cee4-4293-9856-24cd5f2d2ca6",
+          "name": "Microsoft Dynamics Create a released product",
+          "request": {
+            "name": "Microsoft Dynamics Create a released product",
+            "description": {
+              "content": "Creates a new released product data entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ReleasedProducts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ItemNumber\": \"<string>\",\n  \"ProductName\": \"<string>\",\n  \"ProductDescription\": \"<string>\",\n  \"ProductType\": \"<string>\",\n  \"ProductSubType\": \"<string>\",\n  \"ItemModelGroupId\": \"<string>\",\n  \"ProductGroupId\": \"<string>\",\n  \"SalesPrice\": \"<decimal>\",\n  \"PurchasePrice\": \"<decimal>\",\n  \"SalesUnitSymbol\": \"<string>\",\n  \"PurchaseUnitSymbol\": \"<string>\",\n  \"InventoryUnitSymbol\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "39c1e4c5-604a-47c3-a28a-c77ff82348e8",
+              "name": "The created product entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ReleasedProducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ItemNumber\": \"<string>\",\n  \"ProductName\": \"<string>\",\n  \"ProductDescription\": \"<string>\",\n  \"ProductType\": \"<string>\",\n  \"ProductSubType\": \"<string>\",\n  \"ItemModelGroupId\": \"<string>\",\n  \"ProductGroupId\": \"<string>\",\n  \"SalesPrice\": \"<decimal>\",\n  \"PurchasePrice\": \"<decimal>\",\n  \"SalesUnitSymbol\": \"<string>\",\n  \"PurchaseUnitSymbol\": \"<string>\",\n  \"InventoryUnitSymbol\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ItemNumber\": \"<string>\",\n  \"ProductName\": \"<string>\",\n  \"ProductDescription\": \"<string>\",\n  \"ProductType\": \"<string>\",\n  \"ProductSubType\": \"<string>\",\n  \"ItemModelGroupId\": \"<string>\",\n  \"ProductGroupId\": \"<string>\",\n  \"SalesPrice\": \"<decimal>\",\n  \"PurchasePrice\": \"<decimal>\",\n  \"SalesUnitSymbol\": \"<string>\",\n  \"PurchaseUnitSymbol\": \"<string>\",\n  \"InventoryUnitSymbol\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The Azure AD tenant ID or domain name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "common",
+      "key": "tenantId"
+    },
+    {
+      "description": {
+        "content": "The Business Central environment name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "production",
+      "key": "environment"
+    },
+    {
+      "type": "string",
+      "value": "https://api.businesscentral.dynamics.com/v2.0/{{tenantId}}/{{environment}}/api/v2.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://api.businesscentral.dynamics.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "54cb31f8-2a2a-4120-a66a-f4702803bb86",
+    "name": "Microsoft Dynamics 365 Business Central Accounts Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.\n\nContact Support:\n Name: Microsoft",
+      "type": "text/plain"
+    }
+  }
+}

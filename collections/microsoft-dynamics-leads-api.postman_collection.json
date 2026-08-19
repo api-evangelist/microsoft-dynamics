@@ -1,0 +1,719 @@
+{
+  "item": [
+    {
+      "id": "0c4cd612-ba7a-4868-b888-ebba4c0fd879",
+      "name": "Leads",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b5fc1d38-b2c6-43ac-b043-147fd1fd85ab",
+          "name": "Microsoft Dynamics List leads",
+          "request": {
+            "name": "Microsoft Dynamics List leads",
+            "description": {
+              "content": "Retrieves a collection of lead records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1ad589e-9c7d-4164-8f34-be8231827379",
+              "name": "A collection of leads.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"leadid\": \"36522a3f-a5b5-b2f2-0122-562b060681d1\",\n      \"subject\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"fullname\": \"string\",\n      \"companyname\": \"string\",\n      \"jobtitle\": \"string\",\n      \"emailaddress1\": \"string\",\n      \"telephone1\": \"string\",\n      \"address1_line1\": \"string\",\n      \"address1_city\": \"string\",\n      \"address1_stateorprovince\": \"string\",\n      \"address1_postalcode\": \"string\",\n      \"address1_country\": \"string\",\n      \"leadsourcecode\": 4013,\n      \"estimatedvalue\": 714.993051951377,\n      \"estimatedclosedate\": \"1953-05-11\",\n      \"statecode\": 5522,\n      \"statuscode\": 901,\n      \"createdon\": \"1987-06-03T14:47:51.047Z\",\n      \"modifiedon\": \"2021-01-25T18:12:09.341Z\"\n    },\n    {\n      \"leadid\": \"2e209cd6-f011-b7e2-d832-f3688ff89977\",\n      \"subject\": \"string\",\n      \"firstname\": \"string\",\n      \"lastname\": \"string\",\n      \"fullname\": \"string\",\n      \"companyname\": \"string\",\n      \"jobtitle\": \"string\",\n      \"emailaddress1\": \"string\",\n      \"telephone1\": \"string\",\n      \"address1_line1\": \"string\",\n      \"address1_city\": \"string\",\n      \"address1_stateorprovince\": \"string\",\n      \"address1_postalcode\": \"string\",\n      \"address1_country\": \"string\",\n      \"leadsourcecode\": 9640,\n      \"estimatedvalue\": 9063.621409686426,\n      \"estimatedclosedate\": \"1990-07-07\",\n      \"statecode\": 7950,\n      \"statuscode\": 6367,\n      \"createdon\": \"2009-12-01T04:54:45.983Z\",\n      \"modifiedon\": \"2013-03-07T08:29:45.428Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71a3cc66-01a8-4d61-b835-0285f49c31d3",
+          "name": "Microsoft Dynamics Create a lead",
+          "request": {
+            "name": "Microsoft Dynamics Create a lead",
+            "description": {
+              "content": "Creates a new lead record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"companyname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"leadsourcecode\": \"<integer>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "30ee056f-2213-4c65-ac52-b78ae192ddfb",
+              "name": "Lead created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"companyname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"leadsourcecode\": \"<integer>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URI of the created record.",
+                  "key": "OData-EntityId",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87be5b9b-1ec6-44a3-b668-519623b1d5df",
+          "name": "Microsoft Dynamics Get a lead",
+          "request": {
+            "name": "Microsoft Dynamics Get a lead",
+            "description": {
+              "content": "Retrieves a single lead by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads({{leadid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Related entities to expand inline."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a8e4552-1dac-4889-925a-f5bdb8d331e7",
+              "name": "A lead record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads({{leadid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"leadid\": \"b5e42c5c-8403-2262-369d-06b6013adc6c\",\n  \"subject\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"fullname\": \"string\",\n  \"companyname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"leadsourcecode\": \"<integer>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\",\n  \"createdon\": \"1966-08-15T22:26:39.725Z\",\n  \"modifiedon\": \"2011-07-19T09:48:26.485Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17b7a450-4d7c-4ab0-a40c-721c64f45ecc",
+          "name": "Microsoft Dynamics Update a lead",
+          "request": {
+            "name": "Microsoft Dynamics Update a lead",
+            "description": {
+              "content": "Updates an existing lead record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads({{leadid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "ETag value for optimistic concurrency.",
+                "key": "If-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subject\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"companyname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"leadsourcecode\": \"<integer>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3583f8cd-8ea1-42e6-9173-afb20ec9b279",
+              "name": "Lead updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads({{leadid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "ETag value for optimistic concurrency.",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"subject\": \"<string>\",\n  \"firstname\": \"<string>\",\n  \"lastname\": \"<string>\",\n  \"companyname\": \"<string>\",\n  \"jobtitle\": \"<string>\",\n  \"emailaddress1\": \"<string>\",\n  \"telephone1\": \"<string>\",\n  \"address1_line1\": \"<string>\",\n  \"address1_city\": \"<string>\",\n  \"address1_stateorprovince\": \"<string>\",\n  \"address1_postalcode\": \"<string>\",\n  \"address1_country\": \"<string>\",\n  \"leadsourcecode\": \"<integer>\",\n  \"estimatedvalue\": \"<decimal>\",\n  \"estimatedclosedate\": \"<date>\",\n  \"statecode\": \"<integer>\",\n  \"statuscode\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21687753-bd4d-427d-9e6e-f02a7a081f3f",
+          "name": "Microsoft Dynamics Delete a lead",
+          "request": {
+            "name": "Microsoft Dynamics Delete a lead",
+            "description": {
+              "content": "Deletes a lead record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads({{leadid}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "afdd58ad-2c60-40b6-9d14-866ee892c624",
+              "name": "Lead deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads({{leadid}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The Azure AD tenant ID or domain name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "common",
+      "key": "tenantId"
+    },
+    {
+      "description": {
+        "content": "The Business Central environment name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "production",
+      "key": "environment"
+    },
+    {
+      "type": "string",
+      "value": "https://api.businesscentral.dynamics.com/v2.0/{{tenantId}}/{{environment}}/api/v2.0",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "leadid"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://api.businesscentral.dynamics.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5c422901-5178-46ad-84de-a6ee5174856a",
+    "name": "Microsoft Dynamics 365 Business Central Accounts Leads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.\n\nContact Support:\n Name: Microsoft",
+      "type": "text/plain"
+    }
+  }
+}

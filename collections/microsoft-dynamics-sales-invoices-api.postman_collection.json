@@ -1,0 +1,356 @@
+{
+  "item": [
+    {
+      "id": "0b8c7847-28c8-439c-954f-cf6a2690f20c",
+      "name": "Sales Invoices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f387d430-91c9-4c06-abd6-b5db63216662",
+          "name": "Microsoft Dynamics List sales invoices",
+          "request": {
+            "name": "Microsoft Dynamics List sales invoices",
+            "description": {
+              "content": "Returns a list of sales invoices.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies({{companyId}})",
+                "salesInvoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ddac5c0a-c815-4672-a244-323188bd3c4e",
+              "name": "A list of sales invoices.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies({{companyId}})",
+                    "salesInvoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"e9871f65-9688-6010-5133-ec010df7eae5\",\n      \"number\": \"string\",\n      \"invoiceDate\": \"2003-02-28\",\n      \"postingDate\": \"1957-10-24\",\n      \"dueDate\": \"2021-10-29\",\n      \"customerId\": \"d52db3bc-c916-829e-a7ce-0934a3003c49\",\n      \"customerNumber\": \"string\",\n      \"customerName\": \"string\",\n      \"currencyCode\": \"string\",\n      \"status\": \"string\",\n      \"totalAmountExcludingTax\": 4023.8301735498503,\n      \"totalAmountIncludingTax\": 7235.719243196041,\n      \"lastModifiedDateTime\": \"2019-04-26T05:38:30.290Z\"\n    },\n    {\n      \"id\": \"353154d0-89b2-bc61-6442-8698452969da\",\n      \"number\": \"string\",\n      \"invoiceDate\": \"1949-05-22\",\n      \"postingDate\": \"1947-09-19\",\n      \"dueDate\": \"1955-08-25\",\n      \"customerId\": \"1d228b04-e9a4-e52b-d477-6b9c9f9071a4\",\n      \"customerNumber\": \"string\",\n      \"customerName\": \"string\",\n      \"currencyCode\": \"string\",\n      \"status\": \"string\",\n      \"totalAmountExcludingTax\": 1756.7833686078793,\n      \"totalAmountIncludingTax\": 4955.330519554358,\n      \"lastModifiedDateTime\": \"1946-11-20T10:37:27.303Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a156c70f-99ef-41b4-b5dd-3209e2457b84",
+          "name": "Microsoft Dynamics Create a sales invoice",
+          "request": {
+            "name": "Microsoft Dynamics Create a sales invoice",
+            "description": {
+              "content": "Creates a new sales invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies({{companyId}})",
+                "salesInvoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"number\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"postingDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"customerId\": \"<uuid>\",\n  \"customerNumber\": \"<string>\",\n  \"currencyCode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2dea094f-2de4-4065-b175-5e5db086105b",
+              "name": "The created sales invoice.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies({{companyId}})",
+                    "salesInvoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"number\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"postingDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"customerId\": \"<uuid>\",\n  \"customerNumber\": \"<string>\",\n  \"currencyCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"0b62ca6d-04bd-4508-76c0-5e1c4f4af7f2\",\n  \"number\": \"<string>\",\n  \"invoiceDate\": \"<date>\",\n  \"postingDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"customerId\": \"<uuid>\",\n  \"customerNumber\": \"<string>\",\n  \"customerName\": \"string\",\n  \"currencyCode\": \"<string>\",\n  \"status\": \"string\",\n  \"totalAmountExcludingTax\": 5346.5724818312065,\n  \"totalAmountIncludingTax\": 1470.8328284986537,\n  \"lastModifiedDateTime\": \"1973-11-30T21:11:02.741Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The Azure AD tenant ID or domain name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "common",
+      "key": "tenantId"
+    },
+    {
+      "description": {
+        "content": "The Business Central environment name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "production",
+      "key": "environment"
+    },
+    {
+      "type": "string",
+      "value": "https://api.businesscentral.dynamics.com/v2.0/{{tenantId}}/{{environment}}/api/v2.0",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The ID of the company.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "companyId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://api.businesscentral.dynamics.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "00cae733-06f4-4c07-92a5-474a979937a0",
+    "name": "Microsoft Dynamics 365 Business Central Accounts Sales Invoices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.\n\nContact Support:\n Name: Microsoft",
+      "type": "text/plain"
+    }
+  }
+}

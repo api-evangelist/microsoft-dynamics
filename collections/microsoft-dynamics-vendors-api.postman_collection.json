@@ -1,0 +1,647 @@
+{
+  "item": [
+    {
+      "id": "082d0553-9d6d-47c9-94e7-8e5480dc1a62",
+      "name": "Vendors",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9f7f7b45-bcd4-48b2-9789-bc8d9b50beae",
+          "name": "Microsoft Dynamics List vendors",
+          "request": {
+            "name": "Microsoft Dynamics List vendors",
+            "description": {
+              "content": "Returns a list of vendor records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies({{companyId}})",
+                "vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43288d18-4932-4f42-aecf-60afbcd02d3d",
+              "name": "A list of vendors.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies({{companyId}})",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"ec8de4c8-4565-e69a-74ee-d1b9e6fcaaa6\",\n      \"number\": \"string\",\n      \"displayName\": \"string\",\n      \"addressLine1\": \"string\",\n      \"addressLine2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"country\": \"string\",\n      \"postalCode\": \"string\",\n      \"phoneNumber\": \"string\",\n      \"email\": \"string\",\n      \"website\": \"string\",\n      \"taxRegistrationNumber\": \"string\",\n      \"currencyCode\": \"string\",\n      \"balance\": 9305.050128479063,\n      \"lastModifiedDateTime\": \"2025-04-27T10:14:41.749Z\"\n    },\n    {\n      \"id\": \"21c62143-73c6-db33-ef07-a9a251c6c162\",\n      \"number\": \"string\",\n      \"displayName\": \"string\",\n      \"addressLine1\": \"string\",\n      \"addressLine2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"country\": \"string\",\n      \"postalCode\": \"string\",\n      \"phoneNumber\": \"string\",\n      \"email\": \"string\",\n      \"website\": \"string\",\n      \"taxRegistrationNumber\": \"string\",\n      \"currencyCode\": \"string\",\n      \"balance\": 7220.266232092691,\n      \"lastModifiedDateTime\": \"1953-11-03T20:03:04.513Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab90398a-7c1e-4571-b4c0-96340fb5e22b",
+          "name": "Microsoft Dynamics Create a vendor",
+          "request": {
+            "name": "Microsoft Dynamics Create a vendor",
+            "description": {
+              "content": "Creates a new vendor record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies({{companyId}})",
+                "vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"number\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"addressLine2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"website\": \"<string>\",\n  \"taxRegistrationNumber\": \"<string>\",\n  \"currencyCode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b984485e-d1de-4c37-b112-7368bb6949c7",
+              "name": "The created vendor.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies({{companyId}})",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"number\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"addressLine2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"website\": \"<string>\",\n  \"taxRegistrationNumber\": \"<string>\",\n  \"currencyCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"b2453d41-8c90-52ee-762f-33520cd7875d\",\n  \"number\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"addressLine1\": \"<string>\",\n  \"addressLine2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"website\": \"<string>\",\n  \"taxRegistrationNumber\": \"<string>\",\n  \"currencyCode\": \"<string>\",\n  \"balance\": 5588.821791628483,\n  \"lastModifiedDateTime\": \"1999-02-27T16:20:21.436Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3377f5df-733d-42a3-9eeb-12aa880d9be4",
+          "name": "Microsoft Dynamics List vendors",
+          "request": {
+            "name": "Microsoft Dynamics List vendors",
+            "description": {
+              "content": "Retrieves the collection of vendor data entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return (max 10000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "cross-company",
+                  "value": "<boolean>",
+                  "description": "Set to true to retrieve data across all legal entities."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec0014c7-1322-4fe7-b808-793b4bbd676d",
+              "name": "A collection of vendor entities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cross-company",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"VendorAccountNumber\": \"string\",\n      \"VendorGroupId\": \"string\",\n      \"VendorOrganizationName\": \"string\",\n      \"AddressStreet\": \"string\",\n      \"AddressCity\": \"string\",\n      \"AddressState\": \"string\",\n      \"AddressZipCode\": \"string\",\n      \"AddressCountryRegionId\": \"string\",\n      \"PrimaryContactPhone\": \"string\",\n      \"PrimaryContactEmail\": \"string\",\n      \"PurchaseCurrencyCode\": \"string\",\n      \"PaymentTermsName\": \"string\",\n      \"dataAreaId\": \"string\"\n    },\n    {\n      \"VendorAccountNumber\": \"string\",\n      \"VendorGroupId\": \"string\",\n      \"VendorOrganizationName\": \"string\",\n      \"AddressStreet\": \"string\",\n      \"AddressCity\": \"string\",\n      \"AddressState\": \"string\",\n      \"AddressZipCode\": \"string\",\n      \"AddressCountryRegionId\": \"string\",\n      \"PrimaryContactPhone\": \"string\",\n      \"PrimaryContactEmail\": \"string\",\n      \"PurchaseCurrencyCode\": \"string\",\n      \"PaymentTermsName\": \"string\",\n      \"dataAreaId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15565135-14b7-4196-a22f-24bc4d78cf42",
+          "name": "Microsoft Dynamics Create a vendor",
+          "request": {
+            "name": "Microsoft Dynamics Create a vendor",
+            "description": {
+              "content": "Creates a new vendor data entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The Azure AD tenant ID or domain name.",
+                  "type": "any",
+                  "value": "{{tenantId}}",
+                  "key": "tenantId"
+                },
+                {
+                  "description": "The Business Central environment name.",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"VendorAccountNumber\": \"<string>\",\n  \"VendorGroupId\": \"<string>\",\n  \"VendorOrganizationName\": \"<string>\",\n  \"AddressStreet\": \"<string>\",\n  \"AddressCity\": \"<string>\",\n  \"AddressState\": \"<string>\",\n  \"AddressZipCode\": \"<string>\",\n  \"AddressCountryRegionId\": \"<string>\",\n  \"PrimaryContactPhone\": \"<string>\",\n  \"PrimaryContactEmail\": \"<string>\",\n  \"PurchaseCurrencyCode\": \"<string>\",\n  \"PaymentTermsName\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0fdca39a-2230-4913-8c93-8a6be49ed3fc",
+              "name": "The created vendor entity.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The Azure AD tenant ID or domain name.",
+                      "type": "any",
+                      "value": "{{tenantId}}",
+                      "key": "tenantId"
+                    },
+                    {
+                      "description": "The Business Central environment name.",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VendorAccountNumber\": \"<string>\",\n  \"VendorGroupId\": \"<string>\",\n  \"VendorOrganizationName\": \"<string>\",\n  \"AddressStreet\": \"<string>\",\n  \"AddressCity\": \"<string>\",\n  \"AddressState\": \"<string>\",\n  \"AddressZipCode\": \"<string>\",\n  \"AddressCountryRegionId\": \"<string>\",\n  \"PrimaryContactPhone\": \"<string>\",\n  \"PrimaryContactEmail\": \"<string>\",\n  \"PurchaseCurrencyCode\": \"<string>\",\n  \"PaymentTermsName\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"VendorAccountNumber\": \"<string>\",\n  \"VendorGroupId\": \"<string>\",\n  \"VendorOrganizationName\": \"<string>\",\n  \"AddressStreet\": \"<string>\",\n  \"AddressCity\": \"<string>\",\n  \"AddressState\": \"<string>\",\n  \"AddressZipCode\": \"<string>\",\n  \"AddressCountryRegionId\": \"<string>\",\n  \"PrimaryContactPhone\": \"<string>\",\n  \"PrimaryContactEmail\": \"<string>\",\n  \"PurchaseCurrencyCode\": \"<string>\",\n  \"PaymentTermsName\": \"<string>\",\n  \"dataAreaId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The Azure AD tenant ID or domain name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "common",
+      "key": "tenantId"
+    },
+    {
+      "description": {
+        "content": "The Business Central environment name.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "production",
+      "key": "environment"
+    },
+    {
+      "type": "string",
+      "value": "https://api.businesscentral.dynamics.com/v2.0/{{tenantId}}/{{environment}}/api/v2.0",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The ID of the company.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "companyId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://api.businesscentral.dynamics.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "badde35c-fed7-48f0-95d3-60422e1019c4",
+    "name": "Microsoft Dynamics 365 Business Central Accounts Vendors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.\n\nContact Support:\n Name: Microsoft",
+      "type": "text/plain"
+    }
+  }
+}
