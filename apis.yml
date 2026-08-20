@@ -7,6 +7,8 @@ apis:
   humanURL: >-
     https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -412,6 +414,8 @@ apis:
   humanURL: >-
     https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
@@ -592,6 +596,8 @@ apis:
   humanURL: >-
     https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
