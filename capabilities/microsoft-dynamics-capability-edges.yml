@@ -1,0 +1,95 @@
+slug: microsoft-dynamics
+provider: Microsoft Dynamics
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 9
+edges:
+- tag: General Ledger
+  spec_file: microsoft-dynamics-general-ledger-api-openapi.yml
+  capability_id: BC-200.10
+  capability_id_l1: BC-200
+  capability_name: General Ledger Management
+  confidence: 0.95
+  evidence: GET /companies({companyId})/generalLedgerEntries "List general ledger entries"; schema GeneralJournalAccountEntry
+  reason: Explicit general ledger and journal entry retrieval — general ledger management.
+- tag: Opportunities
+  spec_file: microsoft-dynamics-opportunities-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.88
+  evidence: POST /opportunities createOpportunity, schema Opportunity
+  reason: Opportunity records in a CRM suite are deal/pipeline objects; operations are plain lifecycle
+    CRUD on them.
+- tag: Purchase Invoices
+  spec_file: microsoft-dynamics-purchase-invoices-api-openapi.yml
+  capability_id: BC-200.20
+  capability_id_l1: BC-200
+  capability_name: Accounts Payable Management
+  confidence: 0.85
+  evidence: GET /companies({companyId})/purchaseInvoices listPurchaseInvoices, schema PurchaseInvoice
+  reason: Purchase (vendor) invoices are the core artefact of accounts payable invoice processing.
+- tag: Purchase Orders
+  spec_file: microsoft-dynamics-purchase-orders-api-openapi.yml
+  capability_id: BC-500.30
+  capability_id_l1: BC-500
+  capability_name: Purchase Order Management
+  confidence: 0.85
+  evidence: POST /companies({companyId})/purchaseOrders createPurchaseOrder; schemas PurchaseOrder, PurchaseOrderHeaderEntity
+  reason: Creation and listing of purchase orders is squarely Purchase Order Management within procurement.
+- tag: Employees
+  spec_file: microsoft-dynamics-employees-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: GET /companies({companyId})/employees listEmployees; POST ... createEmployee
+  reason: Employee master records maintenance is HR operations (employee records) regardless of buyer
+    industry.
+- tag: Journals
+  spec_file: microsoft-dynamics-journals-api-openapi.yml
+  capability_id: BC-200.10
+  capability_id_l1: BC-200
+  capability_name: General Ledger Management
+  confidence: 0.78
+  evidence: GET /companies({companyId})/journals listJournals ... POST createJournal; spec exposes "journals,
+    and general ledger entries"
+  reason: Business Central general journals are accounting journal batches feeding the general ledger,
+    so this is General Ledger Management rather than any banking-specific capability.
+- tag: Human Resources
+  spec_file: microsoft-dynamics-human-resources-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: GET /Workers listWorkers; schema WorkerEntity
+  reason: Worker/employee records from the F&O HR module — employee record keeping under HR operations;
+    single read-only op limits specificity.
+- tag: Sales Invoices
+  spec_file: microsoft-dynamics-sales-invoices-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.75
+  evidence: GET /companies({companyId})/salesInvoices listSalesInvoices, schema SalesInvoice
+  reason: Sales invoices are customer invoicing documents, the entry point of accounts receivable; no
+    subscription/usage-billing semantics present.
+- tag: Contacts
+  spec_file: microsoft-dynamics-contacts-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.7
+  evidence: POST /contacts createContact; PATCH /contacts({contactid}) updateContact
+  reason: CRUD over contact master records maintains customer/contact data; sub-capability inferred from
+    record-master nature.
