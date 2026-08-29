@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Microsoft Dynamics 365 Business Central Accounts Sales Invoices API
+  title: Microsoft Dynamics 365 Business Central Sales Invoices API
   description: The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.
   version: '2.0'
   contact:
@@ -125,16 +125,16 @@ components:
           format: date-time
           readOnly: true
   parameters:
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return.
+      schema:
+        type: integer
     filter:
       name: $filter
       in: query
       description: OData filter expression.
-      schema:
-        type: string
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include.
       schema:
         type: string
     skip:
@@ -151,12 +151,12 @@ components:
       schema:
         type: string
         format: uuid
-    top:
-      name: $top
+    select:
+      name: $select
       in: query
-      description: Maximum number of records to return.
+      description: Comma-separated list of properties to include.
       schema:
-        type: integer
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2

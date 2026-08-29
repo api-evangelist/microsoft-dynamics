@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Microsoft Dynamics 365 Business Central Accounts Companies API
+  title: Microsoft Dynamics 365 Business Central Companies API
   description: The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.
   version: '2.0'
   contact:
@@ -60,9 +60,6 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Authentication required or token is invalid.
   parameters:
     filter:
       name: $filter
@@ -70,24 +67,27 @@ components:
       description: OData filter expression.
       schema:
         type: string
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include.
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      description: Number of records to skip.
-      schema:
-        type: integer
     top:
       name: $top
       in: query
       description: Maximum number of records to return.
       schema:
         type: integer
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include.
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Authentication required or token is invalid.
   schemas:
     Company:
       type: object

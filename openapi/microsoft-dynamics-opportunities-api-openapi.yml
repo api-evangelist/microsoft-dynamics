@@ -1,33 +1,26 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Microsoft Dynamics 365 Business Central Accounts Opportunities API
-  description: The Microsoft Dynamics 365 Business Central API (v2.0) provides a RESTful interface for integrating with Business Central. It exposes standard business entities such as customers, vendors, items, sales orders, purchase orders, journals, and general ledger entries. The API uses OData v4 conventions and requires Microsoft Entra ID (Azure AD) authentication.
-  version: '2.0'
+  title: Microsoft Dynamics 365 Dataverse Web Opportunities API
+  description: The Microsoft Dynamics 365 Dataverse Web API provides a RESTful endpoint for interacting with Dataverse data used by Dynamics 365 Sales, Customer Service, Field Service, and other customer engagement applications. It implements OData v4 and supports CRUD operations on core CRM entities including accounts, contacts, leads, and opportunities. Authentication is handled via Microsoft Entra ID (Azure AD).
+  version: '9.2'
   contact:
     name: Microsoft
-    url: https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
+    url: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
   license:
     name: Microsoft APIs Terms of Use
     url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
 servers:
-- url: https://api.businesscentral.dynamics.com/v2.0/{tenantId}/{environment}/api/v2.0
-  description: Business Central Online (SaaS)
+- url: https://{organization}.api.crm.dynamics.com/api/data/v9.2
+  description: Dynamics 365 Online (North America)
   variables:
-    tenantId:
-      default: common
-      description: The Azure AD tenant ID or domain name.
-    environment:
-      default: production
-      description: The Business Central environment name.
-- url: https://{baseUrl}:{port}/{serverInstance}/api/v2.0
-  description: Business Central On-Premises
+    organization:
+      default: org
+      description: The unique name of your Dataverse organization.
+- url: https://{baseUrl}/api/data/v9.2
+  description: Dynamics 365 On-Premises
   variables:
     baseUrl:
       default: localhost
-    port:
-      default: '7048'
-    serverInstance:
-      default: bc
 security:
 - oauth2: []
 tags:
@@ -143,22 +136,28 @@ paths:
           description: Opportunity deleted successfully.
 components:
   parameters:
-    ifMatch:
-      name: If-Match
-      in: header
-      description: ETag value for optimistic concurrency.
-      schema:
-        type: string
     filter:
       name: $filter
       in: query
       description: OData filter expression.
       schema:
         type: string
-    select:
-      name: $select
+    top:
+      name: $top
       in: query
-      description: Comma-separated list of properties to include.
+      description: Maximum number of records to return.
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort by.
+      schema:
+        type: string
+    expand:
+      name: $expand
+      in: query
+      description: Related entities to expand inline.
       schema:
         type: string
     skip:
@@ -167,22 +166,16 @@ components:
       description: Number of records to skip.
       schema:
         type: integer
-    top:
-      name: $top
+    select:
+      name: $select
       in: query
-      description: Maximum number of records to return.
-      schema:
-        type: integer
-    expand:
-      name: $expand
-      in: query
-      description: Related entities to expand inline.
+      description: Comma-separated list of properties to include.
       schema:
         type: string
-    orderby:
-      name: $orderby
-      in: query
-      description: Comma-separated list of properties to sort by.
+    ifMatch:
+      name: If-Match
+      in: header
+      description: ETag value for optimistic concurrency.
       schema:
         type: string
   schemas:
@@ -241,4 +234,4 @@ components:
           authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
           tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
           scopes:
-            https://api.businesscentral.dynamics.com/.default: Access Business Central API
+            https://org.crm.dynamics.com/.default: Access Dataverse API
