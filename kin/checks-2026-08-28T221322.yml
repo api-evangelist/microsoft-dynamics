@@ -2,20 +2,22 @@
 kin_checks:
   slug: microsoft-dynamics
   schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T140727
+  scored_at: '2026-08-28'
+  run_ts: 2026-08-28T221322
   note: Actionable checks only (missed + partial). earned/na are every other check
     in rubric/scoring-0.15.1.yml; counts below let you verify that.
   counts:
     total: 130
-    earned: 38
-    partial: 14
-    missed: 57
+    earned: 34
+    partial: 15
+    missed: 60
     na: 21
   checks:
   - id: tags_present
     status: missed
   - id: maintainer_present
+    status: missed
+  - id: human_url_per_api
     status: missed
   - id: base_url_per_api
     status: missed
@@ -40,6 +42,10 @@ kin_checks:
     status: missed
     detail: 0 of 19 openapi documents pass
   - id: asyncapi_present
+    status: missed
+  - id: json_schema_present
+    status: missed
+  - id: json_schema_per_resource
     status: missed
   - id: json_ld_class_depth
     status: missed
@@ -131,6 +137,10 @@ kin_checks:
     status: missed
   - id: agentic_commerce
     status: missed
+  - id: info_complete
+    status: partial
+    earned: 2.74
+    detail: 13 of 19 openapi documents pass
   - id: servers_resolvable
     status: partial
     earned: 4.75
