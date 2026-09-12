@@ -1,5 +1,5 @@
 aid: microsoft-dynamics
-url: https://raw.githubusercontent.com/api-evangelist/microsoft-dynamics/refs/heads/main/apis.yml
+url: https://learn.microsoft.com/en-us/dynamics365/
 apis:
 - aid: microsoft-dynamics:microsoft-dynamics-accounts-api
   name: Microsoft Dynamics Accounts API
@@ -944,5 +944,5 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 specificationVersion: '0.23'
-x-parent: microsoft
+x-parent: microsoft-dynamics-365
 x-relationship: product
