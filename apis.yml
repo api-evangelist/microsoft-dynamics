@@ -896,6 +896,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-dynamics.png
 access: 3rd-Party
 common:
+- type: Website
+  url: https://www.microsoft.com/
 - type: CapabilityMap
   url: capabilities/microsoft-dynamics-capability-edges.yml
   name: Microsoft Dynamics Business Capability Map
@@ -942,3 +944,5 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 specificationVersion: '0.23'
+x-parent: microsoft
+x-relationship: product
