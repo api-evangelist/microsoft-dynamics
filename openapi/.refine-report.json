@@ -39,7 +39,8 @@
     "tag 'General Ledger' spans 2 source specs (microsoft-dynamics-business-central-openapi.yml, microsoft-dynamics-finance-operations-openapi.yml): per-path servers applied",
     "tag 'Purchase Orders' spans 2 source specs (microsoft-dynamics-business-central-openapi.yml, microsoft-dynamics-finance-operations-openapi.yml): per-path servers applied",
     "tag 'Sales Orders' spans 2 source specs (microsoft-dynamics-business-central-openapi.yml, microsoft-dynamics-finance-operations-openapi.yml): per-path servers applied",
-    "tag 'Vendors' spans 2 source specs (microsoft-dynamics-business-central-openapi.yml, microsoft-dynamics-finance-operations-openapi.yml): per-path servers applied"
+    "tag 'Vendors' spans 2 source specs (microsoft-dynamics-business-central-openapi.yml, microsoft-dynamics-finance-operations-openapi.yml): per-path servers applied",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "microsoft-dynamics-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",

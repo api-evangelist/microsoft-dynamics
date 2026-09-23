@@ -114,6 +114,57 @@ paths:
           default: myorg
           description: The environment-specific subdomain.
 components:
+  parameters:
+    companyId:
+      name: companyId
+      in: path
+      required: true
+      description: The ID of the company.
+      schema:
+        type: string
+        format: uuid
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include.
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression.
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return.
+      schema:
+        type: integer
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort by.
+      schema:
+        type: string
+    crossCompany:
+      name: cross-company
+      in: query
+      description: Set to true to retrieve data across all legal entities.
+      schema:
+        type: boolean
+    top_2:
+      name: $top
+      in: query
+      description: Maximum number of records to return (max 10000).
+      schema:
+        type: integer
   schemas:
     GeneralLedgerEntry:
       type: object
@@ -175,57 +226,6 @@ components:
           type: string
         dataAreaId:
           type: string
-  parameters:
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression.
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      description: Maximum number of records to return.
-      schema:
-        type: integer
-    skip:
-      name: $skip
-      in: query
-      description: Number of records to skip.
-      schema:
-        type: integer
-    companyId:
-      name: companyId
-      in: path
-      required: true
-      description: The ID of the company.
-      schema:
-        type: string
-        format: uuid
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include.
-      schema:
-        type: string
-    top_2:
-      name: $top
-      in: query
-      description: Maximum number of records to return (max 10000).
-      schema:
-        type: integer
-    orderby:
-      name: $orderby
-      in: query
-      description: Comma-separated list of properties to sort by.
-      schema:
-        type: string
-    crossCompany:
-      name: cross-company
-      in: query
-      description: Set to true to retrieve data across all legal entities.
-      schema:
-        type: boolean
   securitySchemes:
     oauth2:
       type: oauth2

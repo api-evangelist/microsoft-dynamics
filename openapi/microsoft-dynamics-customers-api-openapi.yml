@@ -249,30 +249,7 @@ paths:
           default: myorg
           description: The environment-specific subdomain.
 components:
-  responses:
-    NotFound:
-      description: The requested resource was not found.
-    Unauthorized:
-      description: Authentication required or token is invalid.
   parameters:
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression.
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      description: Maximum number of records to return.
-      schema:
-        type: integer
-    skip:
-      name: $skip
-      in: query
-      description: Number of records to skip.
-      schema:
-        type: integer
     companyId:
       name: companyId
       in: path
@@ -281,6 +258,12 @@ components:
       schema:
         type: string
         format: uuid
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
     select:
       name: $select
       in: query
@@ -294,10 +277,16 @@ components:
       required: true
       schema:
         type: string
-    top_2:
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression.
+      schema:
+        type: string
+    top:
       name: $top
       in: query
-      description: Maximum number of records to return (max 10000).
+      description: Maximum number of records to return.
       schema:
         type: integer
     orderby:
@@ -312,6 +301,17 @@ components:
       description: Set to true to retrieve data across all legal entities.
       schema:
         type: boolean
+    top_2:
+      name: $top
+      in: query
+      description: Maximum number of records to return (max 10000).
+      schema:
+        type: integer
+  responses:
+    Unauthorized:
+      description: Authentication required or token is invalid.
+    NotFound:
+      description: The requested resource was not found.
   schemas:
     Customer:
       type: object

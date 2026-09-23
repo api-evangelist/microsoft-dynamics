@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Dynamics 365 Finance & Operations Data Products API
+  title: Microsoft Dynamics 365 Finance & Operations Data Products…
   description: The Microsoft Dynamics 365 Finance & Operations Data API exposes business data entities via OData v4 RESTful endpoints. It provides access to finance, supply chain, manufacturing, and human resources data including customers, vendors, products, sales orders, purchase orders, and general ledger journals. Authentication is handled via Microsoft Entra ID (Azure AD).
   version: '1.0'
   contact:
@@ -68,6 +68,30 @@ paths:
                 $ref: '#/components/schemas/ReleasedProductEntity'
 components:
   parameters:
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include.
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort by.
+      schema:
+        type: string
+    crossCompany:
+      name: cross-company
+      in: query
+      description: Set to true to retrieve data across all legal entities.
+      schema:
+        type: boolean
     filter:
       name: $filter
       in: query
@@ -80,30 +104,6 @@ components:
       description: Maximum number of records to return (max 10000).
       schema:
         type: integer
-    orderby:
-      name: $orderby
-      in: query
-      description: Comma-separated list of properties to sort by.
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      description: Number of records to skip.
-      schema:
-        type: integer
-    crossCompany:
-      name: cross-company
-      in: query
-      description: Set to true to retrieve data across all legal entities.
-      schema:
-        type: boolean
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include.
-      schema:
-        type: string
   schemas:
     ReleasedProductEntity:
       type: object

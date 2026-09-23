@@ -225,6 +225,26 @@ paths:
           default: localhost
 components:
   parameters:
+    companyId:
+      name: companyId
+      in: path
+      required: true
+      description: The ID of the company.
+      schema:
+        type: string
+        format: uuid
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include.
+      schema:
+        type: string
     filter:
       name: $filter
       in: query
@@ -237,42 +257,22 @@ components:
       description: Maximum number of records to return.
       schema:
         type: integer
-    skip:
-      name: $skip
-      in: query
-      description: Number of records to skip.
-      schema:
-        type: integer
-    companyId:
-      name: companyId
-      in: path
-      required: true
-      description: The ID of the company.
-      schema:
-        type: string
-        format: uuid
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include.
-      schema:
-        type: string
     orderby:
       name: $orderby
       in: query
       description: Comma-separated list of properties to sort by.
       schema:
         type: string
-    expand:
-      name: $expand
-      in: query
-      description: Related entities to expand inline.
-      schema:
-        type: string
     ifMatch:
       name: If-Match
       in: header
       description: ETag value for optimistic concurrency.
+      schema:
+        type: string
+    expand:
+      name: $expand
+      in: query
+      description: Related entities to expand inline.
       schema:
         type: string
   schemas:
@@ -357,10 +357,10 @@ components:
           format: date-time
           readOnly: true
   responses:
-    NotFound:
-      description: The requested resource was not found.
     Unauthorized:
       description: Authentication required or token is invalid.
+    NotFound:
+      description: The requested resource was not found.
   securitySchemes:
     oauth2:
       type: oauth2

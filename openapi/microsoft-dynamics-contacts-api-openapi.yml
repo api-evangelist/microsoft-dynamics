@@ -135,6 +135,49 @@ paths:
         '204':
           description: Contact deleted successfully.
 components:
+  parameters:
+    skip:
+      name: $skip
+      in: query
+      description: Number of records to skip.
+      schema:
+        type: integer
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include.
+      schema:
+        type: string
+    orderby:
+      name: $orderby
+      in: query
+      description: Comma-separated list of properties to sort by.
+      schema:
+        type: string
+    ifMatch:
+      name: If-Match
+      in: header
+      description: ETag value for optimistic concurrency.
+      schema:
+        type: string
+    filter:
+      name: $filter
+      in: query
+      description: OData filter expression.
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of records to return.
+      schema:
+        type: integer
+    expand:
+      name: $expand
+      in: query
+      description: Related entities to expand inline.
+      schema:
+        type: string
   schemas:
     Contact:
       type: object
@@ -184,49 +227,6 @@ components:
           type: string
           format: date-time
           readOnly: true
-  parameters:
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression.
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      description: Maximum number of records to return.
-      schema:
-        type: integer
-    orderby:
-      name: $orderby
-      in: query
-      description: Comma-separated list of properties to sort by.
-      schema:
-        type: string
-    expand:
-      name: $expand
-      in: query
-      description: Related entities to expand inline.
-      schema:
-        type: string
-    skip:
-      name: $skip
-      in: query
-      description: Number of records to skip.
-      schema:
-        type: integer
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include.
-      schema:
-        type: string
-    ifMatch:
-      name: If-Match
-      in: header
-      description: ETag value for optimistic concurrency.
-      schema:
-        type: string
   securitySchemes:
     oauth2:
       type: oauth2
